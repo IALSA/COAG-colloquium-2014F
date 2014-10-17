@@ -1,5 +1,5 @@
 ---
-title: "Change the title of your report"
+title: "Data Manipualation (Demo)"
 output:
   html_document:
     toc: yes
@@ -36,8 +36,20 @@ echoChunks <- FALSE
 warningChunks<- FALSE
 messageChunks<- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("../Reports/reportTemplate.R") # the file to which knitr calls for the chunks
+# read_chunk("../Reports/reportTemplate.R") # the file to which knitr calls for the chunks
 ```
+### The big picture
+![research model](../images/traditional-model.png)
+Zooming in on the process of arriving at tidy (analytic) data tidy
+![dataflowmap](../images/ai/DataFlowMap-01.png)
+The data flow map of *dsL.R* script
+![dsL](../images/ai/DataFlowMap-02.png)
+
+### Wide Data
+![databox](../images/databox.png)
+
+### Long Data
+![dsL](../images/dsL.png)
 
 ```{r LoadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 ```

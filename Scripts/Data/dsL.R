@@ -1,12 +1,7 @@
-###################################
-### Reproducible Research
-###################################
-# Importing the raw data from the NLS Investigator download object
-###################################
 # Clear memory from previous runs
 base::rm(list=base::ls(all=TRUE))
 
-#####################################
+
 ## @knitr LoadPackages
 # Load the necessary packages.
 base::require(base)
@@ -17,54 +12,36 @@ base::require(plyr)
 base::require(reshape2)
 base::require(stringr)
 
-############################
-## @knitr DeclareGlobals
-# Variables, which values that DON'T change with time - time invariant (TI) variables 
-TIvars<-c("sample", "id", "sex","race", "bmonth","byear",  'attendPR', "relprefPR", "relraisedPR")
 
-#####################################
+## @knitr DeclareGlobals
+
+
+
 ## @knitr LoadData
 
-### Import the data ###
-pathDir<-file.path(getwd()) # define path for project root directory
-
 # Links to the data source # for now keep the link non-dynamic
-# pathDataSource <- "./Data/Extracts/NLSY97_Religiosity_20042014/NLSY97_Religiosity_20042014.csv"
-tagset<-c("NLSY97_Religiosity_20042014") #"Database_ResponseOfInterest_DateOfDownload"
-pathDataFolder<-file.path("./Data/Extracts",tagset)
-pathDataSource<-file.path(pathDataFolder,paste0(tagset,".csv")) 
-pathDataSourceLabels<-file.path(pathDataFolder,paste0(tagset,".dct"))
+pathDataSource <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.csv"
+ds0<-read.csv(pathDataSource,header=TRUE, skip=0,sep=",")
 
-# reading in the data
-dsSource<-read.csv(pathDataSource,header=TRUE, skip=0,sep=",")
-varOrig<-ncol(dsSource) # Original number of variables in the NLS download
-dsSource$T6650500<-NULL # Remove "Version number"  for cleaner dataset
 
-# dim(dsSource)
+## @knitr QueryData
+ds0$T6650500<-NULL # Remove "Version number"  for cleaner dataset
 
-### NLSY97 variable id are linked to the descriptive label in the file dictionary file "NLSY97_Religiosity_20042014.dtc" ###
-dsSourceLabels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=varOrig, sep="")
-dsSourceLabels$X.<-NULL
+
+## @knitr ImportVarLabels
+### NLSY97 variable id are linked to the descriptive label in the file dictionary file "NLSY97_Religiosity_20140420.dtc" ###
+pathDataSource <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.dct"
+ds0Labels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=135, sep="")
+ds0Labels$X.<-NULL
 # rename to match NLS Web Investigator format
-dsSourceLabels<-rename(dsSourceLabels,replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")) 
+ds0Labels<-rename(ds0Labels,replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")) 
 # remove "Version number" from list of variables
-dsSourceLabels<-dsSourceLabels[dsSourceLabels$RNUM!="T6650500",] 
-dsSourceLabels<-arrange(dsSourceLabels,VARIABLE_TITLE) # sort by Variable Title
-write.table(dsSourceLabels, "./Data/ItemMapping/dsSourceLabels.csv", sep=",")
+ds0Labels<-ds0Labels[ds0Labels$RNUM!="T6650500",] 
+ds0Labels<-arrange(ds0Labels,VARIABLE_TITLE) # sort by Variable Title
+write.table(ds0Labels, "./Data/ItemMapping/ds0Labels.csv", sep=",")
 
-# print(dsSourceLabels)
-
-
-# Using renaming template "NLSY97_Religiosity_20042014.xlsx" located in "Documentation\data" folder
-# rename the native variable names of NLSY97 (left) into custom chosen names for programming convenience (right)
-
-
-############################
-## @knitr TweakData
-
-## The following code is assembled in accompanied Excel file ( ItemMap_20042014.xlsx) and pasted in here
-
-dsSource<-rename(dsSource, c(
+## @knitr RenameVariables
+ds0<-rename(ds0, c(
   "R0323900"="famrel_1997",
   "R2165200"="famrel_1998",
   "R3483100"="famrel_1999",
@@ -201,48 +178,49 @@ dsSource<-rename(dsSource, c(
   
 ))
 
-# head(dsSource[,c("id","relprefPR")],20)
-# Remove illegal values. See codebook for description of missingness
-illegal<-as.integer(c(-5:-1,997,998,999))
-SourceVariables<-names(dsSource)
-
-for( variable in SourceVariables ){
-  dsSource[,variable]=ifelse(dsSource[,variable] %in% c(-5:-1),NA,dsSource[,variable])
-  
-}
-
+## @knitr RecodeNegative
 # recode negativale worded question so that :  1 - more religious, 0 - less religious
 for (item in c("todo","values")){
   for (year in c(2002,2005,2008,2011)){
     itemyear<-(paste0(item , "_" , year))
-    dsSource[,itemyear]=ifelse( (dsSource[,itemyear] %in% c(1)) , 0 ,ifelse((dsSource[,itemyear] %in% c(0)),1,NA))
+    ds0[,itemyear]=ifelse( (ds0[,itemyear] %in% c(1)) , 0 ,ifelse((ds0[,itemyear] %in% c(0)),1,NA))
   }
 }
 
+## @knitr RemoveIllegal 
+# Remove illegal values. See codebook for description of missingness
+illegal<-as.integer(c(-5:-1,997,998,999))
+SourceVariables<-names(ds0)
+
+for( variable in SourceVariables ){
+  ds0[,variable]=ifelse(ds0[,variable] %in% c(-5:-1),NA,ds0[,variable])
+  
+}
+
 # Include only records with a valid birth year
-dsSource <- dsSource[dsSource$byear %in% 1980:1984, ]
+ds0 <- ds0[ds0$byear %in% 1980:1984, ]
 
 #Include only records with a valid ID
-dsSource <- dsSource[dsSource$id != "V", ]
-dsSource$id <- as.integer(dsSource$id)
+ds0 <- ds0[ds0$id != "V", ]
+ds0$id <- as.integer(ds0$id)
+dsW <- ds0 # At this point the data is in the wide format ( relative to time)
 # remove all but one dataset
-#  rm(list=setdiff(ls(), "dsSource"))
+rm(list=setdiff(ls(), c("ds0","dsW")))
+# note that at this pint ds0 = dsW
 
 
 
-#################################
-## Preparing the common Long dataset
-ds<-dsSource
+## @knitr MakeLong
+# Variables, which values that DON'T change with time - time invariant (TI) variables 
+TIvars<-c("sample", "id", "sex","race", "bmonth","byear",  'attendPR', "relprefPR", "relraisedPR")
 ## id.vars declares MEASURED variables (as opposed to RESPONSE variable)
-dsLong <- reshape2::melt(ds, id.vars=TIvars)
+dsLong <- reshape2::melt(dsW, id.vars=TIvars)
 
-##############
+
 # head(dsLong[dsLong$id==1,],20)
 # create varaible "year" by stripping the automatic ending in TV variables' names
-## ?? How to read off 4 characters from right with reshape/plyr?
 dsLong$year<-str_sub(dsLong$variable,-4,-1) 
 # the automatic ending in TV variables' names
-# ?? how to automate the creation of strings?
 timepattern<-c("_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006","_2007", "_2008", "_2009", "_2010", "_2011")
 # Strip off the automatic ending
 for (i in timepattern){
