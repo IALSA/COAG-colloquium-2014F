@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle: \"Change the title of your report\"\noutput:\n  html_document:\n    toc: yes\n    self_containted: false\n---  \n<!-- The report is produced from\nREPOSITORY: the-name-of-the-repository\nBRANCH: the-name-of-the-branch\nPATH: ../Reports/\n-->\n\n<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->\n```{r, echo=F, message=F} \nlibrary(knitr)\nopts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.\n```\n\n<!-- Set the report-wide options, and point to the external script file. -->\n```{r, echo=F, message=T}\nrequire(knitr)\nopts_chunk$set(\n  results='show', \n  message = TRUE,\n  comment = NA, \n  tidy = FALSE,\n#   fig.height = 4.8, \n#   fig.width = 6.5, \n  out.width = NULL,\n  fig.path = 'figure_rmd_NameOfReport/',     \n  dev = \"png\",\n  dpi = 400\n)\nechoChunks <- FALSE\nwarningChunks<- FALSE\nmessageChunks<- FALSE\noptions(width=120) #So the output is 50% wider than the default.\nread_chunk(\"../Reports/reportTemplate.R\") # the file to which knitr calls for the chunks\n```\n\n```{r LoadPackages, echo=TRUE, message=FALSE, warning=FALSE}\n```\n\n```{r DeclareGlobals, echo=T, message=T, }\n```\n\n```{r LoadData, echo=T, message=F}\n```\n\n```{r LabelingFactorLevels, echo=T, message=F}\n```\n\n```{r FirstLook, echo=T, message=F}\n```\n\n```{r FirstGraph, echo=T, message=F}\n```\n\n\n<!-- attaches a child containing common links and references -->\n```{r child, child = './LinksAndRefs.Rmd'}\n```\n",
+    "created" : 1413566298701.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3945657120",
+    "id" : "C7DE13D7",
+    "lastKnownWriteTime" : 1413565022,
+    "path" : "~/GitHub/COAG-colloquium-2014F/Scripts/Data/dsL-annotated.Rmd",
+    "project_path" : "Scripts/Data/dsL-annotated.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

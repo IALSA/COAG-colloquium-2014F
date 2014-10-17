@@ -218,6 +218,8 @@ dsLong <- reshape2::melt(dsW, id.vars=TIvars)
 
 
 # head(dsLong[dsLong$id==1,],20)
+
+dplyr::filter(dsLong,id==1) %>% dplyr::select(dsLong,id,year,attend)
 # create varaible "year" by stripping the automatic ending in TV variables' names
 dsLong$year<-str_sub(dsLong$variable,-4,-1) 
 # the automatic ending in TV variables' names
