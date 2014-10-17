@@ -214,7 +214,8 @@ rm(list=setdiff(ls(), c("ds0","dsW")))
 TIvars<-c("sample", "id", "sex","race", "bmonth","byear",  'attendPR', "relprefPR", "relraisedPR")
 ## id.vars declares MEASURED variables (as opposed to RESPONSE variable)
 dsLong <- reshape2::melt(dsW, id.vars=TIvars)
-
+require(dplyr)
+dsLong <- dsLong %>% dplyr::arrange(id)
 
 # head(dsLong[dsLong$id==1,],20)
 
@@ -235,6 +236,13 @@ dsLong$year <- as.integer(dsLong$year)
 dsLong<-dsLong[with(dsLong, order(id,variable)), ] # alternative sorting to plyr
 # view the long data for one person
 # print(dsLong[dsLong$id==1,]) 
+
+dsL <- dcast(data=dsLong,sample + id + sex + race + bmonth + byear + attendPR + relprefPR + relraisedPR + year ~ variable, value.var = "value")
+
+
+
+
+
 
 ##############################
 ## Create individual long datasets, one per TV variable
