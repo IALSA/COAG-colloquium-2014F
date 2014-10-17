@@ -27,10 +27,9 @@ ds0<-read.csv(pathDataSource,header=TRUE, skip=0,sep=",")
 ## @knitr QueryData
 ds0$T6650500<-NULL # Remove "Version number"  for cleaner dataset
 
-
 ## @knitr ImportVarLabels
 ### NLSY97 variable id are linked to the descriptive label in the file dictionary file "NLSY97_Religiosity_20140420.dtc" ###
-pathDataSource <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.dct"
+pathDataSourceLabels <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.dct"
 ds0Labels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=135, sep="")
 ds0Labels$X.<-NULL
 # rename to match NLS Web Investigator format
@@ -38,7 +37,7 @@ ds0Labels<-rename(ds0Labels,replace=c("infile"="RNUM","dictionary"="VARIABLE_TIT
 # remove "Version number" from list of variables
 ds0Labels<-ds0Labels[ds0Labels$RNUM!="T6650500",] 
 ds0Labels<-arrange(ds0Labels,VARIABLE_TITLE) # sort by Variable Title
-write.table(ds0Labels, "./Data/ItemMapping/ds0Labels.csv", sep=",")
+write.table(ds0Labels, "./Data/Extract/ds0Labels.csv", sep=",")
 
 ## @knitr RenameVariables
 ds0<-rename(ds0, c(
