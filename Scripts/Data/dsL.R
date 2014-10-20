@@ -67,14 +67,7 @@ attend_years <- paste0("attend_",c(2000:2011))
 selectVars <- c("id", "sex", "race", "byear", "bmonth", attend_years)
 
 
-## @knitr RecodeNegative
-# recode negativale worded question so that :  1 - more religious, 0 - less religious
-for (item in c("todo","values")){
-  for (year in c(2002,2005,2008,2011)){
-    itemyear<-(paste0(item , "_" , year))
-    ds0[,itemyear]=ifelse( (ds0[,itemyear] %in% c(1)) , 0 ,ifelse((ds0[,itemyear] %in% c(0)),1,NA))
-  }
-}
+
 
 ## @knitr RemoveIllegal 
 # Remove illegal values. See codebook for description of missingness
