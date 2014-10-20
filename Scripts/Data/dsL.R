@@ -20,25 +20,27 @@ base::require(stringr)
 # Links to the data source # for now keep the link non-dynamic
 myExtract <- "./Data/Extract/NLSY97_Attend_20141021/NLSY97_Attend_20141021"
 
-pathDataSource <- paste0(myExtract,".csv")
-ds0<-read.csv(pathDataSource,header=TRUE, skip=0,sep=",")
-
+pathSourceData <- paste0(myExtract,".csv")
+SourceData <- read.csv(pathSourceData,header=TRUE, skip=0,sep=",")
+ds0 <- SourceData
 
 ## @knitr QueryData
 
 
 ## @knitr ImportVarLabels
 ### NLSY97 variable "id" is linked to the descriptive label in the header of the STATA formated data file.dtc" ###
-pathDataSourceLabels <- paste0(myExtract,".dct")
-ds0Labels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=17, sep="")
-ds0Labels$X.<-NULL # remove extra column
-ds0Labels
+pathSourceLabels <- paste0(myExtract,".dct")
+SourceLabels<-read.csv(pathSourceLabels,header=TRUE, skip=0,nrow=17, sep="")
+SourceLabels$X.<-NULL # remove extra column
+SourceLabels
 # rename columns to match NLS Web Investigator format
-ds0Labels<-rename(ds0Labels,
+SourceLabels<-rename(SourceLabels,
                   replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")
                   ) 
-ds0Labels<-sort(ds0Labels) # sort by Variable Title
-write.table(ds0Labels, "./Data/Extract/ds0Labels.csv", sep=",")
+# sort for visual inspection
+SourceLabels<-SourceLabels[ with(SourceLabels, order(RNUM)), ]
+SourceLabels
+write.table(SourceLabels, "./Data/Extract/SourceLabels.csv", sep=",")
 
 
 ## @knitr RenameVariables
@@ -82,13 +84,13 @@ for( variable in SourceVariables ){
 ds0 <- ds0[ds0$byear %in% 1980:1984, ]
 
 #Include only records with a valid ID
-ds0 <- ds0[ds0$id != "V", ]
-ds0$id <- as.integer(ds0$id)
+ds0 <- ds0[ds0$id != "V", ] # rows that do NOT(!) equal string 'V"
+ds0$id <- as.integer(ds0$id) # forced to be integer
 dsW <- ds0 # At this point the data is in the wide format ( relative to time)
 # remove all but one dataset
 rm(list=setdiff(ls(), c("ds0","dsW")))
 # note that at this pint ds0 = dsW
-
+str(dsW)
 
 
 ## @knitr MakeLong
