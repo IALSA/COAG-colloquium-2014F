@@ -16,166 +16,56 @@ base::require(stringr)
 ## @knitr DeclareGlobals
 
 
-
 ## @knitr LoadData
-
 # Links to the data source # for now keep the link non-dynamic
-pathDataSource <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.csv"
+myExtract <- "./Data/Extract/NLSY97_Attend_20141021/NLSY97_Attend_20141021"
+
+pathDataSource <- paste0(myExtract,".csv")
 ds0<-read.csv(pathDataSource,header=TRUE, skip=0,sep=",")
 
 
 ## @knitr QueryData
-ds0$T6650500<-NULL # Remove "Version number"  for cleaner dataset
+
 
 ## @knitr ImportVarLabels
-### NLSY97 variable id are linked to the descriptive label in the file dictionary file "NLSY97_Religiosity_20140420.dtc" ###
-pathDataSourceLabels <- "./Data/Extract/NLSY97_Religiosity_20140420/NLSY97_Religiosity_20140420.dct"
-ds0Labels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=135, sep="")
-ds0Labels$X.<-NULL
-# rename to match NLS Web Investigator format
-ds0Labels<-rename(ds0Labels,replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")) 
-# remove "Version number" from list of variables
-ds0Labels<-ds0Labels[ds0Labels$RNUM!="T6650500",] 
-ds0Labels<-arrange(ds0Labels,VARIABLE_TITLE) # sort by Variable Title
+### NLSY97 variable "id" is linked to the descriptive label in the header of the STATA formated data file.dtc" ###
+pathDataSourceLabels <- paste0(myExtract,".dct")
+ds0Labels<-read.csv(pathDataSourceLabels,header=TRUE, skip=0,nrow=17, sep="")
+ds0Labels$X.<-NULL # remove extra column
+ds0Labels
+# rename columns to match NLS Web Investigator format
+ds0Labels<-rename(ds0Labels,
+                  replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")
+                  ) 
+ds0Labels<-sort(ds0Labels) # sort by Variable Title
 write.table(ds0Labels, "./Data/Extract/ds0Labels.csv", sep=",")
 
+
 ## @knitr RenameVariables
-ds0<-rename(ds0, c(
-  "R0323900"="famrel_1997",
-  "R2165200"="famrel_1998",
-  "R3483100"="famrel_1999",
-  "R4881300"="famrel_2000",
-  "S2977900"="internet_2003",
-  "S4676700"="internet_2004",
-  "S6308900"="internet_2005",
-  "S8329800"="internet_2006",
-  "T0737600"="internet_2007",
-  "T2779700"="internet_2008",
-  "T4494400"="internet_2009",
-  "T6141400"="internet_2010",
-  "T7635300"="internet_2011",
-  "R1193900"="agemon_1997",
-  "R2553400"="agemon_1998",
-  "R3876200"="agemon_1999",
-  "R5453600"="agemon_2000",
-  "R7215900"="agemon_2001",
-  "S1531300"="agemon_2002",
-  "S2000900"="agemon_2003",
-  "S3801000"="agemon_2004",
-  "S5400900"="agemon_2005",
-  "S7501100"="agemon_2006",
-  "T0008400"="agemon_2007",
-  "T2011000"="agemon_2008",
-  "T3601400"="agemon_2009",
-  "T5201300"="agemon_2010",
-  "T6651200"="agemon_2011",
-  "R1194100"="ageyear_1997",
-  "R2553500"="ageyear_1998",
-  "R3876300"="ageyear_1999",
-  "R5453700"="ageyear_2000",
-  "R7216000"="ageyear_2001",
-  "S1531400"="ageyear_2002",
-  "S2001000"="ageyear_2003",
-  "S3801100"="ageyear_2004",
-  "S5401000"="ageyear_2005",
-  "S7501200"="ageyear_2006",
-  "T0008500"="ageyear_2007",
-  "T2011100"="ageyear_2008",
-  "T3601500"="ageyear_2009",
-  "T5201400"="ageyear_2010",
-  "T6651300"="ageyear_2011",
-  "R1235800"="sample",
-  "S0919700"="todo_2002",
-  "S6317100"="todo_2005",
-  "T2782200"="todo_2008",
-  "T7637800"="todo_2011",
-  "R4893900"="happy_2000",
-  "S0921100"="happy_2002",
-  "S4682200"="happy_2004",
-  "S8332600"="happy_2006",
-  "T2782900"="happy_2008",
-  "T6144000"="happy_2010",
-  "R4893600"="nervous_2000",
-  "S0920800"="nervous_2002",
-  "S4681900"="nervous_2004",
-  "S8332300"="nervous_2006",
-  "T2782600"="nervous_2008",
-  "T6143700"="nervous_2010",
-  "R4893700"="calm_2000",
-  "S0920900"="calm_2002",
-  "S4682000"="calm_2004",
-  "S8332400"="calm_2006",
-  "T2782700"="calm_2008",
-  "T6143800"="calm_2010",
-  "R4894000"="depressed_2000",
-  "S0921200"="depressed_2002",
-  "S4682300"="depressed_2004",
-  "S8332700"="depressed_2006",
-  "T2783000"="depressed_2008",
-  "T6144100"="depressed_2010",
-  "R4893800"="blue_2000",
-  "S0921000"="blue_2002",
-  "S4682100"="blue_2004",
-  "S8332500"="blue_2006",
-  "T2782800"="blue_2008",
-  "T6143900"="blue_2010",
-  "R0552400"="attendPR",
-  "R4893400"="attend_2000",
-  "R6520100"="attend_2001",
-  "S0919300"="attend_2002",
-  "S2987800"="attend_2003",
-  "S4681700"="attend_2004",
-  "S6316700"="attend_2005",
-  "S8331500"="attend_2006",
-  "T0739400"="attend_2007",
-  "T2781700"="attend_2008",
-  "T4495000"="attend_2009",
-  "T6143400"="attend_2010",
-  "T7637300"="attend_2011",
-  "S1225400"="computer_2002",
-  "T1049900"="computer_2007",
-  "T3145100"="computer_2008",
-  "T4565400"="computer_2009",
-  "T6209600"="computer_2010",
-  "T7707000"="computer_2011",
-  "S1225500"="tv_2002",
-  "T1050000"="tv_2007",
-  "T3145200"="tv_2008",
-  "T4565500"="tv_2009",
-  "T6209700"="tv_2010",
-  "T7707100"="faith_2011",
-  "T2782400"="faith_2008",
-  "T7638000"="bmonth",
-  "R0536401"="bmonth",
-  "R0536402"="byear",
-  "R1482600"="race",
-  "R0536300"="sex",
-  "R0000100"="id",
-  "T2111500"="bornagain_2008",
-  "T6759400"="bornagain_2011",
-  "S0919600"="decisions_2002",
-  "S6317000"="decisions_2005",
-  "T2782100"="decisions_2008",
-  "T7637700"="decisions_2011",
-  "S0919500"="obeyed_2002",
-  "S6316900"="obeyed_2005",
-  "T2782000"="obeyed_2008",
-  "T7637600"="obeyed_2011",
-  "S5532800"="relpref_2005",
-  "T2111400"="relpref_2008",
-  "T6759300"="relpref_2011",
-  "S0919400"="values_2002",
-  "S6316800"="values_2005",
-  "T2781900"="values_2008",
-  "T7637500"="values_2011",
-  "S0919800"="pray_2002",
-  "S6317200"="pray_2005",
-  "T2782300"="pray_2008",
-  "T7637900"="pray_2011",
-  "R0552300"="relprefPR",
-  "R0552200"="relraisedPR"
-  
-))
+ds0<-rename(ds0, 
+            c("R0000100"="id",
+              "R0536300"="sex",
+              "R1482600"="race",
+              "R0536402"="byear",
+              "R0536401"="bmonth",
+              "R4893400"="attend_2000",
+              "R6520100"="attend_2001",
+              "S0919300"="attend_2002",
+              "S2987800"="attend_2003",
+              "S4681700"="attend_2004",
+              "S6316700"="attend_2005",
+              "S8331500"="attend_2006",
+              "T0739400"="attend_2007",
+              "T2781700"="attend_2008",
+              "T4495000"="attend_2009",
+              "T6143400"="attend_2010",
+              "T7637300"="attend_2011"
+              )
+            )
+# Manually create the vector that contains the names of the variables you would like to keep. 
+attend_years <- paste0("attend_",c(2000:2011))
+selectVars <- c("id", "sex", "race", "byear", "bmonth", attend_years)
+
 
 ## @knitr RecodeNegative
 # recode negativale worded question so that :  1 - more religious, 0 - less religious
@@ -190,9 +80,8 @@ for (item in c("todo","values")){
 # Remove illegal values. See codebook for description of missingness
 illegal<-as.integer(c(-5:-1,997,998,999))
 SourceVariables<-names(ds0)
-
 for( variable in SourceVariables ){
-  ds0[,variable]=ifelse(ds0[,variable] %in% c(-5:-1),NA,ds0[,variable])
+  ds0[,variable]=ifelse(ds0[,variable] %in% illegal,NA,ds0[,variable])
   
 }
 
