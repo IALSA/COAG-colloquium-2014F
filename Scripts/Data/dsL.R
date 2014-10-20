@@ -40,7 +40,7 @@ SourceLabels<-rename(SourceLabels,
 # sort for visual inspection
 SourceLabels<-SourceLabels[ with(SourceLabels, order(RNUM)), ]
 SourceLabels
-write.table(SourceLabels, "./Data/Extract/SourceLabels.csv", sep=",")
+
 
 
 ## @knitr RenameVariables
