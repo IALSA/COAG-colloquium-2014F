@@ -57,7 +57,7 @@ read_chunk("../Reports/reportTemplate.R") # the file to which knitr calls for th
 ```{r FirstGraph, echo=T, message=F}
 ```
 
-
+![big picture](./images/ai/DataFlowMap-02.png)
 <!-- attaches a child containing common links and references -->
 ```{r child, child = './LinksAndRefs.Rmd'}
 ```

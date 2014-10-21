@@ -8,24 +8,21 @@ base::require(base)
 base::require(knitr)
 base::require(markdown)
 base::require(testit)
-base::require(plyr)
+base::require(dplyr)
 base::require(reshape2)
 base::require(stringr)
-
+base::require(stats)
+base::require(ggplot2)
 
 ## @knitr DeclareGlobals
 
 
 ## @knitr LoadData
-# Links to the data source # for now keep the link non-dynamic
+# Link to the data source 
 myExtract <- "./Data/Extract/NLSY97_Attend_20141021/NLSY97_Attend_20141021"
-
-pathSourceData <- paste0(myExtract,".csv")
+pathSourceData <- paste0(myExtract,".csv") 
 SourceData <- read.csv(pathSourceData,header=TRUE, skip=0,sep=",")
 ds0 <- SourceData
-
-## @knitr QueryData
-
 
 ## @knitr ImportVarLabels
 ### NLSY97 variable "id" is linked to the descriptive label in the header of the STATA formated data file.dtc" ###
@@ -34,17 +31,16 @@ SourceLabels<-read.csv(pathSourceLabels,header=TRUE, skip=0,nrow=17, sep="")
 SourceLabels$X.<-NULL # remove extra column
 SourceLabels
 # rename columns to match NLS Web Investigator format
-SourceLabels<-rename(SourceLabels,
-                  replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")
-                  ) 
+SourceLabels<-plyr::rename(SourceLabels,
+                     replace=c("infile"="RNUM","dictionary"="VARIABLE_TITLE")
+) 
 # sort for visual inspection
 SourceLabels<-SourceLabels[ with(SourceLabels, order(RNUM)), ]
 SourceLabels
 
-
-
 ## @knitr RenameVariables
-ds0<-rename(ds0, 
+# rename variables for easier handling
+ds0<-plyr::rename(ds0, 
             c("R0000100"="id",
               "R0536300"="sex",
               "R1482600"="race",
@@ -64,117 +60,164 @@ ds0<-rename(ds0,
               "T7637300"="attend_2011"
               )
             )
+
+## @knitr QueryData1
+# with $
+a <- ds0$id # extracts column "id" from dataset "ds0"
+class(a)
+str(a)
+
+## @knitr QueryData2
+# with [ ]
+a <- ds0[,c("id","sex")] # extracts column "id" from dataset "ds0"
+class(a)
+str(a)
+
+## @knitr QueryData3
+# with dplyr package
+require(dplyr)
+filter(ds0, id<5) %>% select(id,sex, race)
+
+## @knitr arrivedsW
 # Manually create the vector that contains the names of the variables you would like to keep. 
 attend_years <- paste0("attend_",c(2000:2011))
 selectVars <- c("id", "sex", "race", "byear", "bmonth", attend_years)
-
-
-
+dsW <- ds0[,selectVars]
 
 ## @knitr RemoveIllegal 
 # Remove illegal values. See codebook for description of missingness
 illegal<-as.integer(c(-5:-1,997,998,999))
-SourceVariables<-names(ds0)
-for( variable in SourceVariables ){
-  ds0[,variable]=ifelse(ds0[,variable] %in% illegal,NA,ds0[,variable])
-  
+for( variable in names(dsW) ){
+  dsW[,variable]=ifelse(dsW[,variable] %in% illegal,NA,dsW[,variable])
 }
-
 # Include only records with a valid birth year
-ds0 <- ds0[ds0$byear %in% 1980:1984, ]
-
+dsW <- dsW[dsW$byear %in% 1980:1984, ]
 #Include only records with a valid ID
-ds0 <- ds0[ds0$id != "V", ] # rows that do NOT(!) equal string 'V"
-ds0$id <- as.integer(ds0$id) # forced to be integer
-dsW <- ds0 # At this point the data is in the wide format ( relative to time)
-# remove all but one dataset
+dsW <- dsW[dsW$id != "V", ] # rows that do NOT(!) equal string 'V"
+dsW$id <- as.integer(dsW$id) # forced to be integer
 rm(list=setdiff(ls(), c("ds0","dsW")))
-# note that at this pint ds0 = dsW
-str(dsW)
+# cat("\014") # clears console
+# str(dsW)
 
 
-## @knitr MakeLong
-# Variables, which values that DON'T change with time - time invariant (TI) variables 
-TIvars<-c("sample", "id", "sex","race", "bmonth","byear",  'attendPR', "relprefPR", "relraisedPR")
-## id.vars declares MEASURED variables (as opposed to RESPONSE variable)
-dsLong <- reshape2::melt(dsW, id.vars=TIvars)
+
+## @knitr Melt01
 require(dplyr)
-dsLong <- dsLong %>% dplyr::arrange(id)
+dplyr::filter(dsW, id < 5) 
 
-# head(dsLong[dsLong$id==1,],20)
 
-dplyr::filter(dsLong,id==1) %>% dplyr::select(dsLong,id,year,attend)
+## @knitr Melt02
+TIvars<-c("id", "sex","race", "bmonth","byear") # Time Invariant (TI)
+# id.vars tells what variables SHOULD NOT be stacked
+dsLong <- reshape2::melt(dsW, id.vars=TIvars) # melt 
+dplyr::filter(dsLong, id == 1)
+
+## @knitr Melt03
+# nrow(dsLong)/length(unique(dsLong$id)) # should be integer
+dsLong <- dplyr::filter(dsLong,!is.na(id)) # remove obs with invalid id
+# nrow(dsLong)/length(unique(dsLong$id)) # verify that melting is fine
+# dplyr::filter(dsLong,id==1) # inspect
+
+## @knitr Melt04
 # create varaible "year" by stripping the automatic ending in TV variables' names
+# subset 4 characters from the end of the string a into new variable
 dsLong$year<-str_sub(dsLong$variable,-4,-1) 
-# the automatic ending in TV variables' names
-timepattern<-c("_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006","_2007", "_2008", "_2009", "_2010", "_2011")
-# Strip off the automatic ending
-for (i in timepattern){
+dplyr::filter(dsLong, id == 1)
+
+## @knitr Melt05
+# remove the automatic ending 
+removePattern <- paste0("_",c(2000:2011))
+for (i in removePattern){
   dsLong$variable <- gsub(pattern=i, replacement="", x=dsLong$variable) 
 }
-# Convert to a number.
-dsLong$year <- as.integer(dsLong$year) 
+dsLong$year <- as.integer(dsLong$year) # Convert to a number.
+dplyr::filter(dsLong,id==1) # inspect
 
 
-# reorder for easier inspection
-dsLong<-dsLong[with(dsLong, order(id,variable)), ] # alternative sorting to plyr
-# view the long data for one person
-# print(dsLong[dsLong$id==1,]) 
+## @knitr Cast01
+require(reshape2)
+dsL <- dcast(dsLong, id + sex + race + bmonth + byear + year ~ variable, value.var = "value")
+dplyr::filter(dsL,id==1)
 
-dsL <- dcast(data=dsLong,sample + id + sex + race + bmonth + byear + attendPR + relprefPR + relraisedPR + year ~ variable, value.var = "value")
-
-
-
-
+## @knitr MutateData01
+#
+dplyr::filter(dsL,id==1) %>% select(id,byear,year,attend)
 
 
-##############################
-## Create individual long datasets, one per TV variable
-## NOTE: for development: loop over the dataset
+## @knitr MutateData02
+dsL <- dplyr::mutate(dsL, age = year - byear)
+dplyr::filter(dsL,id==1) %>% select(id,byear,year,attend, age)
 
-## Time invariant (TI) variables are :
-# print (TIvars)
-## Time variant (TV) variables are :
-TVvars<-unique(dsLong$variable)
-# TVvars<-c("attend","tv") # to test on a few variables
-# Create a long (L) dataset (ds) with time invariant (TI) variables 
-dsLTI<-subset(dsLong,subset=(dsLong$variable=="agemon")) # agemon because it has 1997:2011
-dsLTI<-rename(dsLTI,replace=c("value"="agemon"))
-dsLTI<-dsLTI[c(TIvars,"year")] # select only TI variables
-
-## Strip off each  TV (Time Invariant covariate) from dsLong to merge later
-for ( i in TVvars){
-  dstemp<-subset(dsLong,subset=(dsLong$variable==i))
-  dstemp<-rename(dstemp,replace=c("value"=i))
-  dstemp<-dstemp[c("id","year",i)]
-  dsLTI<-merge(x=dsLTI,y=dstemp,by=c("id","year"),all.x=TRUE)
-}
-## Merging datasets
-# Outer join: merge(x = df1, y = df2, by = "CustomerId", all = TRUE)
-# Left outer: merge(x = df1, y = df2, by = "CustomerId", all.x=TRUE)
-# Right outer: merge(x = df1, y = df2, by = "CustomerId", all.y=TRUE)
-# Cross join: merge(x = df1, y = df2, by = NULL)
-
-# OPTIONAL. Order variables in dsL to match the order in "NLSY97_Religiosity_20042012.xlsx"
-dsL_order<-c("sample"  ,"id"  ,"sex"	,"race"	,"bmonth"	,"byear"	,"attendPR"	,"relprefPR"	,"relraisedPR"	,"year","agemon"	,"ageyear"	,"famrel"	,"attend"	,"values"	,"todo"	,"obeyed"	,"pray"	,"decisions"	,"relpref"	,"bornagain"	,"faith"	,"calm"	,"blue"	,"happy"	,"depressed"	,"nervous"	,"tv"	,"computer"	,"internet")
-dsL<-dsLTI[dsL_order]
-
-# NOTE: repsondent id=467 has an abberation in age data (agemon for 2000)
-print ( dsL[dsL$id==467, c("id","year", "byear","bmonth","agemon", "ageyear")])
-# the observation for this subject is removed
-dsL <- dsL[!(dsL$id %in% c(467)), ]
 
 ## @knitr LabelFactors
-source(file.path(pathDir,"Scripts/Data/LabelingFactorLevels.R"))
+dsF <- dsL # add factors to the dataset
+source("./Scripts/Data/LabelingFactorLevels.R")
+dsL <- dsF
+rm(dsF)
+dplyr::filter(dsL,id==1)
+
+
+
+
+## @knitr LoadGraphSettings
+# load themes used to style graphs
+source("./Scripts/Graphs/graphThemes.R")
+
+
+
+## @knitr selectdsM
+dsM <- dplyr::filter(dsL,id==47) %>%
+  select(id,byear, year, attend, attendF)
+dsM
+
+## @knitr BasicGraph
+p <- ggplot(dsM, aes(x=year,y=attend, color=factor(id)))
+p <- p + geom_line(size=.4)
+p <- p + geom_point(size=2)
+p <- p + scale_y_continuous("Church attendance",
+                         limits=c(0, 8),
+                         breaks=c(1:8))
+p <- p + scale_x_continuous("Year of observation",
+                         limits=c(2000,2011),
+                         breaks=c(2000:2011))
+p <- p + scale_color_manual(values=c("purple"))
+p <- p + labs(title=paste0("In the past year, how often have you attended a worship service?"))
+p <- p + guides(color = guide_legend(title="Respondents"))
+p <- p + theme1
+p
+
+## @knitr DataForModel
+dsM <- dplyr::filter(dsL,id==47) %>%
+  select(id,byear, year, attend, attendF) 
+dsM$model <-  predict(lm(attend~year,dsM))
+
+
+## @knitr BasicModel
+p <- ggplot(dsM, aes(x=year,y=attend, color=factor(id)))
+p <- p + geom_line(size=.4)
+p <- p + geom_point(size=2)
+p <- p + geom_line(aes(y=model),colour="red", linetype="dashed")
+p <- p + scale_y_continuous("Church attendance",
+                            limits=c(0, 8),
+                            breaks=c(1:8))
+p <- p + scale_x_continuous("Year of observation",
+                            limits=c(2000,2011),
+                            breaks=c(2000:2011))
+p <- p + scale_color_manual(values=c("purple"))
+p <- p + labs(title=paste0("In the past year, how often have you attended a worship service?"))
+p <- p + guides(color = guide_legend(title="Respondents"))
+p <- p + theme1
+p
+
 
 ## @knitr SaveDerivedData
 
-pathdsLcvs <- file.path(getwd(),"Data/Derived/dsL.csv")
-write.csv(dsL,pathdsLcvs,  row.names=FALSE)
+pathdsLcsv <- "./Data/Derived/dsL.csv"
+write.csv(dsL,pathdsLcsv,  row.names=FALSE)
 
-pathdsLrds <- file.path(pathDir,"Data/Derived/dsL.rds")
+pathdsLrds <- "./Data/Derived/dsL.rds"
 saveRDS(object=dsL, file=pathdsLrds, compress="xz")
 
 ## @knitr CleanUp
 # # remove all but specified dataset
-rm(list=setdiff(ls(), c("TIvars","TVvars","dsL")))
+rm(list=setdiff(ls(), c("dsW","dsL")))
