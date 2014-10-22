@@ -99,5 +99,5 @@ estimation.
 [islandhealth]:./images/island_health_logo_full.jpg  
 [uviccoag]:./images/CentreOnAgingLogo.gif  
 [popdata]:./images/populationDataBc.jpg  
-[lecture1]:./LabLog/2014-10-14-Toolbox-and-Skillset.html
-[lecture2]:./LabLog/2014-10-21-Data-Manipulation.html
+[lecture1]:./2014-10-14-Toolbox-and-Skillset.html
+[lecture2]:./2014-10-21-Data-Manipulation.html
