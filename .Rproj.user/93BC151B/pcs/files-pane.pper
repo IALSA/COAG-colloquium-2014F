@@ -1,6 +1,10 @@
 {
-    "path" : "~/GitHub/COAG-colloquium-2014F",
+    "path" : "~/GitHub/COAG-colloquium-2014F/Scripts",
     "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 1
+        },
         {
             "ascending" : true,
             "columnIndex" : 2
