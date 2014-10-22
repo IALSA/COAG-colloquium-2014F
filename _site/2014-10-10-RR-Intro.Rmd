@@ -1,0 +1,41 @@
+Reproducible research
+=======================
+
+The workflow of reproducible research implies that we use programming code to carry out certain tasks in a scientific research project:    
+1. Load and inspect data  
+2. Draw statistical graphicss  
+3. Fit statistical models  
+4. Compare observed and modeled data  
+5. Produce report that describes all this  
+
+
+1. Load and inspect datasets
+```{r block1, message=FALSE}
+ds <- mtcars
+head(ds, 10)
+```
+
+2) Depict data as statistical graphics
+```{r block2, message=FALSE}
+require(ggplot2)
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+```
+
+3) Fit statistical models
+```{r block3, message=FALSE}
+lm(mpg ~ wt, mtcars)
+```
+
+4) Compare observed and modeled data
+```{r block4, message=FALSE}
+require(ggplot2)
+ds <- mtcars
+ds$mpg_modeled <- predict(lm(mpg ~ wt, mtcars))
+p <- ggplot(ds, aes(x=wt, y=mpg)) 
+p <- p + geom_point() 
+p <- p + geom_line(aes(y=mpg_modeled),color="red")
+p
+```
+
+5) Produce reports that discuss this comparision and verbalize the conclusions that can be drawn from the analysis
+ 
