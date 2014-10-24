@@ -21,8 +21,8 @@ researchers and students who wish to increase their expertise in statistical ana
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
 </br>
-**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](), and  the Integrative 
-Analysis of Longitudinal Studies of Aging ([IALSA](ialsa.org)) Research Network (NIH/NIA 1P01AG043362).**   
+**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
+Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
 
  ![ialsa][ialsa]    
  
@@ -45,7 +45,7 @@ Analysis of Longitudinal Studies of Aging ([IALSA](ialsa.org)) Research Network 
 Andrey Koval (University of Victoria)  
 [Toolbox and Skillset of Reproducible Research][lecture1]   
 The lecture introduces reproducible research and demonstrates digital self-publishing with RStudio and Git (Hub). The skills described and emphasized in this workflow include data manipulation, graph production, statistical modeling, and dynamic reporting. A more elaborate discussion of each basic skill will be provided in the next four lectures.   
-[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www.sendthisfile.com/Ufnp3Bnb3IfjNP52KWqGKLdW)</br>     
+[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www13.sendthisfile.com/iPOF37u8YpOCzoQtkP2h1HBc/Ufnp3Bnb3IfjNP52KWqGKLdW/popdata.trimmed.oct.14.2014.mp4)</br>     
 
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  

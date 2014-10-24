@@ -48,7 +48,7 @@ Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Resea
 Andrey Koval (University of Victoria)  
 [Toolbox and Skillset of Reproducible Research][lecture1]   
 The lecture introduces reproducible research and demonstrates digital self-publishing with RStudio and Git (Hub). The skills described and emphasized in this workflow include data manipulation, graph production, statistical modeling, and dynamic reporting. A more elaborate discussion of each basic skill will be provided in the next four lectures.   
-[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www.sendthisfile.com/Ufnp3Bnb3IfjNP52KWqGKLdW)</br>     
+[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www13.sendthisfile.com/iPOF37u8YpOCzoQtkP2h1HBc/Ufnp3Bnb3IfjNP52KWqGKLdW/popdata.trimmed.oct.14.2014.mp4)</br>     
 
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  
