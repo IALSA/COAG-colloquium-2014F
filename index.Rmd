@@ -24,8 +24,8 @@ researchers and students who wish to increase their expertise in statistical ana
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
 </br>
-**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](), and  the Integrative 
-Analysis of Longitudinal Studies of Aging ([IALSA](ialsa.org)) Research Network (NIH/NIA 1P01AG043362).**   
+**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
+Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
 
  ![ialsa][ialsa]    
  
