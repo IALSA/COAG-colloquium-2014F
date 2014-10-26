@@ -1,4 +1,7 @@
 ---
+output:
+  html_document:
+    css: libs/custom.css
 ---
 
 ![islandhealth][islandhealth] ![uviccoag][uviccoag] ![popdata][popdata] 
