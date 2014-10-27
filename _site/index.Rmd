@@ -12,17 +12,21 @@ our colloquium series emphasizes data management and statistical analysis using 
 longitudinal studies and administrative health data. This fall series will be of general interest to 
 researchers and students who wish to increase their expertise in statistical analysis using R.    </br>
 
-**Location**: University of Victoria, [Medical Sciences Building](http://www.uvic.ca/home/about/campus-info/maps/maps/msb.php), [Lecture Room 160](http://video.med.ubc.ca/videos/facilities/images/MSB160_1.jpg)  
-**Registration**: [Register](http://conferences.uvic.ca/index.php/coag/coagevents) for live streaming of lectures   
-**Time** : for all sessions 10:30 am to 12:00 pm PST  
+**Location**: University of Victoria, [Medical Sciences Building](http://www.uvic.ca/home/about/campus-info/maps/maps/msb.php), [Lecture Room 160](http://video.med.ubc.ca/videos/facilities/images/MSB160_1.jpg)   
+
+**Broadcast**: Sessions will also be available via live web streaming hosted by [WestGrid](www.westgrid.ca). Web link for live stream available upon registration.   
+
+**Online Registration** (No fee): Be sure to [register](http://conferences.uvic.ca/index.php/coag/coagevents) to receive up-to-date information on presentations, resources, live web streaming and Q & A participation!
+
+**Time** for all sessions: 10:30 am to 12:00 pm PST   
+
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
 ![top logo][toplogo]  
 ![ialsa][ialsa]  
   
 </br>
-**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
-Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
+**This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
 
   
  
@@ -50,7 +54,7 @@ The lecture introduces reproducible research and demonstrates digital self-publi
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  
 [RR Skills (1): Data Manipulation][lecture2]        
-The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data
+The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data.       
 [watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www6.sendthisfile.com/5G3TRDD7KPLpsexHAZyfRCgT/qJswiCQmpIBOknOg1TqMXKAy/popdata.oct.21.2014.mp4)</br>   
 
 
