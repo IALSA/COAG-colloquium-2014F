@@ -1,11 +1,10 @@
-![top logo][toplogo]
-
 Optimizing Aging & Health: Methods and Applications  
 ===  
 [Centre on Aging](http://www.coag.uvic.ca/) Colloquium Series, Fall 2014     
+![top logo][toplogo]  
+![ialsa][ialsa]  
 
-
-The Centre on Aging (COAG) is a research intensive centre at the University of Victoria, with members 
+The Centre on Aging ([COAG](http://www.coag.uvic.ca/)) is a research intensive centre at the University of Victoria, with members 
 engaged in aging research in its many forms, including both quantitative and qualitative methods, and 
 longitudinal, experimental, and intervention designs. A key emphasis is on advances in the health, 
 cognitive vitality, and well-being of an aging community. This colloquium series has been developed to 
@@ -15,12 +14,12 @@ our colloquium series emphasizes data management and statistical analysis using 
 longitudinal studies and administrative health data. This fall series will be of general interest to 
 researchers and students who wish to increase their expertise in statistical analysis using R.    </br>
 
-**Location**: University of Victoria, Medical Sciences Building, Lecture Room 160  
+**Location**: University of Victoria, [Medical Sciences Building](http://www.uvic.ca/home/about/campus-info/maps/maps/msb.php), [Lecture Room 160](http://video.med.ubc.ca/videos/facilities/images/MSB160_1.jpg)  
 **Registration**: [Register](http://conferences.uvic.ca/index.php/coag/coagevents) for live streaming of lectures   
 **Time** : for all sessions 10:30 am to 12:00 pm PST  
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
- ![ialsa][ialsa]    
+  
 
 </br>
 **This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
@@ -52,7 +51,9 @@ The lecture introduces reproducible research and demonstrates digital self-publi
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  
 [RR Skills (1): Data Manipulation][lecture2]        
-The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data </br>   
+The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data
+[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www6.sendthisfile.com/5G3TRDD7KPLpsexHAZyfRCgT/qJswiCQmpIBOknOg1TqMXKAy/popdata.oct.21.2014.mp4)</br>   
+
 
 
 **Oct 28, 2014**  
@@ -98,6 +99,15 @@ Showcase: Longitudinal mixed model in syntax of R, Mplus, SAS, and SPSS. Costs a
 multilingualism in estimation. In focus: R package MplusAutomation as the means to post-process Mplus 
 estimation.  </br>
 
+
+## Join us 
+at the University of Victoria (MSB 160), to meet our excellent presenters in-person and to participate in Q&A sessions that follow each event.  
+![MSB_location][MSB_location]   
+</br>
+Please, take a moment to **leave us a comment**: we value your feedback! 
+
+
 [toplogo]:./images/combined_logos.png  
 [ialsa]:./images/ialsa_long.png
+[MSB_location]:./images/MSB_location.png
 
