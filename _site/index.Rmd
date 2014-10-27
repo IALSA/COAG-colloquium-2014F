@@ -1,4 +1,4 @@
-![islandhealth][islandhealth] ![uviccoag][uviccoag] ![popdata][popdata] 
+![top logo][toplogo]
 
 Optimizing Aging & Health: Methods and Applications  
 ===  
@@ -20,11 +20,13 @@ researchers and students who wish to increase their expertise in statistical ana
 **Time** : for all sessions 10:30 am to 12:00 pm PST  
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
+ ![ialsa][ialsa]    
+
 </br>
 **This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
 Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
 
- ![ialsa][ialsa]    
+  
  
 ## Schedule of Events
   
@@ -96,10 +98,6 @@ Showcase: Longitudinal mixed model in syntax of R, Mplus, SAS, and SPSS. Costs a
 multilingualism in estimation. In focus: R package MplusAutomation as the means to post-process Mplus 
 estimation.  </br>
 
-[islandhealth]:./images/island_health_logo_full.jpg  
-[uviccoag]:./images/CentreOnAgingLogo.gif  
-[popdata]:./images/populationDataBc.jpg  
-[lecture1]:./2014-10-14-Toolbox-and-Skillset.html
-[lecture2]:./2014-10-21-Data-Manipulation.html
-[ialsa]:./images/logo_r.jpg
+[toplogo]:./images/combined_logos.png  
+[ialsa]:./images/ialsa_long.png
 
