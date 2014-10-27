@@ -7,8 +7,6 @@ output:
 Optimizing Aging & Health: Methods and Applications  
 ===  
 [Centre on Aging](http://www.coag.uvic.ca/) Colloquium Series, Fall 2014     
-![top logo][toplogo]  
-![ialsa][ialsa]  
 
 The Centre on Aging ([COAG](http://www.coag.uvic.ca/)) is a research intensive centre at the University of Victoria, with members 
 engaged in aging research in its many forms, including both quantitative and qualitative methods, and 
@@ -25,8 +23,9 @@ researchers and students who wish to increase their expertise in statistical ana
 **Time** : for all sessions 10:30 am to 12:00 pm PST  
 **Materials**: All accompanying project files are availible on [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
+![top logo][toplogo]  
+![ialsa][ialsa]  
   
-
 </br>
 **This series is hosted in partnership with the [Department of Psychology](http://www.uvic.ca/socialsciences/psychology/), Education and Training Unit of [Population Data BC](https://www.popdata.bc.ca/), the [Island Health Research and Capacity Building Program](http://www.viha.ca/rnd), and  the Integrative 
 Analysis of Longitudinal Studies of Aging ([IALSA](http://www.ialsa.org/)) Research Network (NIH/NIA 1P01AG043362).**   
