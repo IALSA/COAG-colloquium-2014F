@@ -119,4 +119,6 @@ Please, take a moment to **leave us a comment**: we value your feedback!
 [toplogo]:./images/combined_logos.png  
 [ialsa]:./images/ialsa_long.png
 [MSB_location]:./images/MSB_location.png
+[lecture1]:./2014-10-14-Toolbox-and-Skillset.html
+[lecture2]:./2014-10-21-Data-Manipulation.html
 
