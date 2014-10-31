@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/GitHub/COAG-colloquium-2014F",
+        "query" : "<=10",
+        "regex" : false
+    }
+}
