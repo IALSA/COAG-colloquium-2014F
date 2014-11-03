@@ -1,7 +1,7 @@
 ---
 title: "RR Skills (2): Graph Production "
 author: Andrey Koval
-date: October 31, 2014
+date: November 4, 2014
 output: 
   ioslides_presentation:
     widescreen: true
