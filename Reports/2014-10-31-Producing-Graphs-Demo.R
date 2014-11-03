@@ -18,6 +18,7 @@ base::require(ggplot2)
 
 
 ## @knitr LoadData
+# loads basic NLSY97-religiosity data as defined in COAG-Colloquium-2014F repository
 source("./Scripts/Data/dsL.R")
 str(dsL)
 head(dsL)

@@ -1,7 +1,7 @@
 ---
 title: "RR Skills (2): Graph Production "
 author: Andrey Koval
-date: October 21, 2014
+date: October 31, 2014
 output: 
   ioslides_presentation:
     widescreen: true
@@ -32,6 +32,7 @@ opts_chunk$set(
 echoChunks <- FALSE
 warningChunks<- FALSE
 messageChunks<- FALSE
+outwidthChunks <- "90%"
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Reports/2014-10-31-Producing-Graphs-Demo.R") # the file to which knitr calls for the chunks
 ```
@@ -133,7 +134,7 @@ dplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF)
 see [ggplot quick reference](http://sape.inf.usi.ch/quick-reference/ggplot2) by SAPE research group
 
 ## Preview
-```{r graphFinalpreview, echo=F, warning=F, message=F, out.width="100%"}
+```{r graphFinalpreview, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 
@@ -150,25 +151,25 @@ Error: No layers in plot
 
 
 ## Geom: point
-```{r graph01, echo=T, warning=F, message=F, out.width="700px"}
+```{r graph01, echo=T, warning=F, message=F, out.width="60%"}
 ```
 
 ## Geom: line
-```{r graph02, echo=T, warning=F, message=F, out.width="700px"}
+```{r graph02, echo=T, warning=F, message=F,out.width="60%"}
 ```
 
 
 ## Geom: line + point
-```{r graph03, echo=T, warning=F, message=F, out.width="700px"}
+```{r graph03, echo=T, warning=F, message=F, out.width="60%"}
 ```
 
 
 ## Define theme
-```{r loadTheme, echo=T, warning=F, message=F, out.width="700px"}
+```{r loadTheme, echo=T, warning=F, message=F, out.width="60%"}
 ```
 
 ## Add theme
-```{r graph04, echo=T, warning=F, message=F, out.width="700px"}
+```{r graph04, echo=T, warning=F, message=F, out.width="60%"}
 ```
 
 ## Scales: X-Axis
@@ -182,39 +183,39 @@ p <- p + plotTheme
 p
 ```
 ## Scales: X-Axis
-```{r graph05, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph05, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 ## Scales: y-Axis
-```{r graph06, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph06, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 
 ## Add title
-```{r graph07, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph07, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 ## Multiple Lines
-```{r graph08, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph08, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 ## Multiple Lines with grouping
-```{r graph09, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph09, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 ## Edit geoms
-```{r graph10, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph10, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 
 ## Facet
-```{r graph11, echo=F, warning=F, message=F, out.width="700px"}
+```{r graph11, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 
 
 ----
-```{r graphFinal, echo=F, warning=F, message=F, out.width="100%"}
+```{r graphFinal, echo=F, warning=F, message=F, out.width="90%"}
 ```
 
 
