@@ -73,7 +73,7 @@ Lecture details to follow. </br>
 </br>
 **Nov 4, 2014**  
 Andrey Koval (University of Victoria)  
-RR Basic Skills (2): Graph Production  
+[RR Basic Skills (2): Graph Production][lecture3]  
 The lecture introduces the grammar of graphics and its implementation in R.   
 Topics: basic R graphic utility; producing basic graphs with ggplot2; graph tuning and preparing your 
 graphs for publishing.  </br> 
@@ -121,4 +121,5 @@ Please, take a moment to **leave us a comment**: we value your feedback!
 [MSB_location]:./images/MSB_location.png
 [lecture1]:./2014-10-14-Toolbox-and-Skillset.html
 [lecture2]:./2014-10-21-Data-Manipulation.html
+[lecture3]:./2014-11-04-Producing-Graphs.html
 
