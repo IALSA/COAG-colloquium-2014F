@@ -1,0 +1,135 @@
+---
+title: "RR Skills (2): Graph Production "
+author: Andrey Koval
+date: November 4, 2014
+output: 
+  ioslides_presentation:
+    widescreen: true
+    transition: faster
+    css: custom.css
+---
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=F, message=F} 
+library(knitr)
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external script file. -->
+```{r, echo=F, message=T}
+require(knitr)
+opts_chunk$set(
+  results='show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+#   fig.height = 4.8, 
+#   fig.width = 6.5, 
+  out.width = NULL,
+  fig.path = 'figure_rmd_try/',     
+  dev = "png",
+  dpi = 400
+)
+echoChunks <- FALSE
+warningChunks<- FALSE
+messageChunks<- FALSE
+outwidthChunks <- "90%"
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Reports/2014-11-04-Producing-Graphs.R") # the file to which knitr calls for the chunks
+```
+
+<!--
+## Load Data {.smaller}
+```{r LoadData, echo=T, warning=F, message=F, results='hide'}
+```
+```{r}
+str(dsL)
+```
+
+
+## Load Data
+```{r}
+dplyr::filter(dsL, id==1)
+```
+
+## Load Data
+```{r}
+dplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF)
+```
+
+
+## Graph 0 {.smaller}
+<div class="columns-2">
+```{r dsM01, out.width="50%"}
+```
+
+```{r, out.width="95%", eval=FALSE}
+p <- ggplot2::ggplot(dsM,aes(x=year,y=attend))
+p
+```
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br>
+```
+# Error: No layers in plot
+```
+</div>
+
+
+## Define theme {.smaller}
+```{r loadTheme, echo=T, warning=F, message=F, out.width="60%"}
+```
+
+see more options for [themes in ggplot2](http://docs.ggplot2.org/dev/vignettes/themes.html)
+-->   
+
+
+
+
+
+
+
+## Load Data {.smaller}
+```{r LoadData, echo=T, warning=F, message=F, results='hide'}
+```
+```{r}
+str(dsL)
+```
+
+
+## Load Data
+```{r}
+dplyr::filter(dsL, id==1)
+```
+
+## Load Data
+```{r}
+dplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF, sexF, raceF)
+```
+
+## Today's objective 
+```{r dsM01, results="hide", echo=F}
+```
+
+```{r loadTheme, results="hide", echo=F}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Question? Comments?
+
+You can forward questions to Ann Greenwood (ann.greenwood@popdata.bc.ca)  or Vincenza Gruppuso (vincenza@uvic.ca) during the live Q&A. There are standing by to take your questions.   
+ 

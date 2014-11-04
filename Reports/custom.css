@@ -1,0 +1,21 @@
+<!-- see defaut.css at
+https://github.com/rstudio/rmarkdown/blob/f4a462fe7c47f3acbae71bfc6ae3597c15dd5c36/inst/rmd/ioslides/ioslides-13.5.1/theme/css/default.css
+-->
+
+.columns-2 {
+  -moz-column-fill: balance; /* Firefox */
+  column-fill: balance;
+}
+
+#nextsteps {
+   color: blue;
+}
+
+.emphasized {
+   font-size: 1.2em;
+}
+
+.upnext {
+  text-align: left;
+  font-size: 8px;
+}

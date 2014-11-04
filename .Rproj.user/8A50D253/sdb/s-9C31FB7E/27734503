@@ -1,0 +1,17 @@
+{
+    "contents" : "---\ntitle: \"RR Skills (2): Graph Production \"\nauthor: Andrey Koval\ndate: November 4, 2014\noutput: \n  ioslides_presentation:\n    widescreen: true\n    transition: faster\n    css: custom.css\n---\n\n<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->\n```{r, echo=F, message=F} \nlibrary(knitr)\nopts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.\n```\n\n<!-- Set the report-wide options, and point to the external script file. -->\n```{r, echo=F, message=T}\nrequire(knitr)\nopts_chunk$set(\n  results='show', \n  message = TRUE,\n  comment = NA, \n  tidy = FALSE,\n#   fig.height = 4.8, \n#   fig.width = 6.5, \n  out.width = NULL,\n  fig.path = 'figure_rmd_try/',     \n  dev = \"png\",\n  dpi = 400\n)\nechoChunks <- FALSE\nwarningChunks<- FALSE\nmessageChunks<- FALSE\noutwidthChunks <- \"90%\"\noptions(width=120) #So the output is 50% wider than the default.\nread_chunk(\"./Reports/2014-11-04-Producing-Graphs.R\") # the file to which knitr calls for the chunks\n```\n\n<!--\n## Load Data {.smaller}\n```{r LoadData, echo=T, warning=F, message=F, results='hide'}\n```\n```{r}\nstr(dsL)\n```\n\n\n## Load Data\n```{r}\ndplyr::filter(dsL, id==1)\n```\n\n## Load Data\n```{r}\ndplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF)\n```\n\n\n## Graph 0 {.smaller}\n<div class=\"columns-2\">\n```{r dsM01, out.width=\"50%\"}\n```\n\n```{r, out.width=\"95%\", eval=FALSE}\np <- ggplot2::ggplot(dsM,aes(x=year,y=attend))\np\n```\n</br> </br> </br> </br> </br> </br> </br> </br> </br> </br>\n```\n# Error: No layers in plot\n```\n</div>\n\n\n## Define theme {.smaller}\n```{r loadTheme, echo=T, warning=F, message=F, out.width=\"60%\"}\n```\n\nsee more options for [themes in ggplot2](http://docs.ggplot2.org/dev/vignettes/themes.html)\n-->   \n\n\n\n\n\n\n\n## Load Data {.smaller}\n```{r LoadData, echo=T, warning=F, message=F, results='hide'}\n```\n```{r}\nstr(dsL)\n```\n\n\n## Load Data\n```{r}\ndplyr::filter(dsL, id==1)\n```\n\n## Load Data\n```{r}\ndplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF, sexF, raceF)\n```\n\n## Today's objective \n```{r dsM01, results=\"hide\", echo=F}\n```\n\n```{r loadTheme, results=\"hide\", echo=F}\n```\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Question? Comments?\n\nYou can forward questions to Ann Greenwood (ann.greenwood@popdata.bc.ca)  or Vincenza Gruppuso (vincenza@uvic.ca) during the live Q&A. There are standing by to take your questions.   \n \n",
+    "created" : 1415059114646.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2038265588",
+    "id" : "27734503",
+    "lastKnownWriteTime" : 1415121717,
+    "path" : "~/GitHub/COAG-colloquium-2014F/Reports/temp.Rmd",
+    "project_path" : "Reports/temp.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

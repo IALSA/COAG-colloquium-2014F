@@ -1,0 +1,16 @@
+{
+    "contents" : "#  The following script declares the factor labels to be used with  **dsL**\n#\n###########################################################################\n\n#### SCALES  ####\n\n## sex ###################################################################\nsexLevels<- c(1,2,0)\nsexLabels<- c(\"Male\",\"Female\",\"No Information\")\n\nvarlist<-c(\"sex\")\nfor(i in varlist){\n  dsF[,paste0(i,\"F\")]<-ordered(dsF[,i],\n                                levels = sexLevels,\n                                labels = sexLabels)\n}\n## race ##################################################################\nraceLevels<- c(1,2,3,4)\nraceLabels<- c(\"Black\",\"Hispanic\",\"Mixed (Non-H)\",\"Non-B/Non-H\")\n\nvarlist<-c(\"race\")\nfor(i in varlist){\n  dsF[,paste0(i,\"F\")]<-ordered(dsF[,i],\n                                levels = raceLevels,\n                                labels = raceLabels)\n}\n## birth month ###########################################################\nbmonthLevels<- c(1:12)\nbmonthLabels<- c(\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\")\n\nvarlist<-c(\"bmonth\")\nfor(i in varlist){\n  dsF[,paste0(i,\"F\")]<-ordered(dsF[,i],\n                                levels = bmonthLevels,\n                                labels = bmonthLabels)\n}\n\n## church attendance #####################################################\nattendLevels<- c(1:8)\nattendLabelsShort<-c(\"Never\",\n                     \"Once or Twice\",\n                     \"< once/month\",\n                     \"~ once/month\",\n                     \"~ twice/month\",\n                     \"~ once/week\",\n                     \"Several times/week\",\n                     \"Everyday\")\nattendLabels<-c( \"Never\",\n                 \"Once or Twice\",\n                 \"Less than once/month\",\n                 \"About once/month\",\n                 \"About twice/month\",\n                 \"About once/week\",\n                 \"Several times/week\",\n                 \"Everyday\")\nvarlist<- c(\"attend\")\nfor(i in varlist){\n  dsF[,paste0(i,\"F\")]<-ordered(dsF[,i],\n                                levels = attendLevels,\n                                labels = attendLabels)\n}\n# The color scale developed for this variable\nattcol8<-c(\"Never\"=\"#4575b4\",\n           \"Once or Twice\"=\"#74add1\",\n           \"Less than once/month\"=\"#abd9e9\",\n           \"About once/month\"=\"#e0f3f8\",\n           \"About twice/month\"=\"#fee090\",\n           \"About once/week\"=\"#fdae61\",\n           \"Several times/week\"=\"#f46d43\",\n           \"Everyday\"=\"#d73027\")\n\n\n# ADD MORE VARIABLES HERE\n\n# Now data set contains a set of ghost Factor variables that can be used in graphing and modeling",
+    "created" : 1415089152737.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1715646590",
+    "id" : "4445C21C",
+    "lastKnownWriteTime" : 1415055847,
+    "path" : "~/GitHub/COAG-colloquium-2014F/Scripts/Data/LabelingFactorLevels.R",
+    "project_path" : "Scripts/Data/LabelingFactorLevels.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

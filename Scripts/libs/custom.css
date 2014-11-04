@@ -1,0 +1,4 @@
+.columns-2 {
+  -moz-column-fill: auto; /* Firefox */
+  column-fill: auto;
+}
