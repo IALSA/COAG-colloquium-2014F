@@ -517,7 +517,7 @@ Note: press "p" for zoom
 ```{r graph22, out.width="95%", warning=F}
 ```
 
-</br> </br> 
+</br> </br> </br>
 Next: removing factor level  
 Note: press "p" for zoom    
 </div>
@@ -532,7 +532,7 @@ Note: press "p" for zoom
 ```{r graph23, out.width="95%", warning=F}
 ```
 
-</br>
+</br> </br> </br>
 Next: tranforming variable    
 Note: press "p" for zoom    
 </div>

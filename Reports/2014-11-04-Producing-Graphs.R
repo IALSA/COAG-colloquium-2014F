@@ -245,8 +245,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(1,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -265,8 +265,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(1,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -285,8 +285,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(1,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -306,8 +306,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -328,8 +328,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 ## @knitr graph17
@@ -349,8 +349,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -371,8 +371,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 ## @knitr graph19
@@ -396,8 +396,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 ## @knitr graph20
@@ -421,8 +421,8 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
@@ -447,15 +447,17 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p
 
 
 ## @knitr graph22
 dsM <- dplyr::filter(dsL, id <=300) %>% 
-  dplyr::select(id, sexF, raceF, year, attend, attendF)
+  dplyr::select(id,sexF,raceF,year,attend,attendF)
 #  
+#
+#
 p <- ggplot2::ggplot(dsM,aes(x=year,y=attend))
 p <- p + geom_line(aes(group=id), color='firebrick',
                    ### <b>
@@ -473,15 +475,16 @@ p <- p + scale_x_continuous(limits=c(2000,2011),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p <- p + facet_grid(sexF~raceF)
 p
 
 ## @knitr graph23
 dsM <- dplyr::filter(dsL, id <=300, 
                      raceF != "Mixed (Non-H)") %>% 
-  dplyr::select(id, sexF, raceF, year, attend, attendF)
+  dplyr::select(id,sexF,raceF,year,attend,attendF)
+#
 #  
 p <- ggplot2::ggplot(dsM,aes(x=year,y=attend))
 p <- p + geom_line(aes(group=id), color='firebrick',
@@ -489,30 +492,30 @@ p <- p + geom_line(aes(group=id), color='firebrick',
            alpha=.1,
                    ### </b>
            position=position_jitter(w=0.3, h=0.3))
-p <- p + geom_point(shape=21, color=NA, fill="blue4",
+p <- p + geom_point(shape=21, color=NA,fill="blue4",
                     ### <b>                    
-                    alpha=.5, size=.8, 
+           alpha=.5, size=.8, 
                     ### </b>
-                    position=position_jitter(w=0.3, h=0.3))
+           position=position_jitter(w=0.3, h=0.3))
 p <- p + plotTheme
 p <- p + scale_x_continuous(limits=c(2000,2011),
                             breaks=c(2000:2011))
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Year of observation", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Year of observation", y="Church attendance"))
 p <- p + facet_grid(sexF~raceF)
 p
 
 ## @knitr graph24
 dsM <- dplyr::filter(dsL, id <=300, 
                      raceF != "Mixed (Non-H)") %>% 
-  dplyr::select(id, sexF, raceF, year, attend, attendF) %>%
+  dplyr::select(id,sexF,raceF,year,attend,attendF) %>%
 ### <b>
-  dplyr::mutate(yearc = year - 2000)
+  dplyr::mutate(yearc = year - 2000) # see aes(x=)
 ### </b>
-#  
+#
 p <- ggplot2::ggplot(dsM,aes(x=yearc,y=attend))
 p <- p + geom_line(aes(group=id), color='firebrick',
            alpha=.1,
@@ -526,8 +529,8 @@ p <- p + scale_x_continuous(limits=c(0,11),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Years since 2000", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Years since 2000", y="Church attendance"))
 p <- p + facet_grid(sexF~raceF)
 p
 
@@ -536,7 +539,7 @@ p
 ## @knitr graph25
 dsM <- dplyr::filter(dsL, id <=300, 
                      raceF != "Mixed (Non-H)") %>% 
-  dplyr::select(id, sexF, raceF, year, attend, attendF) %>%
+  dplyr::select(id,sexF,raceF,year,attend,attendF) %>%
   dplyr::mutate(yearc = year - 2000)
 #  
 p <- ggplot2::ggplot(dsM,aes(x=yearc,y=attend))
@@ -556,8 +559,8 @@ p <- p + scale_x_continuous(limits=c(0,11),
 p <- p + scale_y_continuous(limits=c(0,8), 
                             breaks=seq(1,8, by=1))
 p <- p + labs(list(
-  title="How often did you attend worship last year?",
-  x="Years since 2000", y="Church attendance"))
+ title="How often did you attend worship last year?",
+ x="Years since 2000", y="Church attendance"))
 p <- p + facet_grid(sexF~raceF)
 p
 

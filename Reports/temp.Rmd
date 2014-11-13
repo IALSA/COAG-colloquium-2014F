@@ -85,35 +85,63 @@ see more options for [themes in ggplot2](http://docs.ggplot2.org/dev/vignettes/t
 
 
 
-
-
-## Load Data {.smaller}
-```{r LoadData, echo=T, warning=F, message=F, results='hide'}
-```
-```{r}
-str(dsL)
+## Faceting {.smaller}
+<div class="columns-2">
+```{r graph22, out.width="95%", warning=F}
 ```
 
+</br> </br> </br>
+Next: removing factor level  
+Note: press "p" for zoom    
+</div>
+<div class="notes">
+```{r graph22, out.width="100%", echo=F,warning=F,message=F}
+```
+</div>
 
-## Load Data
-```{r}
-dplyr::filter(dsL, id==1)
+
+## Exclude levels {.smaller}
+<div class="columns-2">
+```{r graph23, out.width="95%", warning=F}
 ```
 
-## Load Data
-```{r}
-dplyr::filter(dsL, id==1) %>% select(id, year, attend, attendF, sexF, raceF)
+</br> </br> </br>
+Next: tranforming variable    
+Note: press "p" for zoom    
+</div>
+</br> 
+<div class="notes">
+```{r graph23, out.width="100%", echo=F,warning=F,message=F}
+```
+</div>
+
+
+
+## Centering time {.smaller}
+<div class="columns-2">
+```{r graph24, out.width="95%", warning=F}
 ```
 
-## Today's objective 
-```{r dsM01, results="hide", echo=F}
+</br> </br> </br> 
+Next: final styling  
+Note: press "p" for zoom  
+</div>
+<div class="notes">
+```{r graph24, out.width="100%", echo=F,warning=F,message=F}
+```
+</div>
+
+
+
+## Final touches {.smaller}
+<div class="columns-2">
+```{r graph25, out.width="95%", warning=F}
 ```
 
-```{r loadTheme, results="hide", echo=F}
-```
-
-
-
+.
+</br> </br> </br> </br>
+Next: final graph  
+</div>
 
 
 
