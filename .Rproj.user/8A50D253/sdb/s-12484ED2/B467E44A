@@ -1,0 +1,16 @@
+{
+    "contents" : "<link rel=\"icon\" href=\"./images/logo.png\" type=\"image/png\"/>\n<link rel=\"shortcut icon\" href=\"./images/logo.ico\"/>\n<link rel=\"stylesheet\" href=\"libs/font-awesome-4.1.0/css/font-awesome.min.css\"/>\n<script type=\"text/javascript\" src=\"/libs/MathJax/MathJax.js\"></script>\n",
+    "created" : 1415936098124.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2631117378",
+    "id" : "B467E44A",
+    "lastKnownWriteTime" : 1414361060,
+    "path" : "~/GitHub/tutorials/include/in_header.html",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "html"
+}

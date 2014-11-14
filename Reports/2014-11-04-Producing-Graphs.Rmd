@@ -101,14 +101,6 @@ str(dsL)
 ```
 
 
-## Load Data {.smaller}
-```{r LoadData, echo=T, warning=F, message=F, results='hide'}
-```
-```{r}
-str(dsL)
-```
-
-
 ## Load Data
 ```{r}
 dplyr::filter(dsL, id==1)

@@ -16,7 +16,8 @@ for( pathFile in pathFilesToBuild ) {
                     output_format=c(
                       #                        "pdf_document"
                       #                       ,"md_document"
-                      "html_document"
+                      #                       ,"html_document"
+                      "ioslides_presentation"
                     ),
                     clean=TRUE)
 }

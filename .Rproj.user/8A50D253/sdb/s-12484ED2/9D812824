@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle: \"RR Skills (3): Statistical Modeling \"\nauthor: Andrey Koval\ndate: November 18, 2014\noutput: \n  ioslides_presentation:\n    widescreen: true\n    transition: faster\n---\n\n<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->\n```{r, echo=F, message=F} \nlibrary(knitr)\nopts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.\n```\n\n<!-- Set the report-wide options, and point to the external script file. -->\n```{r, echo=F, message=T}\nrequire(knitr)\nopts_chunk$set(\n  results='show', \n  message = TRUE,\n  comment = NA, \n  tidy = FALSE,\n#   fig.height = 4.8, \n#   fig.width = 6.5, \n  out.width = NULL,\n  fig.path = 'figure_rmd_try/',     \n  dev = \"png\",\n  dpi = 70\n)\nechoChunks <- FALSE\nwarningChunks<- FALSE\nmessageChunks<- FALSE\noutwidthChunks <- \"90%\"\noptions(width=120) #So the output is 50% wider than the default.\nread_chunk(\"./Reports/2014-11-18-Statistical-Modeling.R\") # the file to which knitr calls for the chunks\n```\n\n\n## Overview of the Series\n\n- Oct 14  -- Intro to Reproducible Research  \n- Oct 21  -- RR Basic Skills (1): Data Manipulation\n- Oct 28  -- Intro to Latent Class and Latent Transition Models  \n- Nov  4  -- RR Basic Skills (2): Graph Production  \n- Nov 11      \n- Nov 18  -- **RR Basic Skills (3): Statistical Modeling**   \n- Nov 25  -- RR Basic Skills (4): Dynamic Reporting   \n- Dec 2 -- Migrating into R from other Statistical Software  \n\n\n## Previously:\n\n<img src = 'images/ai/DataMap_full.png' width=\"100%\"></img> \n```p\n\"./Scripts/Data/dsL.R\"\n```\n\ndownload the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)\n\n## Load Data {.smaller}\n```{r LoadData, echo=T, warning=F, message=F, results='hide'}\n```\n```{r}\nstr(dsL)\n```\n\n## Load graphical theme {.smaller}\n```{r loadTheme, out.width=\"95%\", warning=F}\n```\n \n\n[NLSWeb]:https://www.nlsinfo.org/investigator/pages/login.jsp\n[NLS]:http://www.bls.gov/nls/\n\n\n## Question? Comments?\n\nYou can forward questions to Ann Greenwood (ann.greenwood@popdata.bc.ca)  or Vincenza Gruppuso (vincenza@uvic.ca) during the live Q&A. They are standing by to take your questions.   \n \n\n\n\n",
+    "created" : 1415922459786.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "480975271",
+    "id" : "9D812824",
+    "lastKnownWriteTime" : 1415934782,
+    "path" : "~/GitHub/COAG-colloquium-2014F/Reports/2014-11-14-Statistical-Modeling-Demo.Rmd",
+    "project_path" : "Reports/2014-11-14-Statistical-Modeling-Demo.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
