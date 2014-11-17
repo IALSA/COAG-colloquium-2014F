@@ -71,12 +71,12 @@ Next:
 
 ## Model manifestation {.smaller}
 
-<img src = 'Reports/images/cc_Nov18/test.png' width="100%"></img>  
+<img src = 'images/cc_Nov18/modelManifestations.png' width="90%"></img>  
 
 Press (P): Zoom  
 Next: 
 
 ## New
-![images/cc/MM_table.PNG][one]
+![images/cc/MM_table.PNG](./images/cc_Nov18/modelManifestations.png)
 
-[one]:./images/cc/MM_graph.PNG
+
