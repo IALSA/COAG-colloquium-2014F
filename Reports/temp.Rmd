@@ -55,39 +55,6 @@ read_chunk("./Reports/2014-11-18-Statistical-Modeling.R") # the file to which kn
 ## ...
 
 
-
-## Modeling: post processing {.smaller}
-<div class="columns-2">
-```{r dsM22}
-
-```
-</div>
-
-Press (P): Zoom  
-Next: 
-
-
-## Modeling: post processing {.smaller}
-<div class="columns-2">
-```{r model0}
-
-```
-</div>
-
-Press (P): Zoom  
-Next: 
-
-## Modeling: post processing {.smaller}
-<div class="columns-2">
-```{r model1}
-
-```
-</div>
-
-Press (P): Zoom  
-Next: 
-
-
 ## Modeling: manifestations {.smaller}
   1. Tabular  
   2. Algebraic  
@@ -100,3 +67,16 @@ Next:
   
 Press (P): Zoom  
 Next: 
+
+
+## Model manifestation {.smaller}
+
+<img src = 'Reports/images/cc_Nov18/test.png' width="100%"></img>  
+
+Press (P): Zoom  
+Next: 
+
+## New
+![images/cc/MM_table.PNG][one]
+
+[one]:./images/cc/MM_graph.PNG

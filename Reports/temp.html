@@ -102,112 +102,6 @@ dsL &lt;- readRDS(&quot;./Data/Derived/dsL.rds&quot;)</pre>
 
 </article></slide><slide class=''><hgroup><h2>&#8230;</h2></hgroup><article  id="section">
 
-</article></slide><slide class=''><hgroup><h2>Modeling: post processing</h2></hgroup><article  id="modeling-post-processing" class="smaller">
-
-<div class="columns-2">
-<pre class = 'prettyprint lang-r'>dsM &lt;- dplyr::filter(dsL, id &lt;= 300) %&gt;% 
-  dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %&gt;%
-  dplyr::mutate(time=year-2000) %&gt;%
-  dplyr::select(id, time, attend)
-modelA &lt;- lm(attend ~ 1, data=dsM)
-modelB &lt;- lm(attend ~ 1 + time, data=dsM)
-dplyr::filter(dsM,id==1)</pre>
-
-<pre >   id time attend
-1   1    0      1
-2   1    1      6
-3   1    2      2
-4   1    3      1
-5   1    4      1
-6   1    5      1
-7   1    6      1
-8   1    7      1
-9   1    8      1
-10  1    9      1
-11  1   10      1
-12  1   11      1</pre></div>
-
-<p>Press (P): Zoom<br/>Next:</p>
-
-</article></slide><slide class=''><hgroup><h2>Modeling: post processing</h2></hgroup><article  id="modeling-post-processing-1" class="smaller">
-
-<div class="columns-2">
-<pre class = 'prettyprint lang-r'>summary(modelA)</pre>
-
-<pre >
-Call:
-lm(formula = attend ~ 1, data = dsM)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--1.477 -1.477 -0.477  0.523  5.523 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   2.4769     0.0416    59.6   &lt;2e-16 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 1.79 on 1859 degrees of freedom</pre>
-
-<pre class = 'prettyprint lang-r'>#
-#
-summary(modelB)</pre>
-
-<pre >
-Call:
-lm(formula = attend ~ 1 + time, data = dsM)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--1.788 -1.392 -0.562  0.721  5.834 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   2.7882     0.0777   35.86  &lt; 2e-16 ***
-time         -0.0566     0.0120   -4.73  2.4e-06 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 1.78 on 1858 degrees of freedom
-Multiple R-squared:  0.0119,    Adjusted R-squared:  0.0114 
-F-statistic: 22.3 on 1 and 1858 DF,  p-value: 2.45e-06</pre></div>
-
-<p>Press (P): Zoom<br/>Next:</p>
-
-</article></slide><slide class=''><hgroup><h2>Modeling: post processing</h2></hgroup><article  id="modeling-post-processing-2" class="smaller">
-
-<div class="columns-2">
-<pre class = 'prettyprint lang-r'>deviance(modelA)</pre>
-
-<pre >[1] 5974</pre>
-
-<pre class = 'prettyprint lang-r'>BIC(modelA)</pre>
-
-<pre >[1] 7464</pre>
-
-<pre class = 'prettyprint lang-r'>AIC(modelA)</pre>
-
-<pre >[1] 7453</pre>
-
-<pre class = 'prettyprint lang-r'>#
-#
-
-
-deviance(modelB)</pre>
-
-<pre >[1] 5903</pre>
-
-<pre class = 'prettyprint lang-r'>BIC(modelB)</pre>
-
-<pre >[1] 7449</pre>
-
-<pre class = 'prettyprint lang-r'>AIC(modelB)</pre>
-
-<pre >[1] 7433</pre></div>
-
-<p>Press (P): Zoom<br/>Next:</p>
-
 </article></slide><slide class=''><hgroup><h2>Modeling: manifestations</h2></hgroup><article  id="modeling-manifestations" class="smaller">
 
 <ol>
@@ -220,7 +114,17 @@ deviance(modelB)</pre>
 <li>Semantic</li>
 </ol>
 
-<p>Press (P): Zoom<br/>Next:</p></article></slide>
+<p>Press (P): Zoom<br/>Next:</p>
+
+</article></slide><slide class=''><hgroup><h2>Model manifestation</h2></hgroup><article  id="model-manifestation" class="smaller">
+
+<p><img src = 'Reports/images/cc_Nov18/test.png' width="100%"></img></p>
+
+<p>Press (P): Zoom<br/>Next:</p>
+
+</article></slide><slide class=''><hgroup><h2>New</h2></hgroup><article  id="new">
+
+<img src='./images/cc/MM_graph.PNG' title=''/></article></slide>
 
 
   <slide class="backdrop"></slide>
