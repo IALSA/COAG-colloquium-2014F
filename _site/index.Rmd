@@ -79,9 +79,9 @@ Remembrance Day </br>
 
 **Nov 18, 2014**   
 Andrey Koval (University of Victoria)    
-RR Basic Skills (3): Statistical modeling    
+[RR Basic Skills (3): Statistical modeling][lecture4]    
 The lecture introduces model fitting in R and discusses popular packages for estimating statistical 
-models (lm, gls, lme4, etc.). Fitting of linear and mixed models of longitudinal data is demonstrated. 
+models (nlme, lme4, etc.). Fitting of linear and mixed models of longitudinal data is demonstrated. 
 The strategy of organizing and post-processing of the model output is discussed. </br>  
 
 
@@ -116,4 +116,4 @@ Please, take a moment to **leave us a comment**: we value your feedback!
 [lecture1]:./2014-10-14-Toolbox-and-Skillset.html
 [lecture2]:./2014-10-21-Data-Manipulation.html
 [lecture3]:./2014-11-04-Producing-Graphs.html
-
+[lecture4]:./2014-11-18-Statistical-Modeling.html
