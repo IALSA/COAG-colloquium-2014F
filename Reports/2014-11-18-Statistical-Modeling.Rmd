@@ -1,0 +1,696 @@
+---
+title: "RR Skills (3): Statistical Modeling "
+author: Andrey Koval
+date: November 18, 2014
+output: 
+  ioslides_presentation:
+    widescreen: true
+    transition: faster
+  includes:
+    in_header: include/in_header.html
+---
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=F, message=F} 
+library(knitr)
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external script file. -->
+```{r, echo=F, message=T}
+require(knitr)
+opts_chunk$set(
+  results='show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+#   fig.height = 4.8, 
+#   fig.width = 6.5, 
+  out.width = NULL,
+  fig.path = 'figure_rmd_try/',     
+  dev = "png",
+  dpi = 70
+)
+echoChunks <- FALSE
+warningChunks<- FALSE
+messageChunks<- FALSE
+outwidthChunks <- "90%"
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Reports/2014-11-18-Statistical-Modeling.R") # the file to which knitr calls for the chunks
+```
+
+
+## Overview of the Series
+
+- Oct 14  -- Intro to Reproducible Research  
+- Oct 21  -- RR Basic Skills (1): Data Manipulation
+- Oct 28  -- Intro to Latent Class and Latent Transition Models  
+- Nov  4  -- RR Basic Skills (2): Graph Production  
+- Nov 18  -- **RR Basic Skills (3): Statistical Modeling**   
+- Nov 25  -- RR Basic Skills (4): Dynamic Reporting   
+- Dec 2 -- Migrating into R from other Statistical Software  
+
+<div class="notes">
+</div>
+
+## Previously:
+
+<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
+```p
+"./Scripts/Data/dsL.R"
+```
+
+download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
+
+<div class="notes">
+Last time we talked about the flow of data in a research project. The data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+</div>
+
+## Load Data {.smaller}
+```{r LoadPackages, echo=F, warning=F, message=F, results='hide'}
+```
+
+```{r LoadData, echo=T, warning=F, message=F, results='hide'}
+```
+```{r}
+str(dsL)
+```
+
+<div class="notes">
+
+</div>
+
+## Load graphical theme {.smaller}
+```{r loadTheme, out.width="95%", warning=F}
+```
+
+<div class="notes">
+
+</div>
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM00}
+```
+</br>
+```{r graphBasic, out.width="95%", warning=F, echo=F}
+```
+</div>
+Press(P): Note  
+Next: final graph from last time 
+
+<div class="notes">
+
+</div>
+
+## Variables and Aesthetics {.smaller}
+<div class="columns-2">
+```{r graphFullPrevious, out.width="95%", warning=F}
+```
+</div>
+Press (P): Zoom  
+Next: What is modeling
+<div class="notes">
+Last time we've studied the anatomy of ggplot and saw how developing our graph layer by layer we can achive a rather impressive results of data visualization in relatively short amout of time.
+```{r graphFullPrevious, out.width="100%", echo=F,warning=F,message=F}
+```
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM01}
+```
+</br>
+```{r graph01, out.width="95%", warning=F, echo=F}
+```
+ ${y_{it}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM01}
+```
+</br>
+```{r graph01, out.width="95%", warning=F, echo=F}
+```
+</br>
+${y_{1 t}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM02}
+```
+</br>
+```{r graph02, out.width="95%", warning=F, echo=F}
+```
+</br>
+${y_{2 t}}$
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM03}
+```
+</br>
+```{r graph03, out.width="95%", warning=F, echo=F}
+```
+ ${y_{3 t}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM04}
+```
+</br>
+```{r graph04, out.width="95%", warning=F, echo=F}
+```
+ ${y_{4 t}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM04}
+```
+</br>
+```{r graph05, out.width="95%", warning=F, echo=F}
+```
+ ${y_{4 \cdot 0}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM04}
+```
+</br>
+```{r graph06, out.width="95%", warning=F, echo=F}
+```
+ ${y_{4 \cdot 1}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM04}
+```
+</br>
+```{r graph07, out.width="95%", warning=F, echo=F}
+```
+ ${y_{4 \cdot 2}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM04}
+```
+</br>
+```{r graph08, out.width="95%", warning=F, echo=F}
+```
+ ${y_{4 \cdot 3}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM03}
+```
+</br>
+```{r graph09, out.width="95%", warning=F, echo=F}
+```
+ ${y_{3 \cdot 3}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM02}
+```
+</br>
+```{r graph10, out.width="95%", warning=F, echo=F}
+```
+ ${y_{2 \cdot 2}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Mapping data to graphics {.smaller}
+<div class="columns-2">
+```{r dsM01}
+```
+</br>
+```{r graph11, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 \cdot 1}}$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Modeling  {.smaller}
+
+### What is a model?
+ - simplifications of a complex reality (Rodgers, 2010)  
+ - "mechanism" for reproducing data
+ 
+### What does modeling involve?   
+ - generating data points  
+ - comparing observed and modeled data
+ - describing properties and attribues of a model
+ - comparing and contrasting models
+ 
+
+<div class="notes">
+[Rodgers, 2010](http://psych.colorado.edu/~willcutt/pdfs/Rodgers_2010.pdf):  
+Rodgers, J. L. (2010). The epistemology of mathematical and statistical modeling: a quiet methodological revolution. American Psychologist, 65(1), 1.
+</div>
+Press(P): Citation   
+Next: 
+
+## Modeling: Longitudinal {.smaller}
+Linda Collins (2006) conceptualized three components involved in longitudinal modeling:  
+
+### Theoretical model of change  
+ - describes the nature of change  
+    -  shape  
+    -  periodicity  
+    -  scale  
+ 
+### Temporal design  
+ - Timing  
+ - Frequency  
+ - Spacing  
+
+### Statistical model of change  
+ -  operationalization of theoretical model of change
+
+
+<div class="notes">
+[Colliins, 2006](http://www2.sep.ucr.ac.cr/GESTION/CursoUGES2010/416ec3a16c697369735f64655f6461746f735f6c6f6e6769747564696e616c735f496e74656772616369c3b26e5f64655f6d6f64656c6f735f7465c3b37269636f735f6461746f735f795f6d6f64656c6f735f6573746164c3ad737469636f73.pdf):  
+Collins, L. M. (2006). Analysis of longitudinal data: The integration of theoretical model, temporal design, and statistical model. Annu. Rev. Psychol., 57, 505-528.
+</div>
+Press(P): Citation   
+Next: 
+
+
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM12a}
+```
+</br>
+```{r graph12a, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} =$  
+ </br>
+ ${y_{1 t}} =$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM12}
+```
+</br>
+```{r graph12, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} = model$  
+ </br>
+ ${y_{1 t}} = 4$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM13}
+```
+</br>
+```{r graph13, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} = model$  
+ </br>
+ ${y_{1 t}} = 4 -time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM14}
+```
+</br>
+```{r graph14, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} = model$  
+ </br>
+ ${y_{1t}} = 4 - 0.2 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM15}
+```
+</br>
+```{r graph15, out.width="95%", warning=F, echo=F}
+```
+ ${y_{2 t}} = model$  
+ </br>
+ ${y_{2t}} = 1.8 - 0.05 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM16}
+```
+</br>
+```{r graph16, out.width="95%", warning=F, echo=F}
+```
+ ${y_{3 t}} = model$  
+ </br>
+ ${y_{3t}} = 2 - 0.17 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM17}
+```
+</br>
+```{r graph17, out.width="95%", warning=F, echo=F}
+```
+${y_{4 t}} = model$  
+ </br>
+ ${y_{4t}} = 1.5 - 0.22 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM18}
+```
+</br>
+```{r graph18, out.width="95%", warning=F, echo=F}
+
+```
+ ${y_{it}} = model$  
+ </br>
+ ${y_{it}} = 3 - 0.14 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+```{r graph18, out.width="100%", warning=F, echo=F}
+```
+</div>
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM19}
+```
+</br>
+```{r graph19, out.width="95%", warning=F, echo=F}
+```
+ ${y_{it}} = model$  
+ </br>
+ ${y_{it}} = 3 - 0.14 \times time$ 
+
+</div>
+</br> </br> </br> 
+Press (P): Zoom  
+Next: 
+
+<div class="notes">
+```{r graph19, out.width="100%", warning=F, echo=F}
+```
+</div>
+
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM20}
+```
+</br>
+```{r graph20, out.width="95%", warning=F, echo=F}
+```
+
+```{r}
+length(unique(dsM$id))
+```
+${y_{it}} = model$  
+ </br>
+ ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$ 
+
+</div>
+Press (P): Zoom  
+Next: 
+
+<div class="notes">
+```{r graph20, out.width="100%", warning=F, echo=F}
+```
+</div>
+
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM21}
+
+```
+</br>
+```{r graph21, out.width="95%", warning=F, echo=F}
+```
+
+```{r}
+length(unique(dsM$id))
+```
+ ${y_{it}} = model$  
+ </br>
+ ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$ 
+
+</div>
+
+Press (P): Zoom  
+Next: 
+
+<div class="notes">
+```{r graph21, out.width="100%", warning=F, echo=F}
+```
+</div>
+
+
+## Modeling: post processing {.smaller}
+<div class="columns-2">
+```{r dsM22}
+
+```
+</div>
+
+Press (P): Zoom  
+Next: 
+
+
+## Modeling: post processing {.smaller}
+<div class="columns-2">
+```{r model0}
+
+```
+</div>
+
+Press (P): Zoom  
+Next: 
+
+## Modeling: post processing {.smaller}
+<div class="columns-2">
+```{r model1}
+
+```
+</div>
+
+Press (P): Zoom  
+Next: 
+
+
+## Modeling: manifestations {.smaller}
+  1. Tabular  
+  2. Algebraic  
+  3. Syntactic  
+  4. Numeric  
+  5. Graphical
+  6. Schematic  
+  7. Semantic  
+
+
+
+
+
+
+
+## Question? Comments?
+
+You can forward questions to Ann Greenwood (ann.greenwood@popdata.bc.ca)  or Vincenza Gruppuso (vincenza@uvic.ca) during the live Q&A. They are standing by to take your questions.   
+ 
+ 
+ [NLSWeb]:https://www.nlsinfo.org/investigator/pages/login.jsp
+[NLS]:http://www.bls.gov/nls/
+
+
+

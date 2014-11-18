@@ -51,6 +51,16 @@ read_chunk("./Reports/2014-11-18-Statistical-Modeling.R") # the file to which kn
 ```{r dsM01, echo=FALSE, results='hide'}
 ```
 
+<!--
+Photoshop image settings:
+Use the following dimensions:
+For slides WITH title and image at 100% 
+1280 x 900  -  wide: cuts off         tall: bottom bleeds
+1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines
+1280 x 680  -  wide: bottom 1 line    tall: bottom 5 lines
+1280 x 650  -  wide: bottom 2 lines   tall: bottom 6 lines
+-->
+
 
 ## ...
 
@@ -68,15 +78,49 @@ read_chunk("./Reports/2014-11-18-Statistical-Modeling.R") # the file to which kn
 Press (P): Zoom  
 Next: 
 
-
-## Model manifestation {.smaller}
-
-<img src = 'images/cc_Nov18/modelManifestations.png' width="90%"></img>  
-
+## test {.smaller}
+<img src = 'images/cc_Nov18/test.png' width="100%"></img>  
 Press (P): Zoom  
+Next:
+
+
+
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM12a}
+```
+</br>
+```{r graph12a, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} =$  
+ </br>
+ ${y_{1 t}} =$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
 Next: 
 
-## New
-![images/cc/MM_table.PNG](./images/cc_Nov18/modelManifestations.png)
+<div class="notes">
 
+</div>
 
+## Modeling: recreating patterns {.smaller}
+<div class="columns-2">
+```{r dsM12}
+```
+</br>
+```{r graph12, out.width="95%", warning=F, echo=F}
+```
+ ${y_{1 t}} = model$  
+ </br>
+ ${y_{1 t}} = 4$ 
+
+</div>
+</br> </br> </br> 
+Press(P): Note  
+Next: 
+
+<div class="notes">
+
+</div>

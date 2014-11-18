@@ -28,22 +28,49 @@ dsL <- readRDS("./Data/Derived/dsL.rds")
 
 
 
+<!--
+Photoshop image settings:
+Use the following dimensions:
+For slides WITH title and image at 100% 
+1280 x 900  -  wide: cuts off         tall: bottom bleeds
+1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines
+1280 x 680  -  wide: bottom 1 line    tall: bottom 5 lines
+1280 x 650  -  wide: bottom 2 lines   tall: bottom 6 lines
+-->
+
 
 ## ...
 
 
+## Modeling: manifestations {.smaller}
+  1. Tabular  
+  2. Algebraic  
+  3. Syntactic  
+  4. Numeric  
+  5. Graphical
+  6. Schematic  
+  7. Semantic  
+  
+  
+Press (P): Zoom  
+Next: 
 
-## Modeling: post processing {.smaller}
+## 1280x900 {.smaller}
+<img src = 'images/cc_Nov18/modelManifestations1280x900.png' width="100%"></img>  
+Press (P): Zoom  
+Next:
+
+
+
+## Modeling: recreating patterns {.smaller}
 <div class="columns-2">
 
 ```r
-dsM <- dplyr::filter(dsL, id <= 300) %>% 
-  dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
+dsM <- dplyr::filter(dsL, id == 1) %>% 
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend)
-modelA <- lm(attend ~ 1, data=dsM)
-modelB <- lm(attend ~ 1 + time, data=dsM)
-dplyr::filter(dsM,id==1)
+# 
+dsM
 ```
 
 ```
@@ -61,13 +88,10 @@ dplyr::filter(dsM,id==1)
 11  1   10      1
 12  1   11      1
 ```
-</div>
-
-Press (P): Zoom  
-Next: 
+</br>
 
 
-## Modeling: post processing {.smaller}
-<div class="columns-2">
+
+
 
 

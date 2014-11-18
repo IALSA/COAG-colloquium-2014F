@@ -159,6 +159,15 @@ p <- p + geom_point(aes(x=1,y=6), size=7, shape="O", color="red")
 p
 
 
+## @knitr dsM12a
+dsM <- dplyr::filter(dsL, id == 1) %>% 
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend)
+# 
+dsM
+## @knitr graph12a
+source("./Scripts/Graphs/basicTrajectory.R")
+p
 ## @knitr dsM12
 dsM <- dplyr::filter(dsL, id == 1) %>% 
   dplyr::mutate(time=year-2000) %>%
@@ -277,7 +286,8 @@ dsM <- dplyr::filter(dsL, id <= 300) %>%
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend) 
-dsM$model <- predict (lm(attend ~ 1, data=dsM))
+model <- nlme::gls(attend ~ 1, data=dsM)
+dsM$model <- predict(model)
 dplyr::filter(dsM,id==1)
 ## @knitr graph20
 source("./Scripts/Graphs/basicTrajectory300.R")
@@ -290,7 +300,8 @@ dsM <- dplyr::filter(dsL, id <= 300) %>%
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend) 
-dsM$model <- predict (lm(attend ~ 1 + time, data=dsM))
+model <- nlme::gls(attend ~ 1 + time, data=dsM)
+dsM$model <- predict(model)
 dplyr::filter(dsM,id==1)
 ## @knitr graph21
 source("./Scripts/Graphs/basicTrajectory300.R")
@@ -333,3 +344,11 @@ BIC(modelB)
 AIC(modelB)
 
 
+
+Dev_a <- c("DEV", deviance(modelA))
+AIC_a <-c("AIC", AIC(modelA))
+BIC_a <- c("BIC", BIC(modelA))
+
+FitA <- rbind(Dev_a, BIC_a, AIC_a) 
+print(FitA)
+(FitA)
