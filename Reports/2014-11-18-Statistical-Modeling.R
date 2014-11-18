@@ -123,19 +123,14 @@ source("./Scripts/Graphs/basicTrajectory.R")
 p
 
 
-## @knitr graph05
-source("./Scripts/Graphs/basicTrajectory.R")
-p <- p + geom_point(aes(x=0,y=2), size=7, shape="O", color="red")
-p
-
-## @knitr graph06
-source("./Scripts/Graphs/basicTrajectory.R")
-p <- p + geom_point(aes(x=1,y=1), size=7, shape="O", color="red")
-p
-
-## @knitr graph07
-source("./Scripts/Graphs/basicTrajectory.R")
-p <- p + geom_point(aes(x=2,y=3), size=7, shape="O", color="red")
+## @knitr dsM04a
+dsM <- dplyr::filter(dsL, id <= 300) %>% 
+  dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend) 
+dplyr::filter(dsM,row_number()<15)
+## @knitr graph04a
+source("./Scripts/Graphs/basicTrajectory300.R")
 p
 
 ## @knitr graph08
@@ -143,15 +138,6 @@ source("./Scripts/Graphs/basicTrajectory.R")
 p <- p + geom_point(aes(x=3,y=1), size=7, shape="O", color="red")
 p
 
-## @knitr graph09
-source("./Scripts/Graphs/basicTrajectory.R")
-p <- p + geom_point(aes(x=3,y=2), size=7, shape="O", color="red")
-p
-
-## @knitr graph10
-source("./Scripts/Graphs/basicTrajectory.R")
-p <- p + geom_point(aes(x=2,y=1), size=7, shape="O", color="red")
-p
 
 ## @knitr graph11
 source("./Scripts/Graphs/basicTrajectory.R")
@@ -159,15 +145,9 @@ p <- p + geom_point(aes(x=1,y=6), size=7, shape="O", color="red")
 p
 
 
-## @knitr dsM12a
-dsM <- dplyr::filter(dsL, id == 1) %>% 
-  dplyr::mutate(time=year-2000) %>%
-  dplyr::select(id, time, attend)
-# 
-dsM
-## @knitr graph12a
-source("./Scripts/Graphs/basicTrajectory.R")
-p
+
+
+
 ## @knitr dsM12
 dsM <- dplyr::filter(dsL, id == 1) %>% 
   dplyr::mutate(time=year-2000) %>%
@@ -178,7 +158,22 @@ dsM
 source("./Scripts/Graphs/basicTrajectory.R")
 p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.5, alpha=.3)
 p
-
+## @knitr graph12error
+source("./Scripts/Graphs/basicTrajectory.R")
+p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.5, alpha=.3)
+p <- p + annotate("segment", x=0, xend=0, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=1, xend=1, y=6, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=2, xend=2, y=2, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=3, xend=3, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=4, xend=4, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=5, xend=5, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=6, xend=6, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=7, xend=7, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=8, xend=8, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=9, xend=9, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=10, xend=10, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p <- p + annotate("segment", x=11, xend=11, y=1, yend=4, color="red", size=1.5, alpha=.4)
+p
 
 ## @knitr dsM13
 dsM <- dplyr::filter(dsL, id == 1) %>% 
@@ -249,6 +244,12 @@ dsM <- dplyr::filter(dsL, id <= 4) %>%
   dplyr::select(id, time, attend) 
 dsM$model <- 3 - (.14)*dsM$time
 dplyr::filter(dsM,id==1)
+## @knitr dsM18a
+dsM <- dplyr::filter(dsL, id <= 4) %>% 
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend) 
+# 
+dplyr::filter(dsM,id==1)
 ## @knitr graph18
 p <- ggplot2::ggplot(dsM,aes(x=time,y=attend))
 p <- p + geom_line(aes(group=id), color='firebrick',
@@ -268,26 +269,59 @@ p <- p + labs(list(
 #
 p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.5, alpha=.3)
 p
+## @knitr graph18a
+p <- ggplot2::ggplot(dsM,aes(x=time,y=attend))
+p <- p + geom_line(aes(group=id), color='firebrick',
+                   alpha=.2,
+                   position=position_jitter(w=0.1, h=0.1))
+p <- p + geom_point(shape=1, color="black", fill=NA,                 
+                    alpha=.4, size=2, 
+                    position=position_jitter(w=0.1, h=0.1))
+p <- p + plotTheme
+p <- p + scale_x_continuous(limits=c(-.5,11),
+                            breaks=c(0:11))
+p <- p + scale_y_continuous(limits=c(-.5,8.5), 
+                            breaks=seq(1,8, by=1))
+p <- p + labs(list(
+  title="How often did you attend worship last year?",
+  x="Time scale: years since 2000", y="Church attendance"))
+#
+# p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.5, alpha=.3)
+p
+
 
 
 ## @knitr dsM19
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend) 
-dsM$model <- 3 - (.14)*dsM$time
+dsM$model <- 3.5 - (.25)*dsM$time
 dplyr::filter(dsM,id==1)
+## @knitr dsM19a
+dsM <- dplyr::filter(dsL, id <= 300) %>% 
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend) 
+#
+dplyr::filter(dsM,id==1)
+## @knitr graph19a
+source("./Scripts/Graphs/basicTrajectory300.R")
+# p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.7, alpha=.5)
+p
 ## @knitr graph19
 source("./Scripts/Graphs/basicTrajectory300.R")
 p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.7, alpha=.5)
 p
+
 
 ## @knitr dsM20
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend) 
+### <b>
 model <- nlme::gls(attend ~ 1, data=dsM)
 dsM$model <- predict(model)
+### </b>
 dplyr::filter(dsM,id==1)
 ## @knitr graph20
 source("./Scripts/Graphs/basicTrajectory300.R")
@@ -295,13 +329,20 @@ p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.7, alph
 p
 
 
+
+
+
+
+
 ## @knitr dsM21
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend) 
+### <b>
 model <- nlme::gls(attend ~ 1 + time, data=dsM)
 dsM$model <- predict(model)
+### </b>
 dplyr::filter(dsM,id==1)
 ## @knitr graph21
 source("./Scripts/Graphs/basicTrajectory300.R")
@@ -309,46 +350,95 @@ p <- p + geom_line(aes(y=model), color="blue4", linetype="solid", size=1.7, alph
 p
 
 
-## @knitr dsM22
+## @knitr dsM22a
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
   dplyr::mutate(time=year-2000) %>%
   dplyr::select(id, time, attend)
-modelA <- lm(attend ~ 1, data=dsM)
-modelB <- lm(attend ~ 1 + time, data=dsM)
+### <b>
+modelA <- nlme::gls(attend ~ 1       , data=dsM)
+### </b>
+modelB <- nlme::gls(attend ~ 1 + time, data=dsM)
+### <b>
+dsM$modelA <- predict(modelA)
+### </b>
+dsM$modelB <- predict(modelB)
 dplyr::filter(dsM,id==1)
 
-## @knitr model0
-summary(modelA)
+
+## @knitr dsM22b
+dsM <- dplyr::filter(dsL, id <= 300) %>% 
+  dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend)
+modelA <- nlme::gls(attend ~ 1       , data=dsM)
+### <b>
+modelB <- nlme::gls(attend ~ 1 + time, data=dsM)
+### </b>
+dsM$modelA <- predict(modelA)
+### <b>
+dsM$modelB <- predict(modelB)
+### </b>
+dplyr::filter(dsM,id==1)
 
 
-#
-#
-summary(modelB)
+## @knitr modelApost
+model <- modelA
+logLik<- summary(model)$logLik
+deviance<- -2*logLik
+AIC<- AIC(model)
+BIC<- BIC(model)
+df.resid<- NA
+N<- summary(model)$dims$N
+p<- summary(model)$dims$p
+ids<- length(unique(dsM$id))
+df.resid<- N-p
+mInfo<- data.frame("logLik" = logLik, 
+                   "deviance"= deviance, 
+                   "AIC" = AIC, "BIC" = BIC,
+                   "df.resid" = df.resid, "N" = N, 
+                   "p" = p, "ids" = ids)
+t<- t(mInfo)
+rownames(t)<-colnames(mInfo)
+dsmInfo<- data.frame(new=t)
+colnames(dsmInfo) <- c("modelA")
+mA <- dsmInfo
+
+## @knitr modelApostPrint
+print(mA)
+
+## @knitr modelBpost
+model <- modelB 
+logLik<- summary(model)$logLik
+deviance<- -2*logLik
+AIC<- AIC(model)
+BIC<- BIC(model)
+df.resid<- NA
+N<- summary(model)$dims$N
+p<- summary(model)$dims$p
+ids<- length(unique(dsM$id))
+df.resid<- N-p
+mInfo<- data.frame("logLik" = logLik, 
+                   "deviance"= deviance, 
+                   "AIC" = AIC, "BIC" = BIC,
+                   "df.resid" = df.resid, "N" = N, 
+                   "p" = p, "ids" = ids)
+t<- t(mInfo)
+rownames(t)<-colnames(mInfo)
+dsmInfo<- data.frame(new=t)
+colnames(dsmInfo) <- c("modelB")
+mB <- dsmInfo
+
+
+## @knitr modelBpostPrint
+print(mB)
+
+
+## @knitr modelsABpost
+models <- data.frame(cbind(mA,mB))
+models <- dplyr::mutate(models, 
+  dif = round(modelB - modelA,2), 
+Index = rownames(dsmInfo))
 
 
 
-## @knitr model1
-deviance(modelA)
-BIC(modelA)
-AIC(modelA)
-
-
-
-#
-#
-
-
-deviance(modelB)
-BIC(modelB)
-AIC(modelB)
-
-
-
-Dev_a <- c("DEV", deviance(modelA))
-AIC_a <-c("AIC", AIC(modelA))
-BIC_a <- c("BIC", BIC(modelA))
-
-FitA <- rbind(Dev_a, BIC_a, AIC_a) 
-print(FitA)
-(FitA)

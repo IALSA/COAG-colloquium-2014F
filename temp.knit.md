@@ -33,7 +33,7 @@ Photoshop image settings:
 Use the following dimensions:
 For slides WITH title and image at 100% 
 1280 x 900  -  wide: cuts off         tall: bottom bleeds
-1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines
+1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines  SELECTED
 1280 x 680  -  wide: bottom 1 line    tall: bottom 5 lines
 1280 x 650  -  wide: bottom 2 lines   tall: bottom 6 lines
 -->
@@ -55,42 +55,15 @@ For slides WITH title and image at 100%
 Press (P): Zoom  
 Next: 
 
-## 1280x900 {.smaller}
-<img src = 'images/cc_Nov18/modelManifestations1280x900.png' width="100%"></img>  
+## test {.smaller}
+<img src = 'images/cc_Nov18/test.png' width="100%"></img>  
 Press (P): Zoom  
 Next:
 
 
 
-## Modeling: recreating patterns {.smaller}
-<div class="columns-2">
 
-```r
-dsM <- dplyr::filter(dsL, id == 1) %>% 
-  dplyr::mutate(time=year-2000) %>%
-  dplyr::select(id, time, attend)
-# 
-dsM
-```
-
-```
-   id time attend
-1   1    0      1
-2   1    1      6
-3   1    2      2
-4   1    3      1
-5   1    4      1
-6   1    5      1
-7   1    6      1
-8   1    7      1
-9   1    8      1
-10  1    9      1
-11  1   10      1
-12  1   11      1
-```
-</br>
-
-
+## Test
 
 
 

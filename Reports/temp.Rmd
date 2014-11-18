@@ -56,7 +56,7 @@ Photoshop image settings:
 Use the following dimensions:
 For slides WITH title and image at 100% 
 1280 x 900  -  wide: cuts off         tall: bottom bleeds
-1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines
+1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines  SELECTED
 1280 x 680  -  wide: bottom 1 line    tall: bottom 5 lines
 1280 x 650  -  wide: bottom 2 lines   tall: bottom 6 lines
 -->
@@ -85,42 +85,74 @@ Next:
 
 
 
-## Modeling: recreating patterns {.smaller}
-<div class="columns-2">
-```{r dsM12a}
+## Modeling: manifestations {.smaller}
+  1. Tabular  
+  2. Algebraic  
+  3. Syntactic  
+  4. Numeric  
+  5. Graphical
+  6. Schematic  
+  7. Semantic  
+  
+## Model manifestations {.smaller}
+  
+  
+```{r}
+dsM <- dplyr::filter(dsL, id <= 300) %>% 
+  dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%
+  dplyr::mutate(time=year-2000) %>%
+  dplyr::select(id, time, attend)
+model <- nlme::gls(attend ~ 1 + time, data=dsM)
+dsM$model <- predict(model)
+dplyr::filter(dsM,row_number()<15)
 ```
-</br>
-```{r graph12a, out.width="95%", warning=F, echo=F}
-```
- ${y_{1 t}} =$  
- </br>
- ${y_{1 t}} =$ 
 
-</div>
-</br> </br> </br> 
-Press(P): Note  
-Next: 
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm1.png' width="100%"></img>  
 
-<div class="notes">
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm2.png' width="100%"></img>  
 
-</div>
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm3.png' width="100%"></img>  
 
-## Modeling: recreating patterns {.smaller}
-<div class="columns-2">
-```{r dsM12}
-```
-</br>
-```{r graph12, out.width="95%", warning=F, echo=F}
-```
- ${y_{1 t}} = model$  
- </br>
- ${y_{1 t}} = 4$ 
 
-</div>
-</br> </br> </br> 
-Press(P): Note  
-Next: 
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm4.png' width="100%"></img>  
 
-<div class="notes">
 
-</div>
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm5.png' width="100%"></img>  
+
+
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm6.png' width="100%"></img>  
+
+
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm7.png' width="100%"></img>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
