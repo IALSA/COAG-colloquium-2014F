@@ -55,13 +55,13 @@ researchers and students who wish to increase their expertise in statistical ana
 Andrey Koval (University of Victoria)  
 [Toolbox and Skillset of Reproducible Research][lecture1]   
 The lecture introduces reproducible research and demonstrates digital self-publishing with RStudio and Git (Hub). The skills described and emphasized in this workflow include data manipulation, graph production, statistical modeling, and dynamic reporting. A more elaborate discussion of each basic skill will be provided in the next four lectures.   
-[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www13.sendthisfile.com/iPOF37u8YpOCzoQtkP2h1HBc/Ufnp3Bnb3IfjNP52KWqGKLdW/popdata.trimmed.oct.14.2014.mp4)</br>     
+[watch online](https://www.popdata.bc.ca/node/2035)    
 
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  
 [RR Skills (1): Data Manipulation][lecture2]        
 The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data.       
-[watch online](https://www.popdata.bc.ca/node/2035) or [download](https://www6.sendthisfile.com/5G3TRDD7KPLpsexHAZyfRCgT/qJswiCQmpIBOknOg1TqMXKAy/popdata.oct.21.2014.mp4)</br>   
+[watch online](https://www.popdata.bc.ca/node/2035) 
 
 
 
@@ -77,6 +77,7 @@ Andrey Koval (University of Victoria)
 The lecture introduces the grammar of graphics and its implementation in R.   
 Topics: basic R graphic utility; producing basic graphs with ggplot2; graph tuning and preparing your 
 graphs for publishing.  </br> 
+[watch online](https://www.popdata.bc.ca/node/2035)  
 
 
 Nov 11, 2014       
@@ -89,7 +90,7 @@ Andrey Koval (University of Victoria)
 The lecture introduces model fitting in R and discusses popular packages for estimating statistical 
 models (nlme, lme4, etc.). Fitting of linear and mixed models of longitudinal data is demonstrated. 
 The strategy of organizing and post-processing of the model output is discussed. </br>  
-
+[watch online](https://www.popdata.bc.ca/node/2035)  
 
 **Nov 25, 2014**  
 The presentation has been rescheduled to next week, December 2.  
@@ -104,6 +105,9 @@ a discussion on the strategy of report production. Several output formats (pdf, 
 considered.     </br>
 
 Note: The lecture "Migrating into R from other Statistical Software" has been moved to the spring 2015 semester.   </br>
+
+**VIDEO DOWNLOAD: If you wish to view this video on your computer, first click on the play arrow, then right click your mouse and select the 'save as' option. This will allow you to save the video to your computer as an Mp4 file.**
+
 
 
 ## Join us 
