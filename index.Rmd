@@ -55,20 +55,19 @@ researchers and students who wish to increase their expertise in statistical ana
 Andrey Koval (University of Victoria)  
 [Toolbox and Skillset of Reproducible Research][lecture1]   
 The lecture introduces reproducible research and demonstrates digital self-publishing with RStudio and Git (Hub). The skills described and emphasized in this workflow include data manipulation, graph production, statistical modeling, and dynamic reporting. A more elaborate discussion of each basic skill will be provided in the next four lectures.   
-[watch online](https://www.popdata.bc.ca/node/2035)    
+[watch online](https://www.popdata.bc.ca/node/2035)  </br>   
 
 **Oct 21, 2014**    
 Andrey Koval (University of Victoria)  
 [RR Skills (1): Data Manipulation][lecture2]        
 The lecture introduces the reproducible project that will be demonstrated during the lecture series. Topics: import and exploration of the raw data, project organization, techniques and practices of cleaning data, organizing the data workflow, reshaping data.       
-[watch online](https://www.popdata.bc.ca/node/2035) 
+[watch online](https://www.popdata.bc.ca/node/2035) </br> 
 
 
 
 **Oct 28, 2014**  
 Brian Flaherty (University of Washington)  
-Introduction to Latent Class and Latent Transition Models: Matching Models to Questions to Data
-Lecture details to follow. </br> 
+Introduction to Latent Class and Latent Transition Models: Matching Models to Questions to Data. </br> 
 
 </br>
 **Nov 4, 2014**  
@@ -76,8 +75,8 @@ Andrey Koval (University of Victoria)
 [RR Basic Skills (2): Graph Production][lecture3]  
 The lecture introduces the grammar of graphics and its implementation in R.   
 Topics: basic R graphic utility; producing basic graphs with ggplot2; graph tuning and preparing your 
-graphs for publishing.  </br> 
-[watch online](https://www.popdata.bc.ca/node/2035)  
+graphs for publishing.  
+[watch online](https://www.popdata.bc.ca/node/2035)  </br> 
 
 
 Nov 11, 2014       
@@ -89,24 +88,24 @@ Andrey Koval (University of Victoria)
 [RR Basic Skills (3): Statistical modeling][lecture4]    
 The lecture introduces model fitting in R and discusses popular packages for estimating statistical 
 models (nlme, lme4, etc.). Fitting of linear and mixed models of longitudinal data is demonstrated. 
-The strategy of organizing and post-processing of the model output is discussed. </br>  
-[watch online](https://www.popdata.bc.ca/node/2035)  
+The strategy of organizing and post-processing of the model output is discussed. 
+[watch online](https://www.popdata.bc.ca/node/2035)  </br>  
 
 **Nov 25, 2014**  
-The presentation has been rescheduled to next week, December 2.  
-This rescheduling will assist with better alignment of presentation topics during the next semester and will address logistical considerations associated with instructor availability.
+The presentation has been rescheduled to next week, December 2. 
+The lecture "Migrating into R from other Statistical Software" has been moved to the spring 2015 semester. 
+This rescheduling will assist with better alignment of presentation topics and will address logistical considerations associated with instructor availability. 
 
 **Dec 2, 2014**  
 Andrey Koval (University of Victoria)  
-RR Basic Skills (4): Dynamic Reporting  
+[RR Basic Skills (4): Dynamic Reporting]()  
 The lecture introduces publishing with knitr and rmarkdown packages inside RStudio. A brief tutorial on 
 markdown language will be provided as well as a demonstration on integrating R code into reports, and 
 a discussion on the strategy of report production. Several output formats (pdf, html, slides) are 
 considered.     </br>
 
-Note: The lecture "Migrating into R from other Statistical Software" has been moved to the spring 2015 semester.   </br>
-
-**VIDEO DOWNLOAD: If you wish to view this video on your computer, first click on the play arrow, then right click your mouse and select the 'save as' option. This will allow you to save the video to your computer as an Mp4 file.**
+**VIDEO DOWNLOAD**  
+If you wish to view this video on your computer, first click on the play arrow, then right click your mouse and select the 'save as' option. This will allow you to save the video to your computer as an Mp4 file.
 
 
 
