@@ -92,6 +92,10 @@ The strategy of organizing and post-processing of the model output is discussed.
 
 
 **Nov 25, 2014**  
+The presentation has been rescheduled to next week, December 2.  
+This rescheduling will assist with better alignment of presentation topics during the next semester and will address logistical considerations associated with instructor availability.
+
+**Dec 2, 2014**  
 Andrey Koval (University of Victoria)  
 RR Basic Skills (4): Dynamic Reporting  
 The lecture introduces publishing with knitr and rmarkdown packages inside RStudio. A brief tutorial on 
@@ -99,14 +103,7 @@ markdown language will be provided as well as a demonstration on integrating R c
 a discussion on the strategy of report production. Several output formats (pdf, html, slides) are 
 considered.     </br>
 
-
-**Dec 2, 2014**  
-Andrey Koval (University of Victoria)  
-Migrating into R from other Statistical Software  
-The lecture discusses the challenges and opportunities of multilingual estimation. 
-Showcase: Longitudinal mixed model in syntax of R, Mplus, SAS, and SPSS. Costs and benefits of 
-multilingualism in estimation. In focus: R package MplusAutomation as the means to post-process Mplus 
-estimation.  </br>
+Note: The lecture "Migrating into R from other Statistical Software" has been moved to the spring 2015 semester.   </br>
 
 
 ## Join us 
