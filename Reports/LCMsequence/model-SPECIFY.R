@@ -12,7 +12,8 @@ call_m1_F <- "attend ~ 1 + timec "
 
 ### Random Effect (RE) of the intercept                 ###
 ### m0_R1 ###
-call_m0_R1 <- "attend ~ 1 + (1 | id)" 
+call_m0_R1 <- "attend ~ 1 + (1 | id) " 
+              
 ### m1_R1 ###
 call_m1_R1 <- "attend ~ 1 + timec + (1 | id) "
 

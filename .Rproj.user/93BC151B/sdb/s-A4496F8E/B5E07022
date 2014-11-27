@@ -1,0 +1,16 @@
+{
+    "contents" : "\nmodelNamesLabels<- c(\n  \"m0_F\", \"m1_F\", \"m0_R1\", \"m1_R1\", \"m2_R2\")\n\n\n### No random effects ###\n### m0_F ###\ncall_m0_F <- \"attend ~ 1 \" \n### m1_F ###\ncall_m1_F <- \"attend ~ 1 + timec \"\n\n\n### Random Effect (RE) of the intercept                 ###\n### m0_R1 ###\ncall_m0_R1 <- \"attend ~ 1 + (1 | id) \" \n              \n### m1_R1 ###\ncall_m1_R1 <- \"attend ~ 1 + timec + (1 | id) \"\n\n\n### Random Effect (RE) of the  intercept + linear slope ###\n### m2_R2 ###\ncall_m2_R2 <- \"attend ~ 1 + timec + (1 + timec | id)\"\n\n\n\nmodelNames<- c(\n  call_m0_F, call_m1_F, call_m0_R1, call_m1_R1, call_m2_R2)\nnames(modelNames)<- modelNamesLabels\n\n# Groups of modelsL\nmodelsFE <- c(\"m0_F\",  \"m1_F\")\nmodelsR1 <- c(\"m0_R1\", \"m1_R1\")\nmodelsR2 <- c(        \"R2_0\")\n\n# Two alternative ways to specify model lists\nmodelList1 <- c(modelsFE, modelsR1, modelsR2)\nmodelList2 <- c(\"m0_F\", \"m1_F\", \n                \"m0_R1\", \"m1_R1\", \"R2_0\")  \n",
+    "created" : 1417124828273.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3214490202",
+    "id" : "B5E07022",
+    "lastKnownWriteTime" : 1417130373,
+    "path" : "~/GitHub/COAG-colloquium-2014F/Reports/LCMsequence/model-SPECIFY.R",
+    "project_path" : "Reports/LCMsequence/model-SPECIFY.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
