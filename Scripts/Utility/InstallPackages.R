@@ -28,6 +28,8 @@ packagesToInstall <- c(
   , "lme4"
   , "stringr"
   , "yaml"
+  , "gridExtra"
+  , "RODBC"
 ) 
 
 for( packageName in packagesToInstall ) {
