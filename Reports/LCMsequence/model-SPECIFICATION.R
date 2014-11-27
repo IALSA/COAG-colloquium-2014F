@@ -7,19 +7,19 @@ modelNamesLabels<- c(
 ### m0_F ###
 call_m0_F <- "attend ~ 1 " 
 ### m1_F ###
-call_m1_F <- "attend ~ 1 + time "
+call_m1_F <- "attend ~ 1 + timec "
 
 
 ### Random Effect (RE) of the intercept                 ###
 ### m0_R1 ###
 call_m0_R1 <- "attend ~ 1  (1 | id)" 
 ### m1_R1 ###
-call_m1_R1 <- "attend ~ 1 + time (1 | id) "
+call_m1_R1 <- "attend ~ 1 + timec (1 | id) "
 
 
 ### Random Effect (RE) of the  intercept + linear slope ###
 ### m2_R2 ###
-call_m2_R2 <- "attend ~ 1 + time (1 + time | id)"
+call_m2_R2 <- "attend ~ 1 + timec (1 + timec | id)"
 
 
 
