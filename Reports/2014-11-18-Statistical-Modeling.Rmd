@@ -27,7 +27,7 @@ opts_chunk$set(
 #   fig.height = 4.8, 
 #   fig.width = 6.5, 
   out.width = NULL,
-  fig.path = 'figure_rmd_try/',     
+  fig.path = 'figure_rmd/',     
   dev = "png",
   dpi = 70
 )
@@ -365,7 +365,7 @@ Model in EDA (Tukey, 1977):
 ```
 data  =  MODEL  +  error  
 data  =  fit    +  residual    
-data  =  rough  +  smooth    
+data  =  smooth +  rough    
 ```
 $${y_{1t}}$$
 </div>
