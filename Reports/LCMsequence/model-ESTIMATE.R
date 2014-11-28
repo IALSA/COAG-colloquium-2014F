@@ -1,6 +1,6 @@
 cat("\014")
 #These first few lines run only when the file is run in RStudio, !!NOT when an Rmd/Rnw file calls it!!
-rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
+# rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 
 ############################
 ## @knitr LoadPackages
@@ -28,13 +28,13 @@ source("./Reports/LCMsequence/model-SPECIFY.R")
 ############################
 ## @knitr defineData
 # numID<- 200 # highest id value (max = 9022)
-numID <- 1000 # highest id value (max = 9022)
+numID <- 200 # highest id value (max = 9022)
 ### Define the data that will populate the model
 ds<- dsL %>%  # chose conditions to apply in creating dataset for modeling
   dplyr::filter(id < numID) %>%
   dplyr::filter(year %in% c(2000:2011)) %>% # 1997:2011
 #   dplyr::filter(sample %in% c(1)) %>% # 0-Oversample; 1-Cross-Sectional
-  dplyr::filter(race %in% c(4)) %>% # 1-Black; 2-Hispanics; 3-Mixed; 4-White
+#   dplyr::filter(race %in% c(4)) %>% # 1-Black; 2-Hispanics; 3-Mixed; 4-White
   dplyr::filter(byear %in% c(1980:1984)) %>% # birth year 1980:1984
   dplyr::filter(ave(!is.na(attend), id, FUN = all)) %>% # only complete trajectories
   dplyr::mutate( # compute new variables
@@ -83,8 +83,8 @@ allModels<- modelNamesLabels  # default definition of what models sequence conta
 fixedOnly <- modelsFE
 
 for(i in allModels){
-  modelName<-  "m0_R1"
-#   modelName<-  i  # should be "i" if not a specific model
+#   modelName<-  "m0_R1"
+  modelName<-  i  # should be "i" if not a specific model
   message("Running model ", modelName, " in model-ESTIMATION.R at ", Sys.time())
   modelCall<- paste0("call_",modelName)
     f<- as.formula(modelCall)
@@ -161,9 +161,13 @@ for(i in allModels){
     
     # model<- modelR
     dsp<- data.frame(getME(model,"X")) # get the model frame
+head(dsp)
     dsp$id<-getME(model,"flist")$id # first level grouping factor, individual
+head(dsp)
     dsp$y<-getME(model,"y") # observed response vector
+head(dsp)
     dsp$yHat<- predict(model) # predicted values
+head(dsp)
     dsp$resid<- lme4:::residuals.merMod(model)
     head(dsp,13)
     
@@ -429,7 +433,7 @@ for(i in allModels){
 #     dsTimeOnly <- ds[]
     #TODO: the 'timec' variable needs to be merged into the dsp dataset, using the ds dataset.
     #  However, there's not a good set of variables to match on.
-    dsp$timec <- NA_real_
+    dsp$timec <- 0:11
   }
   head(dsp)
   
@@ -445,3 +449,5 @@ for(i in allModels){
   saveRDS(object=dsp, file=pathdsp, compress="xz")
 
 } # end of the for loop
+
+# source("./Reports/LCMsequence/model-COLLECT-SOLUTIONS.R")

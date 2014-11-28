@@ -1,11 +1,11 @@
 # rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-modelName <- "m2_R2"
+modelName <- "m1_F"
 
 require(ggplot2)
 require(dplyr)
 require(reshape2)
 
-BuildFERE <- function( modelName, dsWide ) {  
+BuildFERE <- function( modelName, dsWide ) { 
   emptyTheme <- ggplot2::theme_minimal() +
     theme(axis.text = element_blank()) +
     theme(axis.title = element_blank()) +
@@ -45,7 +45,7 @@ BuildFERE <- function( modelName, dsWide ) {
   dsWide2 <- dsWide[, columnNamesWideWithCoefficient]
   
   # I will enforce this order, it's important
-  target <- c("(Intercept)", "timec", "timec2", "timec3", "cohort", "timec:cohort", "timec2:cohort", "timec3:cohort")
+  target <- c("(Intercept)", "timec", "timec2", "timec3", "X", "timec:X", "timec2:X", "timec3:X")
   dsWide2<-dsWide2[match(target, dsWide2$Coefficient), ]
   
   dsWide2[-1,"sigma"]<- NA # remove unnecessary values from sigma
@@ -82,4 +82,8 @@ BuildFERE <- function( modelName, dsWide ) {
   return( g )
 }
 
-# BuildFERE("m0_F",lst_ds["m0_F"][[1]] )
+# BuildFERE("m0_F",lst_ds["m0_F"][[1]])
+# BuildFERE("m1_F",lst_ds["m1_F"][[1]] )
+# BuildFERE("m0_F",lst_ds["m0_R1"][[1]] )
+# BuildFERE("m0_F",lst_ds["m1_R1"][[1]] )
+# BuildFERE("m0_F",lst_ds["m1_R2"][[1]] )

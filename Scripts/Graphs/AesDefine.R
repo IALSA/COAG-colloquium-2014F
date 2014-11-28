@@ -57,4 +57,5 @@ aesDefs<- list("attendCol8" = attendCol8,
                       "TIvars"=TIvars,
                       "TVvars"=TVvars)
 
-
+colorFixed <- "blue"
+colorRandom <- "red"

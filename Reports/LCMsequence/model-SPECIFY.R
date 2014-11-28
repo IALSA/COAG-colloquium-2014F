@@ -1,6 +1,6 @@
 
 modelNamesLabels<- c(
-  "m0_F", "m1_F", "m0_R1", "m1_R1", "m2_R2")
+  "m0_F", "m1_F", "m0_R1", "m1_R1", "m1_R2")
 
 
 ### No random effects ###
@@ -19,13 +19,13 @@ call_m1_R1 <- "attend ~ 1 + timec + (1 | id) "
 
 
 ### Random Effect (RE) of the  intercept + linear slope ###
-### m2_R2 ###
-call_m2_R2 <- "attend ~ 1 + timec + (1 + timec | id)"
+### m1_R2 ###
+call_m1_R2 <- "attend ~ 1 + timec + (1 + timec | id)"
 
 
 
 modelNames<- c(
-  call_m0_F, call_m1_F, call_m0_R1, call_m1_R1, call_m2_R2)
+  call_m0_F, call_m1_F, call_m0_R1, call_m1_R1, call_m1_R2)
 names(modelNames)<- modelNamesLabels
 
 # Groups of modelsL
