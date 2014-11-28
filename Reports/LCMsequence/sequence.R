@@ -39,7 +39,7 @@ BuildMosaic <- function( modelName ) {
   dsFERE <- lstModelOutcomes[modelName][[1]]
   
   #   pEquations <- png::readPNG(pathImage) #Replace this line with the one below it (toggle the comments).
-  pEquations <- PullAppropriatePng(modelName=modelName)
+  #   pEquations <- PullAppropriatePng(modelName=modelName)
   
   gTile <- BuildFERE(modelName=modelName, dsWide=dsFERE)
   gLine <- BuildLine(modelName=modelName)
@@ -47,15 +47,15 @@ BuildMosaic <- function( modelName ) {
   
   grid.newpage()    
   #Defnie the relative proportions among the panels in the mosaic.
-  layout <- grid.layout(nrow=3, ncol=2,
-                        widths=unit(c(.4, .6) ,c("null", "null")),
-                        heights=unit(c(.3, .2, .5), c("null", "null", "null"))
+  layout <- grid.layout(nrow=2, ncol=2,
+                        widths=unit(c(.6, .4) ,c("null", "null")),
+                        heights=unit(c(.2, .5), c("null", "null", "null"))
   )
   pushViewport(viewport(layout=layout))
-  grid.raster(pEquations, vp=viewport(layout.pos.row=1))
-  print(gTile, vp=viewport(layout.pos.row=2))
-  print(gLine, vp=vpLayout(3, 1))
-  print(gBar, vp=vpLayout(3, 2))
+  #   grid.raster(pEquations, vp=viewport(layout.pos.row=1))
+  print(gTile, vp=viewport(layout.pos.row=1))
+  print(gLine, vp=vpLayout(2, 1))
+  print(gBar, vp=vpLayout(2, 2))
   
   popViewport(0)
 }
