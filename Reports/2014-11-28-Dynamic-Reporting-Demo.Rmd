@@ -228,10 +228,60 @@ summary(modelB)
 
 </br>
 
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
+
+## Today
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+<div class="red">**TECHNICAL ASSIGNMENT**</div>
+ 1. choose/specify what models should constitute the sequence  
+ 2. estimate each model  
+ 3. extract and organize solutions  
+ 4. choose/create model manifestations (MM)  
+ 5. combine MMs into a report on each model  
+ 6. combine model reports into sequence report  
+ 7. customize navigation through the sequence  
+
+## Scripts involved
+
+**model-SPECIFY.R** - contains model specifications of models as gls/lmer syntax.  
+</br>
+**model-ESTIMATE.R** - contains the loop that cycles through all available model specifications. Includes the following operations: </br>     
+1. Derives the dataset to be used  
+2. Estimates models:     
+  - lme4::lmer - *if a model contains     random effects*  
+  - nlme::gls - *if a model contains only fixed effects*    
+3. Post-process model solution and save datasets:  
+  - <code>dsmInfo.rds</code> - *model fit and information indices*   
+  - <code>dsFERE.rds</code>  - *fixed (FE) and random effects (RE) descriptors*    
+  - <code>dsp.rds</code> - *predicted values from the model*     
+</br>
+**model-COLLECT-SOLUTIONS.R** - combines datasets containing model solutions  
+
+
+## Scripts involved
+
+**graph-FERE.R** - creates a tile graph of model solution   
+</br>
+**graph-PREDICT.R** - creates a line graph of predicted trajectories   
+</br>
+**graph-FIT** - creates a  bar graph of model performance indices
+</br>
+
+<div class="red">**sequence.R(md)**</div>   
+- produces sequence reports  
 
 
 
-[example](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
+## Combining model manifestations
+
+another [example](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
 
 
 ## Question? Comments?

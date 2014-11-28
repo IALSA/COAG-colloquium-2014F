@@ -1,5 +1,5 @@
 # rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-modelName <- "m1_F"
+
 
 require(ggplot2)
 require(dplyr)
@@ -45,7 +45,7 @@ BuildFERE <- function( modelName, dsWide ) {
   dsWide2 <- dsWide[, columnNamesWideWithCoefficient]
   
   # I will enforce this order, it's important
-  target <- c("(Intercept)", "timec", "timec2", "timec3", "X", "timec:X", "timec2:X", "timec3:X")
+  target <- c("(Intercept)", "timec", "TVC2", "TVC3", "TIC1", "timec:TIC1", "TVC2:TIC1", "TVC3:TIC1")
   dsWide2<-dsWide2[match(target, dsWide2$Coefficient), ]
   
   dsWide2[-1,"sigma"]<- NA # remove unnecessary values from sigma

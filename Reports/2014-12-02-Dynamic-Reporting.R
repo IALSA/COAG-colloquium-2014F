@@ -36,6 +36,11 @@ plotTheme <- ggplot2::theme_bw() +
   ggplot2::theme(panel.border = ggplot2::element_rect(colour="gray80"))+
   ggplot2::theme(axis.ticks.length = grid::unit(0, "cm"))
 
+## @knitr dsM00
+dsM <- dplyr::filter(dsL, id == 1) %>% 
+  dplyr::select(id, year, attend, attendF)
+dsM
+
 
 ## @knitr dsM20
 dsM <- dplyr::filter(dsL, id <= 300) %>% 

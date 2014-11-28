@@ -23,16 +23,17 @@ source("./Reports/LCMsequence/graph-PREDICT.R") #Load the `BuildLine()` function
 ############################
 ## @knitr DeclareGlobals
 source("./Reports/LCMsequence/AesDefine.R")
-pathImageDirectory <- "./Reports/LCMsequence/formula_images"
+pathImageDirectory <- "./Reports/LCMsequence/formulas"
 
 
 vpLayout <- function(rowIndex, columnIndex) { return( viewport(layout.pos.row=rowIndex, layout.pos.col=columnIndex) ) }
 
-PullAppropriatePng <- function( modelName ) {
-  pathImage <- file.path(pathImageDirectory, paste0(modelName, ".png"))
-  p <- png::readPNG(pathImage)
-  return( p )
-}
+# PullAppropriatePng <- function( modelName ) {
+#   pathImage <- file.path(pathImageDirectory, paste0(modelName, ".png"))
+#   p <- png::readPNG(pathImage)
+#   return( p )
+# }
+
 
 BuildMosaic <- function( modelName ) {
   testit::assert(fact="The FERE object should be found in the appropriate list", modelName %in% names(lstModelOutcomes))
@@ -48,8 +49,8 @@ BuildMosaic <- function( modelName ) {
   grid.newpage()    
   #Defnie the relative proportions among the panels in the mosaic.
   layout <- grid.layout(nrow=2, ncol=2,
-                        widths=unit(c(.6, .4) ,c("null", "null")),
-                        heights=unit(c(.2, .5), c("null", "null", "null"))
+                        widths=unit(c(.5, .5) ,c("null", "null")),
+                        heights=unit(c(.3,.5), c("null", "null", "null"))
   )
   pushViewport(viewport(layout=layout))
   #   grid.raster(pEquations, vp=viewport(layout.pos.row=1))
@@ -61,6 +62,7 @@ BuildMosaic <- function( modelName ) {
 }
 
 
+
 ## @knitr LoadData
 dsL<-readRDS("./Data/Derived/dsL.rds")
 source("./Reports/LCMsequence/model-SPECIFY.R")
@@ -69,13 +71,13 @@ source("./Reports/LCMsequence/model-SPECIFY.R")
 lstModelOutcomes <- readRDS("./Reports/LCMsequence/models/datasets/ListOfModelOutcomes.rds")
 # names(lstModelOutcomes)
 
+columnNamesWidePretty <- c("Estimate", "Std.Error", "t.value", "SD", "tau0", "tau1", "tau2", "tau3", "sigma")
+
 
 ## @knitr m0_F
-# dsWide <- lstModelOutcomes["m0_F"][[1]]; modelName <- "m0_F"
 BuildMosaic(modelName="m0_F")
 
 ## @knitr m1_F
-# dsWide <- lstModelOutcomes["m1_F"][[1]]; modelName <- "m1_F"
 BuildMosaic(modelName="m1_F")             
 
 ## @knitr m0_R1
@@ -84,7 +86,7 @@ BuildMosaic(modelName="m0_R1")
 ## @knitr m1_R1
 BuildMosaic(modelName="m1_R1")
 
-## @knitr m1_R2
+### @knitr m1_R2
 BuildMosaic(modelName="m1_R2")
 
 

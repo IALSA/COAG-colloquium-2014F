@@ -1,6 +1,6 @@
 cat("\014")
 #These first few lines run only when the file is run in RStudio, !!NOT when an Rmd/Rnw file calls it!!
-# rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
+rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 
 ############################
 ## @knitr LoadPackages
@@ -28,7 +28,7 @@ source("./Reports/LCMsequence/model-SPECIFY.R")
 ############################
 ## @knitr defineData
 # numID<- 200 # highest id value (max = 9022)
-numID <- 200 # highest id value (max = 9022)
+numID <- 2000 # highest id value (max = 9022)
 ### Define the data that will populate the model
 ds<- dsL %>%  # chose conditions to apply in creating dataset for modeling
   dplyr::filter(id < numID) %>%

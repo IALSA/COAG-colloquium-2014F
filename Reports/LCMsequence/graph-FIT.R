@@ -25,7 +25,7 @@ BuildBar <- function( modelName = NA ) {
   ## Elemental
   mF<-   c("m0_F",  "m1_F")
   mR1<-  c("m0_R1", "m1_R1") 
-  mR2<-  c("m2_R2")
+  mR2<-  c("m1_R2")
 
   
   ## Composite lists of models
@@ -132,7 +132,7 @@ barTheme <- theme_bw() +
 {
   g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, color= Coefficient, fill=Coefficient)) +
    geom_bar(aes(fill=Coefficient),stat="identity", position="dodge", alpha=.5) + #This line draw the distant skyscrapers
-   #   geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.2) + #This line draw the skyskraper that pops out.
+     geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.25) + #This line draw the skyskraper that pops out.
    
    scale_fill_manual(values=colorFit) +
    scale_color_manual(values=colorFit) +  
@@ -155,4 +155,4 @@ barTheme <- theme_bw() +
   return( g )
 }
 # BuildBar()
-# BuildBar(modelName="m2_R2")
+# BuildBar(modelName="m1_F")
