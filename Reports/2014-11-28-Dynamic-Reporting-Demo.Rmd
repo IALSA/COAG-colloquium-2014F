@@ -280,8 +280,12 @@ summary(modelB)
 
 
 ## Combining model manifestations
+<img src = './images/ModelManifestationLayout.png' width="30%"></img> 
 
-another [example](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
+
+Today we'll take a look at a [sequence of unconditional models](http://htmlpreview.github.io/?https://github.com/IALSA/COAG-colloquium-2014F/blob/LCM-sequence/Reports/LCMsequence/sequence.html).  
+
+Another [example of a sequence](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
 
 
 ## Question? Comments?
