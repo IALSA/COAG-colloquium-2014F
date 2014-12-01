@@ -1,0 +1,300 @@
+---
+title: "RR Skills (4): Dynamic Reporting "
+author: Andrey Koval
+date: December 2 , 2014
+output: 
+  ioslides_presentation:
+    widescreen: true
+    transition: faster
+  includes:
+    in_header: include/in_header.html
+---
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=F, message=F} 
+library(knitr)
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external script file. -->
+```{r, echo=F, message=T}
+require(knitr)
+opts_chunk$set(
+  results='show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+#   fig.height = 4.8, 
+#   fig.width = 6.5, 
+  out.width = NULL,
+  fig.path = 'figure_rmd/',     
+  dev = "png",
+  dpi = 70
+)
+echoChunks <- FALSE
+warningChunks<- FALSE
+messageChunks<- FALSE
+outwidthChunks <- "90%"
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Reports/2014-12-02-Dynamic-Reporting.R") # the file to which knitr calls for the chunks
+```
+
+## Information
+
+You can forward your questions to   
+Ann Greenwood (ann.greenwood at popdata.bc.ca) or Vincenza Gruppuso (vincenza at uvic.ca).  
+Q&A will begin immediately after the presentation.   
+
+You can follow the presentation and review previous lectures at [ialsa.github.io/COAG-colloquium-2014F/](http://ialsa.github.io/COAG-colloquium-2014F/)
+
+
+## Overview of the Series
+
+- Oct 14  -- Intro to Reproducible Research  
+- Oct 21  -- RR Basic Skills (1): Data Manipulation
+- Nov  4  -- RR Basic Skills (2): Graph Production  
+- Nov 18  -- RR Basic Skills (3): Statistical Modeling     
+- Dec 2  -- **RR Basic Skills (4): Dynamic Reporting**     
+
+<div class="notes">
+</div>
+
+## Previously:
+
+<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
+```p
+"./Scripts/Data/dsL.R"
+```
+
+download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
+
+<div class="notes">
+Last time we talked about the flow of data in a research project. The data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+</div>
+
+
+
+## Load Data {.smaller}
+```{r LoadPackages, echo=F, warning=F, message=F, results='hide'}
+```
+
+```{r LoadData, echo=T, warning=F, message=F, results='hide'}
+```
+```{r}
+str(dsL)
+```
+
+<div class="notes">
+first we load the data set that we have annotated in the previous lectures
+</div>
+
+
+```{r loadTheme, out.width="95%", warning=F, echo=F}
+```
+
+
+
+## Focal outcome {.smaller}
+<div class="columns-2">
+```{r dsM00}
+```
+</br> </br>
+How often did you **attend** a worhsip service during the last year?
+```{r, echo=F}
+attendLevels<- c(1:8)
+attendLabels<-c( "Never",
+                 "Once or Twice",
+                 "Less than once/month",
+                 "About once/month",
+                 "About twice/month",
+                 "About once/week",
+                 "Several times/week",
+                 "Everyday")
+attendMetrics <- data.frame(attendLevels, attendLabels)
+dplyr::arrange(attendMetrics,-attendLevels)
+```
+</div>
+</br> </br>
+
+
+
+## Which model is "better"? {.smaller} 
+<div class="columns-2">
+ 
+ - what criteria used?
+  - not used?
+  - preferences in fit/parsimony
+  - complex judgments
+
+### Challenges:
+  1. Collecting results 
+    - _What pieces of information do we need?_    
+  2. Organizing comparisons      
+    - _How do we  overcome information overload?_  
+
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> 
+
+Model A: ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$    
+
+```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph20, out.width="60%", warning=F, echo=F}
+```
+
+Model B: ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$   
+
+```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph21, out.width="60%", warning=F, echo=F}
+```
+
+</div>
+
+
+## Collecting results: post-processing{.smaller}
+<div class="columns-2">
+```{r dsM22a, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r modelApost, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r modelApostPrint}
+```
+</br> </br> </br> </br> </br>   </br> </br> </br> </br> </br> 
+```{r}
+modelA
+```
+
+ ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$ 
+
+```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph20, out.width="45%", warning=F, echo=F}
+```
+</div>
+<div class="notes">
+```{r}
+summary(modelA)
+```
+</div>
+
+
+
+## Collecting results: post-processing{.smaller}
+<div class="columns-2">
+```{r dsM22b, echo=F,  results='hide', message=F, warning=F}
+```
+
+
+```{r modelBpost, echo=F,  results='hide', message=F, warning=F}
+```
+
+
+```{r modelBpostPrint}
+```
+</br> </br> </br> </br> </br>   </br> </br> </br> </br> </br> 
+```{r}
+modelB
+```
+
+ ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$ 
+
+```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph21, out.width="45%", warning=F, echo=F}
+```
+</div>
+<div class="notes">
+```{r}
+summary(modelB)
+```
+</div>
+
+
+
+
+
+
+
+
+
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
+
+</br>
+
+## Model manifestations {.smaller}
+<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
+
+## Today
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+<div class="red">**TECHNICAL ASSIGNMENT**</div>
+ 1. choose/specify what models should constitute the sequence  
+ 2. estimate each model  
+ 3. extract and organize solutions  
+ 4. choose/create model manifestations (MM)  
+ 5. combine MMs into a report on each model  
+ 6. combine model reports into sequence report  
+ 7. customize navigation through the sequence  
+
+## Scripts involved
+
+**model-SPECIFY.R** - contains model specifications of models as gls/lmer syntax.  
+</br>
+**model-ESTIMATE.R** - contains the loop that cycles through all available model specifications. Includes the following operations: </br>     
+1. Derives the dataset to be used  
+2. Estimates models:     
+  - lme4::lmer - *if a model contains     random effects*  
+  - nlme::gls - *if a model contains only fixed effects*    
+3. Post-process model solution and save datasets:  
+  - <code>dsmInfo.rds</code> - *model fit and information indices*   
+  - <code>dsFERE.rds</code>  - *fixed (FE) and random effects (RE) descriptors*    
+  - <code>dsp.rds</code> - *predicted values from the model*     
+</br>
+**model-COLLECT-SOLUTIONS.R** - combines datasets containing model solutions  
+
+
+## Scripts involved
+
+**graph-FERE.R** - creates a tile graph of model solution   
+</br>
+**graph-PREDICT.R** - creates a line graph of predicted trajectories   
+</br>
+**graph-FIT** - creates a  bar graph of model performance indices
+</br>
+
+<div class="red">**sequence.R(md)**</div>   
+- produces sequence reports  
+
+
+
+## Combining model manifestations
+<img src = './images/ModelManifestationLayout.png' width="30%"></img> 
+
+
+Today we'll take a look at a [sequence of unconditional models](http://htmlpreview.github.io/?https://github.com/IALSA/COAG-colloquium-2014F/blob/LCM-sequence/Reports/LCMsequence/sequence.html).  
+
+Another [example of a sequence](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
+
+
+## Question? Comments?
+
+You can forward questions to Ann Greenwood (ann.greenwood@popdata.bc.ca)  or Vincenza Gruppuso (vincenza@uvic.ca) during the live Q&A. They are standing by to take your questions.   
+ 
+ 
+ [NLSWeb]:https://www.nlsinfo.org/investigator/pages/login.jsp
+[NLS]:http://www.bls.gov/nls/
+
+
+
