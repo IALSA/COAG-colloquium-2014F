@@ -66,63 +66,24 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 ```
 
 ## m0_F 
-<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
-$\begin{array}{l}
-{y_{ti}} = {\beta _{0i}} + {\varepsilon _{ti}}\\
-{\beta _{0i}} = {\gamma _{00}}\\
-{}\\
-\end{array}$
-
-
 ```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 
 ## m1_F 
-<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
-$\begin{array}{l}
-{y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
-{\beta _{0i}} = {\gamma _{00}}\\
-{\beta _{1i}} = {\gamma _{10}}
-\end{array}$ 
-
-
 ```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 ## m0_R1 
-<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
-$\begin{array}{l}
-{y_{ti}} = {\beta _{0i}} + {\varepsilon _{ti}}\\
-{\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
-{}\\
-\end{array}$ 
-
 ```{r m0_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 ## m1_R1 
-<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
-$\begin{array}{l}
-{y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
-{\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
-{\beta _{1i}} = {\gamma _{10}}
-\end{array}$ 
-
-
 ```{r m1_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 
 ## m1_R2 
-<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
-$\begin{array}{l}
-{y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
-{\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
-{\beta _{1i}} = {\gamma _{10}} + {u_{1i}}
-\end{array}$
-
-
 ```{r m1_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
