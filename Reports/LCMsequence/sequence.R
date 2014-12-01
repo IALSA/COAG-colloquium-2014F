@@ -53,7 +53,7 @@ BuildMosaic <- function( modelName ) {
                         heights=unit(c(.3,.2,.5), c("null", "null", "null"))
   )
   pushViewport(viewport(layout=layout))
-  #   grid.raster(pEquations, vp=viewport(layout.pos.row=1))
+  grid.raster(pEquations, vp=viewport(layout.pos.row=1))
   print(gTile, vp=viewport(layout.pos.row=2))
   print(gLine, vp=vpLayout(3, 1))
   print(gBar, vp=vpLayout(3, 2))
