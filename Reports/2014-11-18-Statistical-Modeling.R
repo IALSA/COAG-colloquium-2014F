@@ -437,7 +437,7 @@ print(mB)
 ## @knitr modelsABpost
 models <- data.frame(cbind(mA,mB))
 models <- dplyr::mutate(models, 
-  dif = round(modelB - modelA,2), 
+  difAB = round(modelB - modelA,2), 
 Index = rownames(dsmInfo))
 
 

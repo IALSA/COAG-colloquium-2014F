@@ -2,7 +2,7 @@
 title: "Model sequence report"
 output:
   html_document:
-    css: ~/GitHub/Longitudinal_Models_of_Religiosity_NLSY97/www/css/thesis.css
+    css: ~/GitHub/COAG-Colloquium-2014F/Reports/LCMsequence/libs/sidebar.css
     fig.retina: 2
     fig_width: 8
     toc: yes
@@ -18,8 +18,6 @@ output:
     number_sections: yes
     toc: yes
     toc_depth: 3
-  word_document:
-    fig_width: 6.5
 mainfont: Calibri
 ---
 
@@ -68,7 +66,7 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 ```
 
 ## m0_F 
-<img src = 'formulas/GeneralSmall.png' width="70%"></img>
+<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
 $\begin{array}{l}
 {y_{ti}} = {\beta _{0i}} + {\varepsilon _{ti}}\\
 {\beta _{0i}} = {\gamma _{00}}\\
@@ -81,7 +79,7 @@ $\begin{array}{l}
 
 
 ## m1_F 
-<img src = 'formulas/GeneralSmall.png' width="70%"></img>
+<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
 $\begin{array}{l}
 {y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
 {\beta _{0i}} = {\gamma _{00}}\\
@@ -93,7 +91,7 @@ $\begin{array}{l}
 ```
 
 ## m0_R1 
-<img src = 'formulas/GeneralSmall.png' width="70%"></img>
+<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
 $\begin{array}{l}
 {y_{ti}} = {\beta _{0i}} + {\varepsilon _{ti}}\\
 {\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
@@ -104,7 +102,7 @@ $\begin{array}{l}
 ```
 
 ## m1_R1 
-<img src = 'formulas/GeneralSmall.png' width="70%"></img>
+<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
 $\begin{array}{l}
 {y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
 {\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
@@ -117,7 +115,7 @@ $\begin{array}{l}
 
 
 ## m1_R2 
-<img src = 'formulas/GeneralSmall.png' width="70%"></img>
+<img src = 'models/formulas/GeneralSmall.png' width="70%"></img>
 $\begin{array}{l}
 {y_{ti}} = {\beta _{0i}} + {\beta _{1i}}time{c_{ti}} + {\varepsilon _{ti}}\\
 {\beta _{0i}} = {\gamma _{00}} + {u_{0i}}\\
@@ -131,4 +129,4 @@ $\begin{array}{l}
 ## General Specification
 
 
-<img src = 'formulas/GeneralFormula.png' width="100%"></img> 
+<img src = 'models/formulas/GeneralFormula.png' width="100%"></img> 

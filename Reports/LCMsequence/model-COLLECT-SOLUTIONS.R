@@ -33,10 +33,10 @@ for( i in 1:length(filePaths) ) {
 }
 
 ###################
-# Read in different REDS files 
+# Read in different RDS files 
 pathDataDirectory <- file.path("./Reports/LCMsequence/models/datasets")
 # filenamePattern <- ".+\\.rds" #All RDS files
-filenamePattern <- "m.{1,}FERE\\.rds" #All RDS files
+filenamePattern <- "m.{1,}FERE\\.rds" #only FERE rds files
 retrievedFilenames <- list.files(path=pathDataDirectory, pattern=filenamePattern)
 
 # dsFERE <- readRDS(filePaths[1])
@@ -66,11 +66,11 @@ for( i in seq_along(retrievedFilenames) ) {
   
   rm(dsFERESingle)
 }
-#names(lst_ds) <- gsub(pattern="(.+)\\.rds", replacement="\\1", x=retrievedFilenames)
+# names(lst_ds) <- gsub(pattern="(.+)\\.rds", replacement="\\1", x=retrievedFilenames)
 names(lst_ds) <- gsub(pattern="(.+)\\_FERE.rds", replacement="\\1", x=retrievedFilenames)
 
 saveRDS(lst_ds, file="./Reports/LCMsequence/models/datasets/ListOfModelOutcomes.rds", compress="xz")
-
-# lst_ds["m4R1_FERE"]
+ 
+# lst_ds["m1_R1"]
 # modelNames
 

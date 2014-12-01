@@ -11,12 +11,13 @@ require(dplyr)
 require(ggplot2)
 require(gridExtra)
 require(lme4)
+require(nlme)
 require(reshape2)
 
 ############################
 ## @knitr DeclareGlobals
 # load common aesthetics definitions used in the reports
-source("./Reports/LCMsequence/AesDefine.R")
+source("./Scripts/Graphs/AesDefine.R")
 # read back the definitions
 # aesDefs
 

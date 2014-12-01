@@ -59,7 +59,7 @@ You can follow the presentation and review previous lectures at [ialsa.github.io
 <div class="notes">
 </div>
 
-## Previously:
+## Data Origin
 
 <img src = 'images/ai/DataMap_full.png' width="100%"></img> 
 ```p
@@ -118,21 +118,23 @@ dplyr::arrange(attendMetrics,-attendLevels)
 
 
 
-## Which model is "better"? {.smaller} 
+## Comparing models of the outcome {.smaller} 
 <div class="columns-2">
  
- - what criteria used?
-  - not used?
+ - what criteria should used?
+  - should not used?
   - preferences in fit/parsimony
   - complex judgments
 
-### Challenges:
+### Comparison relies on tasks:
   1. Collecting results 
-    - _What pieces of information do we need?_    
-  2. Organizing comparisons      
-    - _How do we  overcome information overload?_  
+    - _What pieces of information do we need?_  
+    - _How do we pull them out from model results? (S3/S4 objects)_
+  2. Organizing comparisons 
+    - _How should each model look to optimize comparison?_  
+    - _How do we  overcome information overload?_    
 
-</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> 
+</br> </br> </br> </br> </br> </br>
 
 Model A: ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$    
 
@@ -231,7 +233,7 @@ summary(modelB)
 ## Model manifestations {.smaller}
 <img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
 
-## Today
+## Today. 
 
 <div class="red">**STRATEGIC GOAL** </div> 
 - Evaluate a series of models

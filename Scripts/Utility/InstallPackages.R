@@ -25,7 +25,9 @@ packagesToInstall <- c(
   , "dplyr"
   , "reshape2"
   , "dplyr"
-  , "lme4"
+  , "lme4" # used for Random Coefficient Modeling
+  , "minqa"
+  , "nlme" # used for Fixed effect modelin
   , "stringr"
   , "yaml"
   , "gridExtra"

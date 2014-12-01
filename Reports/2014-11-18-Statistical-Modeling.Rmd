@@ -415,7 +415,7 @@ How can data be simplified?
 <div class="columns-2">
 ```{r dsM12}
 ```
-</br> Press (P): Error
+</br> Press (P): Note on the Residual/Error
 ```{r graph12, out.width="95%", warning=F, echo=F}
 ```
 
@@ -428,7 +428,7 @@ data  =  MODEL  +  error
 How can data be simplified?    
 </div>
 <div class="notes">
-For each value that the model generates there is a corresponding error that measures discrepancy between the observed and the predicted value.  The sum of these errors across individuals and occasions is the basis for majority of indecies used to evaluate models (deviance, AIC, BIC, etc.)
+For each value that the model generates there is a corresponding error that measures discrepancy between the observed and the predicted value.  The sum of these errors across individuals and occasions is the basis for majority of indices used to evaluate models (deviance, AIC, BIC, etc.)
 ```{r graph12error, out.width="100%", warning=F, echo=F}
 ```
 
@@ -854,7 +854,7 @@ summary(modelA)
 ```
 
 ```{r}
-dplyr::select(models, Index, modelA, modelB, dif)
+dplyr::select(models, Index, modelA, modelB, difAB)
 ```
 
 
