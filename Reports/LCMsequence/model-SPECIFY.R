@@ -4,13 +4,13 @@ modelNamesLabels<- c(
 
 
 ### No random effects ###
-### m0_F ###
+### m0_F ###                                              (F) ###
 call_m0_F <- "attend ~ 1 " 
 ### m1_F ###
 call_m1_F <- "attend ~ 1 + timec "
 
 
-### Random Effect (RE) of the intercept                 ###
+### Random Effect (RE) of  the intercept                 (R1) ###
 ### m0_R1 ###
 call_m0_R1 <- "attend ~ 1 + (1 | id) " 
               
@@ -18,12 +18,13 @@ call_m0_R1 <- "attend ~ 1 + (1 | id) "
 call_m1_R1 <- "attend ~ 1 + timec + (1 | id) "
 
 
-### Random Effect (RE) of the  intercept + linear slope ###
+### Random Effect (RE) of  the  intercept + linear slope (R2) ###
 ### m1_R2 ###
 call_m1_R2 <- "attend ~ 1 + timec + (1 + timec | id)"
 
 
 
+### Organizing objects and groups
 modelNames<- c(
   call_m0_F, call_m1_F, call_m0_R1, call_m1_R1, call_m1_R2)
 names(modelNames)<- modelNamesLabels
