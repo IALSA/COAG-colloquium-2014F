@@ -59,20 +59,6 @@ You can follow the presentation and review previous lectures at [ialsa.github.io
 <div class="notes">
 </div>
 
-## Data Origin
-
-<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
-```p
-"./Scripts/Data/dsL.R"
-```
-
-download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
-
-<div class="notes">
-This data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
-</div>
-
-
 
 
 ## Load Data {.smaller}
@@ -119,40 +105,93 @@ dplyr::arrange(attendMetrics,-attendLevels)
 
 
 
-## Comparing models of the outcome {.smaller} 
-<div class="columns-2">
- 
- - what criteria should used?
-  - should not used?
-  - preferences in fit/parsimony
-  - complex judgments
 
-### Comparison relies on tasks:
-  1. Collecting results 
-    - _What pieces of information do we need?_  
-    - _How do we pull them out from model results? (S3/S4 objects)_
-  2. Organizing comparisons 
-    - _How should each model look to optimize comparison?_  
-    - _How do we  overcome information overload?_    
 
-</br> </br> </br> </br> </br> </br>
 
-Model A: ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$    
 
-```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
+
+## Data Origin
+
+<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
+```p
+"./Scripts/Data/dsL.R"
 ```
 
-```{r graph20, out.width="60%", warning=F, echo=F}
-```
+download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
-Model B: ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$   
+<div class="notes">
+This data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+</div>
 
+
+## Producing Graphs {.smaller}
+<img src = '../images/ai/DataMap_graphs.png' width="100%"></img> 
 ```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
 ```
 
 ```{r graph21, out.width="60%", warning=F, echo=F}
 ```
 
+
+## Fitting Statistical Models {.smaller}
+<img src = '../images/ai/DataMap_models.png' width="100%"></img> 
+
+
+<div class="columns-2">
+```{r dsM22a, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r modelApost, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r}
+modelA
+```
+
+</br> </br> </br> </br> </br>   </br> </br>   </br> 
+ ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$ 
+
+```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph20, out.width="70%", warning=F, echo=F}
+```
+</div>
+<div class="notes">
+```{r}
+summary(modelA)
+```
+</div>
+
+
+## Fitting Statistical Models {.smaller}
+<img src = '../images/ai/DataMap_models.png' width="100%"></img> 
+
+
+<div class="columns-2">
+```{r dsM22b, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r modelBpost, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r}
+modelB
+```
+
+</br> </br> </br> </br> </br>   </br> </br>   </br> 
+ ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$ 
+
+```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
+```
+
+```{r graph21, out.width="70%", warning=F, echo=F}
+```
+</div>
+<div class="notes">
+```{r}
+summary(modelB)
+```
 </div>
 
 
@@ -192,10 +231,8 @@ summary(modelA)
 ```{r dsM22b, echo=F,  results='hide', message=F, warning=F}
 ```
 
-
 ```{r modelBpost, echo=F,  results='hide', message=F, warning=F}
 ```
-
 
 ```{r modelBpostPrint}
 ```
@@ -219,19 +256,15 @@ summary(modelB)
 </div>
 
 
-
-
-
-
-
-
-
-
-
 ## Model manifestations {.smaller}
 <img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
 
-## Today. 
+</br>
+
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
 
 <div class="red">**STRATEGIC GOAL** </div> 
 - Evaluate a series of models
@@ -239,16 +272,208 @@ summary(modelB)
 <div class="red">**TACTICAL GOAL**</div>  
  - Design a dynamic document for model sequencing 
 
-<div class="red">**TECHNICAL ASSIGNMENT**</div>
- 1. choose/specify what models should constitute the sequence  
- 2. estimate each model  
- 3. extract and organize solutions  
- 4. choose/create model manifestations (MM)  
- 5. combine MMs into a report on each model  
- 6. combine model reports into sequence report  
- 7. customize navigation through the sequence  
+### Dynamic Document = Software  
+- use  
+- replicate  
+- hack  
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+### Goal for today  
+- how to use sequence reports to compare models   
+- how to run scripts to produce report  
+- how to adapt code for other examples
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+Two recurring issues  
+
+<img src = 'images/DDcycle.png' width="60%"></img> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+## What models to estimate?
+
+----
+
+<img src = 'LCMsequence/models/formulas/grid_F.png' width="80%"></img> 
+
+----
+
+<img src = 'LCMsequence/models/formulas/grid_R1.png' width="80%"></img> 
+
+----
+
+<img src = 'LCMsequence/models/formulas/grid_R2.png' width="80%"></img> 
+
+----
+
+<img src = 'LCMsequence/models/formulas/grid_R3.png' width="80%"></img> 
+
+
+## What models to estimate?
+
+<img src = 'LCMsequence/models/formulas/grid_map.png' width="100%"></img> 
+
+----
+
+<img src = 'LCMsequence/models/formulas/grid_F.png' width="80%"></img> 
+
+
+----
+
+<img src = 'LCMsequence/sequence/allModels.png' width="72%"></img> 
+
+Press (W): wide screen | Press (P): view by column
+
+----
+
+<img src = 'LCMsequence/sequence/F_row.png' width="78%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="30%"></img> Press (P): view by column
+<div class="notes">
+<img src = 'LCMsequence/sequence/F_col.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+----
+
+<img src = 'LCMsequence/sequence/R1_row.png' width="78%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="30%"></img> 
+<div class="notes">
+<img src = 'LCMsequence/sequence/R1_col.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+----
+
+<img src = 'LCMsequence/sequence/R2_row.png' width="78%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="30%"></img> 
+<div class="notes">
+<img src = 'LCMsequence/sequence/R2_col.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+----
+
+<img src = 'LCMsequence/sequence/R3_row.png' width="78%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="30%"></img> 
+<div class="notes">
+<img src = 'LCMsequence/sequence/R3_col.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+Two recurring issues  
+
+<img src = 'images/DDcycle.png' width="60%"></img> 
+
+## How to express each result?
+
+----
+
+<img src = 'LCMsequence/sequence/m2c_F.png' width="78%"></img> <img src = 'images/MMlayout.png' width="20%">
+<div class="notes">
+<img src = 'LCMsequence/sequence/F_row.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+----
+
+<img src = 'LCMsequence/sequence/m2c_R1.png' width="78%"></img> <img src = 'images/MMlayout.png' width="20%">
+<div class="notes">
+<img src = 'LCMsequence/sequence/R1_row.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+----
+
+<img src = 'LCMsequence/sequence/m2c_R2.png' width="78%"></img> <img src = 'images/MMlayout.png' width="20%">
+<div class="notes">
+<img src = 'LCMsequence/sequence/R2_row.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+----
+
+<img src = 'LCMsequence/sequence/m2c_R3.png' width="78%"></img> <img src = 'images/MMlayout.png' width="20%">
+<div class="notes">
+<img src = 'LCMsequence/sequence/R3_row.png' width="90%"></img> <img src = 'LCMsequence/models/formulas/grid_map.png' width="40%"></img> 
+</div>
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+Putting it all together 
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+[Dynamic Document = Software = Sequence Report](http://htmlpreview.github.io/?https://github.com/IALSA/COAG-colloquium-2014F/blob/LCM-sequence/Reports/LCMsequence/sequence.html) 
+
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+### Goal for today  
+- how to use sequence reports to compare models   
+- how to    
+- how to  
+
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+### Goal for today  
+- how to  
+- how to run scripts to produce report    
+- how to 
+
+
 
 ## Scripts involved
+
 
 **model-SPECIFY.R** - contains model specifications of models as gls/lmer syntax.  
 </br>
@@ -271,21 +496,74 @@ summary(modelB)
 </br>
 **graph-PREDICT.R** - creates a line graph of predicted trajectories   
 </br>
-**graph-FIT** - creates a  bar graph of model performance indices
+**graph-FIT.R** - creates a  bar graph of model performance indices  
+</br>
+**graph-FIT-CUSTOM.R** - creates a bar graph of fit for each group
+
+
+
+## Scripts involved 
+
+<div class="red">**sequence.R**</div>   
+- sources previous scripts
+- creates Mosaic graph for each model
+
+<div class="red">**sequence.Rmd**</div>   
+- combines code, text, and images
+- produces an .html file
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+
+<div class="red">**STRATEGIC GOAL** </div> 
+- Evaluate a series of models
+
+<div class="red">**TACTICAL GOAL**</div>  
+ - Design a dynamic document for model sequencing 
+
+### Goal for today  
+- how to  
+- how to     
+- how to adapt code for other examples
+
+
+## Some hacking ideas
+
+ - in **sequence.R**, change <code>dplyr</code> code so select different data    
+ </br>
+ - in **model-SPECIFY.R** change *attendPR* to a different time invariant predictor, for example *sex*.  
+ </br>  
+ - in **graph-PREDICT.R** add forecast conditional on the value of the time invariant predictor   
 </br>
 
-<div class="red">**sequence.R(md)**</div>   
-- produces sequence reports  
+Another [example of a sequence](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html) for self-study.
 
 
+## Final thoughts : Two  concepts  
 
-## Combining model manifestations
-<img src = './images/ModelManifestationLayout.png' width="30%"></img> 
+### Model Manifestation  
+</br>
 
+### Model Sequence  
+</br>
 
-Today we'll take a look at a [sequence of unconditional models](http://htmlpreview.github.io/?https://github.com/IALSA/COAG-colloquium-2014F/blob/LCM-sequence/Reports/LCMsequence/sequence.html).  
+<div class="columns-2">
+<img src = 'images/cc_Nov18/mm7.png' width="90%"></img> 
 
-Another [example of a sequence](http://statcanvas.net/thesis/appendix/sequences/01seqWhitesFullTj.html)
+<img src = 'LCMsequence/sequence/m2c_R3.png' width="80%">
+</div>
+
+## Final thoughts : Three ideas 
+
+###  report = software  
+</br>
+
+###  model competition + model collaboration  
+</br>
+
+### science = art = design = technology
+
 
 
 ## Question? Comments?

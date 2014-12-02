@@ -38,250 +38,30 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Reports/2014-12-02-Dynamic-Reporting.R") # the file to which knitr calls for the chunks
 ```
 
-## Information
 
-You can forward your questions to   
-Ann Greenwood (ann.greenwood at popdata.bc.ca) or Vincenza Gruppuso (vincenza at uvic.ca).  
-Q&A will begin immediately after the presentation.   
+## Final thoughts : Two  concepts  
 
-You can follow the presentation and review previous lectures at [ialsa.github.io/COAG-colloquium-2014F/](http://ialsa.github.io/COAG-colloquium-2014F/)
-
-
-## Overview of the Series
-
-- Oct 14  -- Intro to Reproducible Research  
-- Oct 21  -- RR Basic Skills (1): Data Manipulation
-- Nov  4  -- RR Basic Skills (2): Graph Production  
-- Nov 18  -- RR Basic Skills (3): Statistical Modeling     
-- Dec 2  -- **RR Basic Skills (4): Dynamic Reporting**     
-
-<div class="notes">
-</div>
-
-
-
-
-
-
-
-
-
-## Load Data {.smaller}
-```{r LoadPackages, echo=F, warning=F, message=F, results='hide'}
-```
-
-```{r LoadData, echo=T, warning=F, message=F, results='hide'}
-```
-```{r}
-str(dsL)
-```
-
-<div class="notes">
-first we load the data set that we have annotated in the previous lectures
-</div>
-
-
-```{r loadTheme, out.width="95%", warning=F, echo=F}
-```
-
-
-
-## Focal outcome {.smaller}
-<div class="columns-2">
-```{r dsM00}
-```
-</br> </br>
-How often did you **attend** a worhsip service during the last year?
-```{r, echo=F}
-attendLevels<- c(1:8)
-attendLabels<-c( "Never",
-                 "Once or Twice",
-                 "Less than once/month",
-                 "About once/month",
-                 "About twice/month",
-                 "About once/week",
-                 "Several times/week",
-                 "Everyday")
-attendMetrics <- data.frame(attendLevels, attendLabels)
-dplyr::arrange(attendMetrics,-attendLevels)
-```
-</div>
-</br> </br>
-
-
-
-
-
-
-
-
-## Data Origin
-
-<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
-```p
-"./Scripts/Data/dsL.R"
-```
-
-download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
-
-<div class="notes">
-This data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
-</div>
-
-
-## Producing Graphs {.smaller}
-<img src = '../images/ai/DataMap_graphs.png' width="100%"></img> 
-```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r graph21, out.width="60%", warning=F, echo=F}
-```
-
-
-## Fitting Statistical Models {.smaller}
-<img src = '../images/ai/DataMap_models.png' width="100%"></img> 
-
-
-<div class="columns-2">
-```{r dsM22a, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelApost, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r}
-modelA
-```
-
-</br> </br> </br> </br> </br>   </br> </br>   </br> 
- ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$ 
-
-```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r graph20, out.width="70%", warning=F, echo=F}
-```
-</div>
-<div class="notes">
-```{r}
-summary(modelA)
-```
-</div>
-
-
-## Fitting Statistical Models {.smaller}
-<img src = '../images/ai/DataMap_models.png' width="100%"></img> 
-
-
-<div class="columns-2">
-```{r dsM22b, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelBpost, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r}
-modelB
-```
-
-</br> </br> </br> </br> </br>   </br> </br>   </br> 
- ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$ 
-
-```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r graph21, out.width="70%", warning=F, echo=F}
-```
-</div>
-<div class="notes">
-```{r}
-summary(modelB)
-```
-</div>
-
-
-## Collecting results: post-processing{.smaller}
-<div class="columns-2">
-```{r dsM22a, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelApost, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelApostPrint}
-```
-</br> </br> </br> </br> </br>   </br> </br> </br> </br> </br> 
-```{r}
-modelA
-```
-
- ${y_{it}} = {\beta _0} + {\varepsilon _{it}}$ 
-
-```{r, dsM20, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r graph20, out.width="45%", warning=F, echo=F}
-```
-</div>
-<div class="notes">
-```{r}
-summary(modelA)
-```
-</div>
-
-
-
-## Collecting results: post-processing{.smaller}
-<div class="columns-2">
-```{r dsM22b, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelBpost, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r modelBpostPrint}
-```
-</br> </br> </br> </br> </br>   </br> </br> </br> </br> </br> 
-```{r}
-modelB
-```
-
- ${y_{it}} = {\beta _0} + {\beta _1}tim{e_t} + {\varepsilon _{it}}$ 
-
-```{r, dsM21, echo=F,  results='hide', message=F, warning=F}
-```
-
-```{r graph21, out.width="45%", warning=F, echo=F}
-```
-</div>
-<div class="notes">
-```{r}
-summary(modelB)
-```
-</div>
-
-
-## Model manifestations {.smaller}
-<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
-
+### Model Manifestation  
 </br>
 
+### Model Sequence  
+</br>
 
+<div class="columns-2">
+<img src = 'images/cc_Nov18/mm7.png' width="90%"></img> 
 
+<img src = 'LCMsequence/sequence/m2c_R3.png' width="80%">
+</div>
 
+## Final thoughts : Three ideas 
 
+###  report = software  
+</br>
 
-## Producing Report
-<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
+###  model competition + model collaboration  
+</br>
 
-
-
-
-
-
-
-
-
+### science = art = design = technology
 
 
 
