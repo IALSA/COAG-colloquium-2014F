@@ -98,19 +98,27 @@ For maps of R1, R2, and R3 model groups see the bottom of the report.
 
 # F-group : fixed effects
 ## m0_F 
-```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 6} 
+```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 9.5} 
 ```
 
 ## m1_F 
-```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 7} 
+```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 10} 
 ```
 
 ## m2_F 
-```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 8} 
+```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 10.5} 
 ```
 
 ## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 9} 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11} 
+```
+
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11.5} 
+```
+
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 12} 
 ```
 
 
