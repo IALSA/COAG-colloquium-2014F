@@ -98,7 +98,7 @@ This rescheduling will assist with better alignment of presentation topics and w
 
 **Dec 2, 2014**  
 Andrey Koval (University of Victoria)  
-[RR Basic Skills (4): Dynamic Reporting][lecture4]  
+[RR Basic Skills (4): Dynamic Reporting][lecture5]  
 The lecture introduces publishing with knitr and rmarkdown packages inside RStudio. A brief tutorial on 
 markdown language will be provided as well as a demonstration on integrating R code into reports, and 
 a discussion on the strategy of report production. Several output formats (pdf, html, slides) are 
@@ -123,3 +123,4 @@ Please, take a moment to **leave us a comment**: we value your feedback!
 [lecture2]:./2014-10-21-Data-Manipulation.html
 [lecture3]:./2014-11-04-Producing-Graphs.html
 [lecture4]:./2014-11-18-Statistical-Modeling.html
+[lecture5]:./2014-12-02-Dynamic-Reporting.html
