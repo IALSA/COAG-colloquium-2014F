@@ -16,6 +16,7 @@ require(png)
 
 
 ## @knitr LoadSources
+source("./Reports/LCMsequence/model-SPECIFY.R") # load models specification
 source("./Reports/LCMsequence/graph-FERE.R") #Load the `BuildFERE()` function
 source("./Reports/LCMsequence/graph-FIT.R") #Load the `BuildBar()` function
 source("./Reports/LCMsequence/graph-PREDICT.R") #Load the `BuildLine()` function
@@ -40,4 +41,55 @@ for( i in 1:length(filePaths) ) {
   rm(dsInfoSingle)
 }
 
+## @knitr allModels
+BuildBar()
+
+## @knitr F_row
+selectModels <- F_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr F_col
+selectModels <- F_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+
+## @knitr R1_row
+selectModels <- R1_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R1_col
+selectModels <- R1_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R2_row
+selectModels <- R2_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R2_col
+selectModels <- R2_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R3_row
+selectModels <- R3_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R3_col
+selectModels <- R3_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
 

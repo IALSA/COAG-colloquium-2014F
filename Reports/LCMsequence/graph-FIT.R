@@ -8,7 +8,7 @@ BuildBar <- function( modelName = NA ) {
   # Read in different REDS files and join them all together
   pathDataDirectory <- file.path("./Reports/LCMsequence/models/datasets")
   # filenamePattern <- ".+\\.rds" #All RDS files
-  filenamePattern <- "m.{1,}Info\\.rds" #All RDS files
+  filenamePattern <- "m.{1,}Info\\.rds" #All Info RDS files
   
   retrievedFilenames <- list.files(path=pathDataDirectory, pattern=filenamePattern)
   filePaths <- file.path(pathDataDirectory, retrievedFilenames)
@@ -22,29 +22,29 @@ BuildBar <- function( modelName = NA ) {
     rm(dsInfoSingle)
   }
   
-  ## Elemental
-  mF<-   c("m0_F",  "m1_F")
-  mR1<-  c("m0_R1", "m1_R1") 
-  mR2<-  c("m1_R2")
-
   
   ## Composite lists of models
-  mOrder1 <- c(mF, mR1, mR2)
-  
-  excludeModels <- NA # c(mF, mFi)
-  axisModels  <- c(mOrder1)
+  source("./Reports/LCMsequence/model-SPECIFY.R")
+  mOrderRow <- c(F_row, R1_row, R2_row, R3_row)
+  mOrderCol <- c(F_col, R1_col, R2_col, R3_col)
+  selectModels <- mOrderRow
+
+  axisModels  <- c(mOrderRow)
   ######################################
+  
   dsWide <- dsInfo  
   ds <- reshape2::melt(dsWide, id.vars=c('Coefficient'))
   ds <- plyr::rename(ds, replace=c( variable = "model"))
   
   ds<- ds %>% 
     dplyr::filter(Coefficient %in% c( "BIC","AIC","deviance")) 
-  ds<- ds[!(ds$model %in% excludeModels),] # exclude models from dataset
+#   ds<- ds[!(ds$model %in% excludeModels),] # exclude models from dataset
+  ds<- ds[ (ds$model %in%  selectModels),] # include models into dataset
   ds$Highlight <- (ds$model==modelName)  
   ds$Coefficient <- factor(x=ds$Coefficient, levels=c("BIC"="BIC","AIC"="AIC","deviance"="deviance"))
   ds$pretty<- format(round(ds$value,0), nsmall = 0,big.mark = ",")
-  
+
+
 #   ds<- ds %>% dplyr::filter(Coefficient=="deviance")  # collapses all indices into 1
   
   #   # comparing numeric values of fit indices.
@@ -128,23 +128,36 @@ barTheme <- theme_bw() +
 #     barTheme +
 #     labs(x=NULL, y="Misfit")
 } 
+source("./Scripts/Graphs/AesDefine.R") # load custom aesthesics definitions
+source("./Scripts/Graphs/graphThemes.R") # load custom theme (barFitTheme)
 
 {
-  g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, color= Coefficient, fill=Coefficient)) +
-   geom_bar(aes(fill=Coefficient),stat="identity", position="dodge", alpha=.5) + #This line draw the distant skyscrapers
-     geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.25) + #This line draw the skyskraper that pops out.
-   
-   scale_fill_manual(values=colorFit) +
-   scale_color_manual(values=colorFit) +  
-   scale_x_discrete(limits=axisModels) +
-   scale_y_continuous(label=scales::comma) +
-   
-   #Andrey:  almost never use `scale_zzzz()` to zoom.  It essentially deletes variables from the dataset, which can affect loess. p<- p + scale_y_continuous( limits = c(80000, 110000))
-   geom_text(aes(label=pretty), hjust=.1, vjust=-.7, angle=45, position=position_dodge(width=1)) +
-   coord_cartesian(ylim=c(floor, ceiling)) + 
-   guides(fill=guide_legend(title=NULL), color=FALSE) + 
-   barTheme +
-   labs(x=NULL, y="Misfit")
+#   g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, color= Coefficient, fill=Coefficient)) +
+#    geom_bar(aes(fill=Coefficient),stat="identity", position="identity", alpha=.4) + #This line draw the distant skyscrapers
+#      geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.8) + #This line draw the skyskraper that pops out.
+#    
+#    scale_fill_manual(values=colorFit) +
+#    scale_color_manual(values=colorFit) +  
+#    scale_x_discrete(limits=axisModels) +
+#    scale_y_continuous(label=scales::comma) +
+#    geom_text(aes(label=pretty), hjust=-.4, vjust=0, angle=90, position=position_dodge(width=.65)) +
+#    coord_cartesian(ylim=c(floor, ceiling)) + 
+#    guides(fill=guide_legend(title=NULL), color=FALSE) + 
+#    barFitTheme2 +
+#    labs(x=NULL, y="Misfit")
+  
+  g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, fill= Coefficient, group=model)) +
+    geom_bar(stat="identity", position="identity", alpha=.2) + #Draws the distant skyscrapers
+    geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.8) + #Draws the skyskraper that pops out.
+    scale_fill_manual(values=colorFit) +
+    scale_x_discrete(limits=axisModels) +
+    scale_y_continuous(label=scales::comma) +
+    coord_cartesian(ylim=c(floor, ceiling)) + 
+    guides(fill=guide_legend(title=NULL)) + 
+    barFitTheme +
+    labs(x=NULL, y="Misfit")
+  
+  
   
 }
 
@@ -155,4 +168,4 @@ barTheme <- theme_bw() +
   return( g )
 }
 # BuildBar()
-# BuildBar(modelName="m1_F")
+# BuildBar(modelName="m2c_R1")

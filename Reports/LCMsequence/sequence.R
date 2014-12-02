@@ -16,6 +16,7 @@ require(png)
 
 ############################
 ## @knitr LoadSources
+source("./Reports/LCMsequence/model-SPECIFY.R") # load models specification
 source("./Reports/LCMsequence/graph-FERE.R") #Load the `BuildFERE()` function
 source("./Reports/LCMsequence/graph-FIT.R") #Load the `BuildBar()` function
 source("./Reports/LCMsequence/graph-PREDICT.R") #Load the `BuildLine()` function
@@ -78,16 +79,169 @@ columnNamesWidePretty <- c("Estimate", "Std.Error", "t.value", "SD", "tau0", "ta
 BuildMosaic(modelName="m0_F")
 
 ## @knitr m1_F
-BuildMosaic(modelName="m1_F")             
+BuildMosaic(modelName="m1_F")   
+
+## @knitr m2_F
+BuildMosaic(modelName="m2_F") 
+
+## @knitr m0a_F
+BuildMosaic(modelName="m0a_F")
+
+## @knitr m1a_F
+BuildMosaic(modelName="m1a_F")   
+
+## @knitr m2a_F
+BuildMosaic(modelName="m2a_F")
+
+## @knitr m1b_F
+BuildMosaic(modelName="m1b_F")   
+
+## @knitr m2b_F
+BuildMosaic(modelName="m2b_F")
+
+## @knitr m2c_F
+BuildMosaic(modelName="m2c_F")
+
+
 
 ## @knitr m0_R1
 BuildMosaic(modelName="m0_R1")
 
 ## @knitr m1_R1
-BuildMosaic(modelName="m1_R1")
+BuildMosaic(modelName="m1_R1")   
 
-### @knitr m1_R2
-BuildMosaic(modelName="m1_R2")
+## @knitr m2_R1
+BuildMosaic(modelName="m2_R1") 
+
+## @knitr m0a_R1
+BuildMosaic(modelName="m0a_R1")
+
+## @knitr m1a_R1
+BuildMosaic(modelName="m1a_R1")   
+
+## @knitr m2a_R1
+BuildMosaic(modelName="m2a_R1")
+
+## @knitr m1b_R1
+BuildMosaic(modelName="m1b_R1")   
+
+## @knitr m2b_R1
+BuildMosaic(modelName="m2b_R1")
+
+## @knitr m2c_R1
+BuildMosaic(modelName="m2c_R1")
+
+
+
+
+
+## @knitr m1_R2
+BuildMosaic(modelName="m1_R2")   
+
+## @knitr m2_R2
+BuildMosaic(modelName="m2_R2") 
+
+## @knitr m1a_R2
+BuildMosaic(modelName="m1a_R2")   
+
+## @knitr m2a_R2
+BuildMosaic(modelName="m2a_R2")
+
+## @knitr m1b_R2
+BuildMosaic(modelName="m1b_R2")   
+
+## @knitr m2b_R2
+BuildMosaic(modelName="m2b_R2")
+
+## @knitr m2c_R2
+BuildMosaic(modelName="m2c_R2")
+
+
+
+## @knitr m2_R3
+BuildMosaic(modelName="m2_R3") 
+
+## @knitr m2a_R3
+BuildMosaic(modelName="m2a_R3")
+
+## @knitr m2b_R3
+BuildMosaic(modelName="m2b_R3")
+
+## @knitr m2c_R3
+BuildMosaic(modelName="m2c_R3")
+
+
+
+## @knitr @loadRDS
+# Read in different RDS files and join them all together
+pathDataDirectory <- file.path("./Reports/LCMsequence/models/datasets")
+# filenamePattern <- ".+\\.rds" #All RDS files
+filenamePattern <- "m.{1,}Info\\.rds" #All RDS files
+
+retrievedFilenames <- list.files(path=pathDataDirectory, pattern=filenamePattern)
+filePaths <- file.path(pathDataDirectory, retrievedFilenames)
+
+dsInfo <- readRDS(filePaths[1])
+for( i in 1:length(filePaths) ) {
+  # To debug, change the '6' to some number to isolate the problem: for( i in 2:6 ) {
+  # message("About to read", filePaths[i], "\\")
+  dsInfoSingle <- readRDS(filePaths[i])
+  dsInfo <- plyr::join(x=dsInfo, y=dsInfoSingle, by="Coefficient", type="left", match="all")
+  rm(dsInfoSingle)
+}
+
+
+## @knitr allModels
+BuildBar()
+
+## @knitr F_row
+selectModels <- F_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr F_col
+selectModels <- F_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+
+## @knitr R1_row
+selectModels <- R1_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R1_col
+selectModels <- R1_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R2_row
+selectModels <- R2_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R2_col
+selectModels <- R2_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R3_row
+selectModels <- R3_row
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
+
+## @knitr R3_col
+selectModels <- R3_col
+axisModels  <- selectModels
+source("./Reports/LCMsequence/graph-FIT-CUSTOM.R")
+g
 
 
 

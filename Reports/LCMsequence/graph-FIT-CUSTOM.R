@@ -1,6 +1,10 @@
-modelName<- "m0R3"  
-# Read in different REDS files and join them all together
-pathDataDirectory <- file.path("./Models/LCM/models/datasets")
+
+
+
+
+# modelName<- "m0_F"  
+# Read in different RDS files and join them all together
+pathDataDirectory <- file.path("./Reports/LCMsequence/models/datasets")
 # filenamePattern <- ".+\\.rds" #All RDS files
 filenamePattern <- "m.{1,}Info\\.rds" #All RDS files
 
@@ -16,6 +20,13 @@ for( i in 1:length(filePaths) ) {
   rm(dsInfoSingle)
 }
 
+## Composite lists of models
+source("./Reports/LCMsequence/model-SPECIFY.R")
+mOrderRow <- c(F_row, R1_row, R2_row, R3_row)
+mOrderCol <- c(F_col, R1_col, R2_col, R3_col)
+# selectModels <- mOrderRow
+# axisModels  <- c(mOrderRow)
+
 
 # take data produced by model estimation
 dsWide <- dsInfo  
@@ -24,10 +35,11 @@ ds <- plyr::rename(ds, replace=c( variable = "model"))
 str(ds)
 ds<- ds %>% 
   dplyr::filter(Coefficient %in% c( "BIC","AIC","deviance")) 
-ds<- ds[!(ds$model %in% excludeModels),] # exclude models from dataset
-ds$Highlight <- (ds$model==modelName)  
+# ds<- ds[!(ds$model %in% excludeModels),] # exclude models from dataset
+ds<- ds[ (ds$model %in%  selectModels),] # include models into dataset
+# ds$Highlight <- (ds$model==modelName)  
 ds$Coefficient <- factor(x=ds$Coefficient, levels=c("BIC","AIC","deviance"))
-ds$pretty<- format(round(ds$value,2), nsmall = 1,big.mark = ",")
+ds$pretty<- format(round(ds$value,0), nsmall = 0,big.mark = ",")
 
 
 # possible pallets
@@ -42,34 +54,32 @@ longestBar <- max(ds$value, na.rm=T)
 barHeight <- abs(longestBar - floor)
 ceiling <- longestBar + barHeight * .2 * sign(longestBar)  #Account for cases when AIC is negative
 
-barTheme <- theme_bw() +
-  theme(axis.text = element_text(colour="gray40", size=15)) +
-  theme(axis.text.x = element_text(angle=0, vjust = .5)) +
-  theme(axis.title = element_text(colour="gray40")) +
-  theme(panel.border = element_rect(colour="gray80")) +
-  theme(panel.grid.major.x = element_blank()) +
-  # theme(axis.ticks = element_line(colour="gray80")) +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
-  theme(legend.position=c(.85,.8), legend.justification=c(0,0)) +
-  # theme(legend.background = element_rect(fill = '#99999933')) +
-  theme(legend.background = element_rect(fill = NA)) +
-  theme(legend.text = element_text(colour = 'gray40'))
+source("./Scripts/Graphs/AesDefine.R") # load custom theme (barFitTheme)
 
 # g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, fill= Coefficient, group=model)) +
+#   geom_bar(stat="identity", position="identity", alpha=.3) + #Draws the distant skyscrapers
+# #   geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.2) + #Draws the skyskraper that pops out.
+#   scale_fill_manual(values=colorFit) +
+#   scale_x_discrete(limits=axisModels) +
+#   scale_y_continuous(label=scales::comma) +
+#   coord_cartesian(ylim=c(floor, ceiling)) + 
+#   guides(fill=guide_legend(title=NULL)) + 
+#   barFitTheme +
+#   labs(x=NULL, y="Misfit")
+
 g <- ggplot2::ggplot(ds, aes(x= reorder(model, value), y=value, color= Coefficient, fill=Coefficient)) +
-  geom_bar(aes(fill=Coefficient),stat="identity", position="dodge", alpha=.5) + #This line draw the distant skyscrapers
-  #   geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.2) + #This line draw the skyskraper that pops out.
+  geom_bar(aes(fill=Coefficient),stat="identity", position="identity", alpha=.4) + #This line draw the distant skyscrapers
+  geom_bar(data=ds[ds$Highlight, ], stat="identity", position="identity", alpha=.8) + #This line draw the skyskraper that pops out.
   
   scale_fill_manual(values=colorFit) +
   scale_color_manual(values=colorFit) +  
   scale_x_discrete(limits=axisModels) +
   scale_y_continuous(label=scales::comma) +
-  
-  #Andrey:  almost never use `scale_zzzz()` to zoom.  It essentially deletes variables from the dataset, which can affect loess. p<- p + scale_y_continuous( limits = c(80000, 110000))
-  geom_text(aes(label=pretty), hjust=0, angle=90, position=position_dodge(width=1)) +
+  geom_text(aes(label=pretty), hjust=-.6, vjust=0, angle=90, position=position_dodge(width=.65)) +
   coord_cartesian(ylim=c(floor, ceiling)) + 
   guides(fill=guide_legend(title=NULL), color=FALSE) + 
-  barTheme +
+  barFitTheme2 +
   labs(x=NULL, y="Misfit")
+
 
 # g

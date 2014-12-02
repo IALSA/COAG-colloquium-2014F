@@ -45,7 +45,7 @@ BuildFERE <- function( modelName, dsWide ) {
   dsWide2 <- dsWide[, columnNamesWideWithCoefficient]
   
   # I will enforce this order, it's important
-  target <- c("(Intercept)", "timec", "TVC2", "TVC3", "TIC1", "timec:TIC1", "TVC2:TIC1", "TVC3:TIC1")
+  target <- c("(Intercept)", "timec", "timec2", "-", "attendPR", "timec:attendPR", "timec2:attendPR", "-")
   dsWide2<-dsWide2[match(target, dsWide2$Coefficient), ]
   
   dsWide2[-1,"sigma"]<- NA # remove unnecessary values from sigma
@@ -82,7 +82,7 @@ BuildFERE <- function( modelName, dsWide ) {
   return( g )
 }
 
-# BuildFERE("m0_F",lst_ds["m0_F"][[1]])
+# BuildFERE("m2_F",lst_ds["m2_F"][[1]])
 # BuildFERE("m1_F",lst_ds["m1_F"][[1]] )
 # BuildFERE("m0_F",lst_ds["m0_R1"][[1]] )
 # BuildFERE("m0_F",lst_ds["m1_R1"][[1]] )
