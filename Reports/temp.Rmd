@@ -1,5 +1,5 @@
 ---
-title: "RR Skills (3): Statistical Modeling "
+title: "RR Skills (4): Statistical Modeling "
 author: Andrey Koval
 date: November 18, 2014
 output: 
@@ -26,7 +26,7 @@ opts_chunk$set(
 #   fig.height = 4.8, 
 #   fig.width = 6.5, 
   out.width = NULL,
-  fig.path = 'figure_rmd_try/',     
+  fig.path = 'figure_rmd/',     
   dev = "png",
   dpi = 70
 )
@@ -38,78 +38,95 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Reports/2014-12-02-Dynamic-Reporting.R") # the file to which knitr calls for the chunks
 ```
 
+## Information
+
+You can forward your questions to   
+Ann Greenwood (ann.greenwood at popdata.bc.ca) or Vincenza Gruppuso (vincenza at uvic.ca).  
+Q&A will begin immediately after the presentation.   
+
+You can follow the presentation and review previous lectures at [ialsa.github.io/COAG-colloquium-2014F/](http://ialsa.github.io/COAG-colloquium-2014F/)
+
+
+## Overview of the Series
+
+- Oct 14  -- Intro to Reproducible Research  
+- Oct 21  -- RR Basic Skills (1): Data Manipulation
+- Nov  4  -- RR Basic Skills (2): Graph Production  
+- Nov 18  -- RR Basic Skills (3): Statistical Modeling     
+- Dec 2  -- **RR Basic Skills (4): Dynamic Reporting**     
+
+<div class="notes">
+</div>
+
+## Data Origin
+
+<img src = 'images/ai/DataMap_full.png' width="100%"></img> 
+```p
+"./Scripts/Data/dsL.R"
+```
+
+download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
+
+<div class="notes">
+This data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+</div>
+
+
+
+
 ## Load Data {.smaller}
 ```{r LoadPackages, echo=F, warning=F, message=F, results='hide'}
 ```
 
 ```{r LoadData, echo=T, warning=F, message=F, results='hide'}
 ```
-
-```{r loadTheme, out.width="95%", warning=F, echo=FALSE, results='hide'}
+```{r}
+str(dsL)
 ```
 
-<!--
-Photoshop image settings:
-Use the following dimensions:
-For slides WITH title and image at 100% 
-1280 x 900  -  wide: cuts off         tall: bottom bleeds
-1280 x 720  -  wide: bottom bleeds    tall: bottom 4 lines  SELECTED
-1280 x 680  -  wide: bottom 1 line    tall: bottom 5 lines
-1280 x 650  -  wide: bottom 2 lines   tall: bottom 6 lines
--->
+<div class="notes">
+first we load the data set that we have annotated in the previous lectures
+</div>
 
 
-## ...
-## Model manifestations {.smaller}
-<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
-
-## Today
-
-<div class="red">**STRATEGIC GOAL** </div> 
-- Evaluate a series of models
-
-<div class="red">**TACTICAL GOAL**</div>  
- - Design a dynamic document for model sequencing 
-
-<div class="red">**TECHNICAL ASSIGNMENT**</div>
- 1. choose/specify what models should constitute the sequence  
- 2. estimate each model  
- 3. extract and organize solutions  
- 4. choose/create model manifestations (MM)  
- 5. combine MMs into a report on each model  
- 6. combine model reports into sequence report  
- 7. customize navigation through the sequence  
+```{r loadTheme, out.width="95%", warning=F, echo=F}
+```
 
 
-## Scripts involved
 
-**model-SPECIFY.R** - contains model specifications of models as gls/lmer syntax.  
-</br>
-**model-ESTIMATE.R** - contains the loop that cycles through all available model specifications. Includes the following operations: </br>     
-1. Derives the dataset to be used  
-2. Estimates models:     
-  - lme4::lmer - *if a model contains     random effects*  
-  - nlme::gls - *if a model contains only fixed effects*    
-3. Post-process model solution and save datasets:  
-  - <code>dsmInfo.rds</code> - *model fit and information indices*   
-  - <code>dsFERE.rds</code>  - *fixed (FE) and random effects (RE) descriptors*    
-  - <code>dsp.rds</code> - *predicted values from the model*     
-</br>
-**model-COLLECT-SOLUTIONS.R** - combines datasets containing model solutions  
-
-
-## Scripts involved
-
-**graph-FERE.R** - creates a tile graph of model solution   
-</br>
-**graph-PREDICT.R** - creates a line graph of predicted trajectories   
-</br>
-**graph-FIT** - creates a  bar graph of model performance indices
-</br>
-
-<div class="red">** sequence.R(md)**</div> - produces sequence reports
+## Focal outcome {.smaller}
+<div class="columns-2">
+```{r dsM00}
+```
+</br> </br>
+How often did you **attend** a worhsip service during the last year?
+```{r, echo=F}
+attendLevels<- c(1:8)
+attendLabels<-c( "Never",
+                 "Once or Twice",
+                 "Less than once/month",
+                 "About once/month",
+                 "About twice/month",
+                 "About once/week",
+                 "Several times/week",
+                 "Everyday")
+attendMetrics <- data.frame(attendLevels, attendLabels)
+dplyr::arrange(attendMetrics,-attendLevels)
+```
+</div>
+</br> </br>
 
 
+## Producing Graphs
+<img src = '../images/ai/DataMap_graphs.png' width="100%"></img> 
+
+
+## Fitting Statistical Models
+<img src = '../images/ai/DataMap_models.png' width="100%"></img> 
+
+
+## Producing Report
+<img src = '../images/ai/DataMap_report.png' width="100%"></img> 
 
 
 
