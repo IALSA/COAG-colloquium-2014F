@@ -48,8 +48,7 @@ echoChunks <- FALSE
 warningChunks<- FALSE
 messageChunks<- FALSE
 evalChunks <- TRUE
-figHightChunk <- 9
-figHightChunkSequence <- 11.5 
+figHightChunkSequence <- 11.1 
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls for the chunks
 ```
@@ -240,41 +239,46 @@ The general form of the models can be expressed with LCM notation of Bollen & Cu
 ```
 
 ## F by column
-```{r F_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
+```{r F_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunkSequence} 
 ```
 
 # Models with 1 random term
-<img src = 'models/formulas/grid_R1.png'  width="90%"></img> 
+<img src = 'models/formulas/grid_R1.png'  width="100%"></img> 
 
 ## R1 by row
-```{r R1_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
+```{r R1_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## R1 by column
-```{r R1_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
+```{r R1_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunkSequence} 
 ```
 
 # Models with 2 random terms
-<img src = 'models/formulas/grid_R2.png'  width="80%"></img> 
+<img src = 'models/formulas/grid_R2.png'  width="100%"></img> 
 
 ## R2 by row
-```{r R2_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= 10}
+```{r R2_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,  fig.height= figHightChunkSequence} 
 ```
 
 ## R2 by column
-```{r R2_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= 10}
+```{r R2_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,  fig.height= figHightChunkSequence} 
 ```
 
 # Models with 3 random terms
 <img src = 'models/formulas/grid_R3.png' width="100%"></img> 
 
 ## R3 by row
-```{r R3_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= 10}
+```{r R3_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,  fig.height= figHightChunkSequence} 
 ```
 
 ## R3 by column
-```{r R3_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= 10}
+```{r R3_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,  fig.height= figHightChunkSequence} 
 ```
 
 
 </br> </br> </br> </br> </br> </br> 
+# General form (alternative)
+The general form of the models can be expressed with LCM notation of Bollen & Curran (2006) or MLM notation of Snijders & Boskers (2011) 
+
+<img src = 'models/formulas/spec_tall.png' width="100%"></img> 
+
