@@ -226,10 +226,7 @@ summary(modelB)
 
 
 
-## Model manifestations {.smaller}
-<img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 
 
-</br>
 
 ## Model manifestations {.smaller}
 <img src = 'images/cc_Nov18/mm7.png' width="100%"></img> 

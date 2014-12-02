@@ -41,6 +41,11 @@ dsM <- dplyr::filter(dsL, id == 1) %>%
   dplyr::select(id, year, attend, attendF)
 dsM
 
+# a <- readRDS("./Data/Derived/dsL-small.rds")
+# b <- readRDS("./Data/Derived/dsL-big.rds")
+# b <- dplyr::select(b, id, year, attendPR)
+# ab <- merge(x=a,y=b,by = c("id","year"), all.x=TRUE )
+# saveRDS(object=ab, file="./Data/Derived/dsL.rds", compress="xz")
 
 ## @knitr dsM20
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
