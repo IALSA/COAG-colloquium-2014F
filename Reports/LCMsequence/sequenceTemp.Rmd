@@ -66,59 +66,20 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 ```
 
 
-# Overview  
-There are total of 29 distinct models, which can be organized into 4 groups:  
-
-+ models with fixed effects only  (F):  9
-+ models with      1 random term  (R1): 9
-+ models with      2 random terms (R2): 7
-+ models with      3 random temrs (R3): 4
-
-The following layout helps understand how each of the model group was constructed. The columns count the number of terms  on the first level, while the rows indicate what predictors are added to the second level. Replace the stars in the name of the model with **F** for models with only the fixed effects  and **R1**, **R2**, and **R3**  for models with the corresponding number of random terms in the second level. 
-<img src = 'models/formulas/grid_map.png' width="50%"></img> </br>
-
-For example, all models in group F are as follows.    
-
-<img src = 'models/formulas/grid_F.png' width="100%"></img>  </br>
-
-For maps of R1, R2, and R3 model groups see the bottom of the report. 
-
-# Models with 1 random terms
-<img src = 'models/formulas/grid_R1.png'  width="100%"></img> 
-
-# Models with 1 random terms
-<img src = 'models/formulas/grid_R1.png'  width="90%"></img> 
-
-# Models with 1 random terms
-<img src = 'models/formulas/grid_R1.png'  width="80%"></img> 
-
-# Models with 1 random terms
-<img src = 'models/formulas/grid_R1.png'  width="70%"></img> 
-
-
-# F-group : fixed effects
 ## m0_F 
-```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 9.5} 
+```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 6} 
 ```
 
 ## m1_F 
-```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 10} 
+```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 7} 
 ```
 
 ## m2_F 
-```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 10.5} 
+```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 8} 
 ```
 
 ## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11} 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks} 
 ```
 
-## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11.5} 
-```
-
-## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 12} 
-```
-
-
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> 
