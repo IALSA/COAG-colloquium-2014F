@@ -65,21 +65,28 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 # select only respondence in the cross-sectional sample
 ```
 
+## m0_F 
+```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 9.4} 
+```
 
-## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks} 
+## m1_F 
+```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 9.8} 
+```
+
+## m2_F 
+```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 10.2} 
 ```
 
 ## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 7} 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 10.6}  
 ```
 
-## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 10} 
+## m1a_F 
+```{r m1a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11} 
 ```
 
-## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 8} 
+## m2a_F 
+```{r m2a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11.5} 
 ```
 
 
