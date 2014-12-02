@@ -41,7 +41,6 @@ dsM <- dplyr::filter(dsL, id == 1) %>%
   dplyr::select(id, year, attend, attendF)
 dsM
 
-
 ## @knitr dsM20
 dsM <- dplyr::filter(dsL, id <= 300) %>% 
   dplyr::filter(ave((!is.na(attend)), id, FUN = all)) %>%

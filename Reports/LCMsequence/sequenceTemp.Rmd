@@ -82,11 +82,11 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 ```
 
 ## m1a_F 
-```{r m1a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11} 
+```{r m1a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 ## m2a_F 
-```{r m2a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 11.5} 
+```{r m2a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
 ```
 
 

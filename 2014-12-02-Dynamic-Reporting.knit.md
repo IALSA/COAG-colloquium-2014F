@@ -46,11 +46,19 @@ You can follow the presentation and review previous lectures at [ialsa.github.io
 download the files to work along at [GitHub](https://github.com/IALSA/COAG-colloquium-2014F)
 
 <div class="notes">
+<<<<<<< HEAD
 Last time we talked about the flow of data in a research project. The data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+=======
+This data flow map shows one possible scenario of data development, relevant to the data at hand. Stage <code>dsW</code>,  <code>dsLong</code>, might be optional, or narrate different transformations. The purpose of such a map is to organize our understanding of the script underlying this map. Thus, when results of the study are reported this map can be used to ease the deconstruction of the script and its further adaptation.
+>>>>>>> origin/LCM-sequence
 </div>
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/LCM-sequence
 ## Load Data {.smaller}
 
 
