@@ -49,6 +49,7 @@ warningChunks<- FALSE
 messageChunks<- FALSE
 evalChunks <- TRUE
 figHightChunk <- 9
+figHightChunkSequence <- 11.5 
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls for the chunks
 ```
@@ -92,39 +93,39 @@ The general form of the models can be expressed with LCM notation of Bollen & Cu
 
 # F-group : fixed effects
 ## m0_F 
-```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 6} 
+```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1_F 
-```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 7} 
+```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2_F 
-```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 8} 
+```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m0a_F 
-```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= } 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence}  
 ```
 
 ## m1a_F 
-```{r m1a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2a_F 
-```{r m2a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1b_F 
-```{r m1b_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1b_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2b_F 
-```{r m2b_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2b_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2c_F 
-```{r m2c_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2c_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 
@@ -132,40 +133,40 @@ The general form of the models can be expressed with LCM notation of Bollen & Cu
 
 # R1-group : 1 random effect
 ## m0_R1 
-```{r m0_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m0_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 
 ## m1_R1 
-```{r m1_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2_R1 
-```{r m2_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m0a_R1 
-```{r m0a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m0a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1a_R1 
-```{r m1a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2a_R1 
-```{r m2a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2a_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1b_R1 
-```{r m1b_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1b_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2b_R1 
-```{r m2b_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2b_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2c_R1 
-```{r m2c_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2c_R1, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 
@@ -173,51 +174,51 @@ The general form of the models can be expressed with LCM notation of Bollen & Cu
 
 # R2-group : 2 random effects
 ## m1_R2 
-```{r m1_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2_R2 
-```{r m2_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1a_R2 
-```{r m1a_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1a_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2a_R2 
-```{r m2a_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2a_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m1b_R2 
-```{r m1b_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m1b_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2b_R2 
-```{r m2b_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2b_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2c_R2 
-```{r m2c_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2c_R2, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 
 
 # R3-group : 3 random effects
 ## m2_R3 
-```{r m2_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 
 ## m2a_R3 
-```{r m2a_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2a_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2b_R3 
-```{r m2b_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2b_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## m2c_R3 
-```{r m2c_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks}
+```{r m2c_R3, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= figHightChunkSequence} 
 ```
 
 </br>  </br>
@@ -235,22 +236,22 @@ The general form of the models can be expressed with LCM notation of Bollen & Cu
 <img src = 'models/formulas/grid_F.png'  width="100%"></img> 
 
 ## F by row
-```{r F_row, echo=echoChunks, results="hide", warning=warningChunks, message=messageChunks, fig.height= figHightChunk}
+```{r F_row, echo=echoChunks, results="hide", warning=warningChunks, message=messageChunks, fig.height= figHightChunkSequence} 
 ```
 
 ## F by column
-```{r F_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunk}
+```{r F_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
 ```
 
 # Models with 1 random term
 <img src = 'models/formulas/grid_R1.png'  width="90%"></img> 
 
 ## R1 by row
-```{r R1_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunk}
+```{r R1_row, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
 ```
 
 ## R1 by column
-```{r R1_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks, fig.height= figHightChunk}
+```{r R1_col, echo=echoChunks, results="hide" , warning=warningChunks, message=messageChunks,, fig.height= figHightChunkSequence} 
 ```
 
 # Models with 2 random terms
