@@ -436,7 +436,7 @@ Putting it all together
 <div class="red">**TACTICAL GOAL**</div>  
  - Design a dynamic document for model sequencing 
 
-[Dynamic Document = Software = Sequence Report](http://htmlpreview.github.io/?https://github.com/IALSA/COAG-colloquium-2014F/blob/LCM-sequence/Reports/LCMsequence/sequence.html) 
+[Dynamic Document = Software = Sequence Report](sequence.html) 
 
 
 
