@@ -92,3 +92,25 @@ For maps of R1, R2, and R3 model groups see the bottom of the report.
 # Models with 1 random terms
 <img src = 'models/formulas/grid_R1.png'  width="80%"></img> 
 
+# Models with 1 random terms
+<img src = 'models/formulas/grid_R1.png'  width="70%"></img> 
+
+
+# F-group : fixed effects
+## m0_F 
+```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 6} 
+```
+
+## m1_F 
+```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 7} 
+```
+
+## m2_F 
+```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 8} 
+```
+
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fig.height= 9} 
+```
+
+
