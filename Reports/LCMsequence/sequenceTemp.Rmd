@@ -66,20 +66,24 @@ read_chunk("./Reports/LCMsequence/sequence.R") # the file to which knitr calls f
 ```
 
 
-## m0_F 
-```{r m0_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 6} 
-```
-
-## m1_F 
-```{r m1_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 7} 
-```
-
-## m2_F 
-```{r m2_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks,fig.height= 8} 
-```
-
 ## m0a_F 
 ```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks} 
 ```
 
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 7} 
+```
+
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 10} 
+```
+
+## m0a_F 
+```{r m0a_F, echo=echoChunks, warning=warningChunks, message=messageChunks, eval=evalChunks, fit.height= 8} 
+```
+
+
 </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> 
+<img src = 'models/formulas/grid_F.png' width="100%"></img>  </br>
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> 
+<img src = 'models/formulas/grid_F.png' width="100%"></img>  </br>

@@ -52,6 +52,7 @@ BuildMosaic <- function( modelName ) {
   layout <- grid.layout(nrow=3, ncol=2,
                         widths=unit(c(.4, .6) ,c("null", "null")),
                         heights=unit(c(.3,.2,.5), c("null", "null", "null"))
+#                         heights=unit(c(4,2,5), c("in", "in", "in"))
   )
   pushViewport(viewport(layout=layout))
   grid.raster(pEquations, vp=viewport(layout.pos.row=1))
