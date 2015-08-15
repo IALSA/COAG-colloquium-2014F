@@ -1,7 +1,7 @@
 COAG colloquium series 2014F : Methodology of Data Science
 ========================
 
-Accompanies Centre on Aging colloquium [lecture series](http://ialsa.github.io/COAG-colloquium-2014F in the Fall of 2014 at the University of Victoria
+Accompanies Centre on Aging colloquium [lecture series](http://ialsa.github.io/COAG-colloquium-2014F) in the Fall of 2014 at the University of Victoria
 
 
 ### Architecture     
