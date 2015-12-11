@@ -21,16 +21,16 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 ```{r, echo=F, message=T}
 require(knitr)
 opts_chunk$set(
-  results='show', 
-  message = TRUE,
-  comment = NA, 
-  tidy = FALSE,
-#   fig.height = 4.8, 
-#   fig.width = 6.5, 
-  out.width = NULL,
-  fig.path = 'figure_rmd_NameOfReport/',     
+  results='show', # Set
+  message = TRUE, # De
+  comment = NA,   #   fau
+  tidy = FALSE,   #     lts
+#   fig.height = 4.8, # physical dimensions
+#   fig.width = 6.5,  # of produced impage
+  out.width = NULL, # how it looks in html document
+  fig.path = 'figure_rmd_NameOfReport/', # where images from this report are stored
   dev = "png",
-  dpi = 400
+  dpi = 400 # resolution: dots per inch. Use 90 to develop, 300-400 to print. adjust
 )
 echoChunks <- FALSE
 warningChunks<- FALSE
